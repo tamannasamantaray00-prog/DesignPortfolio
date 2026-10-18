@@ -559,6 +559,12 @@ a { color: inherit; }
 @media (min-width: 46rem) { .feature { grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: center; } }
 .shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
 
+/* Case study text fills the content column, so paragraphs line up with headings, columns and images */
+.cs-main .prose, .cs-main .bullets, .cs-main .callout,
+.cs-main .proof, .cs-main .steps { max-width: none; }
+.cs-main .prose p, .cs-main .bullets li, .cs-main .steps li { text-wrap: pretty; }
+.cs-main .callout { width: 100%; }
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
