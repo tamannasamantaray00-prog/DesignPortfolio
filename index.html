@@ -30,8 +30,9 @@
   <main id="main">
 
     <!-- HERO
-         data-cursor-cycle: the phrases that appear on the cursor as it moves across the hero, separated by | -->
-    <section class="hero" aria-labelledby="hero-title" data-cursor-cycle="Product design|Design systems|Fintech|Retail|DesignOps">
+         data-cursor-cycle: the phrases that appear on the cursor as it moves across the hero, separated by |
+         data-cursor-colors: one color per phrase, same order (Figma purple, green, blue, red, orange) -->
+    <section class="hero" aria-labelledby="hero-title" data-cursor-cycle="Product design|Design systems|Fintech|Retail|DesignOps" data-cursor-colors="#A259FF|#0ACF83|#1ABCFE|#F24E1E|#FF7262">
       <div class="wrap hero-grid">
         <div class="hero-text">
           <p class="hero-hello">Hello, I’m Tamanna.</p>
@@ -47,8 +48,12 @@
             </div>
           </div>
         </div>
+
+        <!-- YOUR PHOTO: upload a portrait (about 4:5, bright and uncluttered) to an "images" folder as tamanna.jpg,
+             then replace the placeholder div below with:
+             <img class="portrait" src="images/tamanna.jpg" alt="Photo of Tamanna Samantaray" data-cursor="That’s me"> -->
         <div class="hero-photo">
-          <img class="portrait" src="images/tamanna.png" alt="Photo of Tamanna Samantaray" data-cursor="That’s me">
+          <img class="portrait" src="images/tamanna.jpg" alt="Photo of Tamanna Samantaray" data-cursor="That’s me">
         </div>
       </div>
     </section>
