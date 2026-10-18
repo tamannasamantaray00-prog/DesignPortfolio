@@ -118,38 +118,58 @@ a { color: inherit; }
    HERO
    ========================================================================== */
 .hero {
-  min-height: 100svh;
-  display: flex; align-items: flex-end;
-  padding-top: calc(var(--header-h) + 3rem);
-  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+  min-height: 90svh;
+  display: flex; align-items: center;
+  padding-top: calc(var(--header-h) + 2rem);
+  padding-bottom: clamp(2rem, 5vw, 3.5rem);
 }
 
-.hero-hello { font-size: 1.25rem; font-weight: 500; color: var(--muted); margin-bottom: 1.5rem; }
+.hero-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: center; }
+@media (min-width: 52rem) {
+  .hero-grid { grid-template-columns: 1.3fr .7fr; gap: clamp(2rem, 6vw, 5rem); }
+}
+
+.hero-hello { font-size: 1.125rem; font-weight: 500; color: var(--muted); margin-bottom: 1.25rem; }
 
 .hero-title {
-  font-size: clamp(2.75rem, 7.6vw, 7rem);
-  line-height: .98;
+  font-size: clamp(2rem, 4.4vw, 3.75rem);
+  line-height: 1.06;
   font-weight: 600;
-  letter-spacing: -.04em;
-  max-width: 17ch;
+  letter-spacing: var(--track-title);
+  max-width: 20ch;
   text-wrap: balance;
 }
 
 .hero-foot {
-  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
   padding-top: 1.5rem;
   border-top: 1px solid var(--line);
-  display: flex; flex-wrap: wrap; gap: 1.5rem 4rem; justify-content: space-between; align-items: flex-start;
+  display: grid; gap: 1.25rem;
 }
 .hero-about { max-width: 52ch; color: var(--muted); }
-.hero-links { display: flex; flex-direction: column; gap: .6rem; font-weight: 500; }
+.hero-links { display: flex; flex-wrap: wrap; gap: .6rem 2rem; font-weight: 500; }
 
-/* The one orchestrated moment: the hero lifts in once, in three steps. */
-.hero-hello, .hero-title, .hero-foot {
+/* Photo: sits above the text on phones, to the right on larger screens */
+.hero-photo { order: -1; }
+@media (min-width: 52rem) { .hero-photo { order: 0; } }
+
+.portrait {
+  display: grid; place-items: center;
+  width: 100%; max-width: 11rem; aspect-ratio: 4 / 5;
+  background: var(--surface); color: var(--muted);
+  border-radius: var(--radius-l);
+  object-fit: cover; overflow: hidden;
+  font-size: .95rem; text-align: center;
+}
+@media (min-width: 52rem) { .portrait { max-width: none; } }
+
+/* The one orchestrated moment: the hero lifts in once, in steps. */
+.hero-hello, .hero-title, .hero-foot, .hero-photo {
   animation: lift .9s var(--ease) both;
 }
 .hero-title { animation-delay: .12s; }
 .hero-foot  { animation-delay: .3s; }
+.hero-photo { animation-delay: .2s; }
 @keyframes lift {
   from { opacity: 0; transform: translateY(1.25rem); }
   to   { opacity: 1; transform: none; }
@@ -355,7 +375,15 @@ a { color: inherit; }
   white-space: nowrap;
 }
 .cursor.is-active .cursor-label { transform: translate(-50%, -50%) scale(1); }
-.has-cursor .case, .has-cursor .card, .has-cursor .tile, .has-cursor .article { cursor: none; }
+.has-cursor .case, .has-cursor .card, .has-cursor .tile, .has-cursor .article, .has-cursor .hero { cursor: none; }
+.has-cursor .hero a { cursor: pointer; }
+
+/* Small pop each time the cursor text changes */
+.cursor.is-active .cursor-label.pop { animation: pop .35s var(--ease); }
+@keyframes pop {
+  from { transform: translate(-50%, -50%) scale(.82); }
+  to   { transform: translate(-50%, -50%) scale(1); }
+}
 
 /* Inverse section: the label flips so it stays visible */
 .cursor.on-inverse .cursor-label { background: var(--inverse-ink); color: var(--inverse-bg); }
