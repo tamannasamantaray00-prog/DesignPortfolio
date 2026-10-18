@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>One design system for several retail brands | Tamanna Samantaray</title>
+  <meta name="description" content="A tokenised, documented design system for several Landmark Group retail brands, with live documentation and a plugin that syncs tokens to developer repositories.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230a0a0a'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Placeholders have a dashed outline (class="todo"). Replace the text, then delete class="todo".
+       Grey boxes (class="shot") become images: <img class="shot" src="images/your-image.jpg" alt="What it shows"> -->
+
+  <div class="progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Tamanna Samantaray, home">TS</a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link" href="index.html#work">Work</a>
+      <a class="nav-link" href="about.html">About me</a>
+      <a class="nav-link" href="index.html#contact">Contact me</a>
+      <a class="nav-link" href="resume.pdf" download="Tamanna-Samantaray-Resume.pdf">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <section class="cs-hero">
+      <div class="wrap">
+        <a class="text-link cs-back" href="index.html#work">All work</a>
+        <h1 class="cs-title">One design system for several retail brands</h1>
+        <p class="cs-summary">A tokenised, documented system with live documentation, plus a plugin I co-created that pushes design updates straight to developer repositories.</p>
+
+        <dl class="snapshot">
+          <div><dt>Company</dt><dd>Landmark Group</dd></div>
+          <div><dt>My role</dt><dd>Senior Product Designer</dd></div>
+          <div><dt>Brands</dt><dd class="todo">Confirm which brands the system serves, for example Babyshop, MAX, Splash</dd></div>
+          <div><dt>Timeline</dt><dd class="todo">Add start and status</dd></div>
+          <div><dt>Team</dt><dd class="todo">Add who you built it with</dd></div>
+          <div><dt>Live documentation</dt><dd class="todo">Add the link, if you can share it</dd></div>
+        </dl>
+
+        <figure class="cs-cover">
+          <div class="shot shot-wide" role="img" aria-label="Live design system documentation">Cover: live documentation</div>
+        </figure>
+      </div>
+    </section>
+
+    <div class="wrap cs-layout">
+      <nav class="rail" aria-label="On this page">
+        <ul class="rail-list">
+          <li><a class="rail-link" href="#context">Context</a></li>
+          <li><a class="rail-link" href="#role">My role</a></li>
+          <li><a class="rail-link" href="#build">What I built</a></li>
+          <li><a class="rail-link" href="#impact">Impact</a></li>
+          <li><a class="rail-link" href="#reflection">Reflection</a></li>
+        </ul>
+      </nav>
+
+      <div class="cs-main">
+
+        <section class="cs-section" id="context" aria-labelledby="context-h">
+          <h2 class="cs-h2" id="context-h">Context</h2>
+          <div class="prose">
+            <p>Landmark Group runs several retail brands, and each one needs its own identity on top of shared patterns for product pages, baskets and checkout.</p>
+            <p class="todo">Add 2 or 3 sentences: what the brands were doing before, where the duplication or inconsistency hurt, and why a shared system became the answer.</p>
+          </div>
+          <div class="callout">
+            <p class="callout-title">The problem</p>
+            <p class="todo">One or two plain sentences. For example: designers and developers were rebuilding the same components for every brand, with no single source of truth.</p>
+          </div>
+        </section>
+
+        <section class="cs-section" id="role" aria-labelledby="role-h">
+          <h2 class="cs-h2" id="role-h">My role</h2>
+          <div class="two-col">
+            <div class="prose">
+              <h3 class="cs-h3">What I owned</h3>
+              <ul class="bullets">
+                <li>Designing the multi-brand, tokenised system</li>
+                <li>Designing and coding the live documentation</li>
+                <li>Co-creating the plugin that syncs tokens to developer repositories</li>
+                <li class="todo">Add anything else: governance, onboarding, mentoring</li>
+              </ul>
+            </div>
+            <div class="prose">
+              <h3 class="cs-h3">Who I worked with</h3>
+              <ul class="bullets">
+                <li class="todo">Designers across brands</li>
+                <li class="todo">Engineers who consume the tokens</li>
+                <li class="todo">Product and brand stakeholders</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="cs-section" id="build" aria-labelledby="build-h">
+          <h2 class="cs-h2" id="build-h">What I built</h2>
+          <p class="prose">Three pieces that work together. For each: the problem, my decision, and what it looks like.</p>
+
+          <article class="theme">
+            <h3 class="cs-h3">1. A tokenised, multi-brand foundation</h3>
+            <div class="two-col">
+              <div class="prose"><p class="theme-label">What was wrong</p><p class="todo">One or two sentences.</p></div>
+              <div class="prose"><p class="theme-label">What I decided, and why</p><p class="todo">How tokens let several brands share components. Include the trade-off.</p></div>
+            </div>
+            <div class="shot" role="img" aria-label="Token structure across brands">Token structure across brands</div>
+          </article>
+
+          <article class="theme">
+            <h3 class="cs-h3">2. Live, interactive documentation</h3>
+            <div class="two-col">
+              <div class="prose"><p class="theme-label">What was wrong</p><p class="todo">One or two sentences.</p></div>
+              <div class="prose"><p class="theme-label">What I decided, and why</p><p class="todo">Why you designed and coded it yourself, and what it lets people do.</p></div>
+            </div>
+            <div class="shot" role="img" aria-label="Documentation site screens">Documentation site</div>
+          </article>
+
+          <article class="theme">
+            <h3 class="cs-h3">3. A plugin that syncs tokens to developers</h3>
+            <div class="two-col">
+              <div class="prose"><p class="theme-label">What was wrong</p><p class="todo">One or two sentences about how updates reached developers before.</p></div>
+              <div class="prose"><p class="theme-label">What I decided, and why</p><p class="todo">How the plugin works, who you co-created it with, and what it replaced.</p></div>
+            </div>
+            <div class="shot" role="img" aria-label="Token sync plugin">Plugin in use</div>
+          </article>
+        </section>
+
+        <section class="cs-section" id="impact" aria-labelledby="impact-h">
+          <h2 class="cs-h2" id="impact-h">Impact</h2>
+          <p class="prose">Add real, checkable results here. If you do not have numbers yet, say so plainly and list what you can say today.</p>
+          <ul class="bullets">
+            <li class="todo">Result 1, for example: time saved pushing token updates</li>
+            <li class="todo">Result 2, for example: number of brands or teams now using the system</li>
+          </ul>
+        </section>
+
+        <section class="cs-section" id="reflection" aria-labelledby="reflection-h">
+          <h2 class="cs-h2" id="reflection-h">What I would do differently</h2>
+          <div class="prose">
+            <p class="todo">Two or three honest lines. Your Wongdoody case study already shows you learned to set up version control and documentation early. Show how you applied that here.</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <section class="next-wrap">
+      <div class="wrap">
+        <a class="next-case" href="case-study-fintech-design-system.html" data-cursor="View">
+          <span class="next-label">Next case study</span>
+          <span class="next-title">A design system for a white-label banking platform</span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Tamanna Samantaray</p>
+      <p class="footer-links">
+        <a class="text-link" href="https://www.linkedin.com/in/tamanna-samantaray-86b83352/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="text-link" href="https://www.behance.net/tamannasamanta2" target="_blank" rel="noopener">Behance</a>
+        <a class="text-link" href="https://medium.com/@tamannasamantaray00" target="_blank" rel="noopener">Medium</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+  <script src="main.js"></script>
+</body>
+</html>
