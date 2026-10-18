@@ -159,4 +159,42 @@
         .then(function () { button.disabled = false; });
     });
   }
+
+  /* ---------- Case study pages ---------- */
+
+  // Reading progress bar along the top
+  var progress = document.querySelector(".progress");
+  if (progress) {
+    var updateProgress = function () {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      progress.style.transform = "scaleX(" + (max > 0 ? Math.min(window.scrollY / max, 1) : 0) + ")";
+    };
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    updateProgress();
+  }
+
+  // Left rail: mark the section currently being read
+  var railLinks = document.querySelectorAll(".rail-link");
+  if (railLinks.length && "IntersectionObserver" in window) {
+    var railObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        railLinks.forEach(function (link) {
+          if (link.getAttribute("href") === "#" + entry.target.id) link.setAttribute("aria-current", "true");
+          else link.removeAttribute("aria-current");
+        });
+      });
+    }, { rootMargin: "-25% 0px -65% 0px" });
+    document.querySelectorAll(".cs-section").forEach(function (s) { railObserver.observe(s); });
+  }
+
+  // Before and after sliders
+  document.querySelectorAll(".compare").forEach(function (box) {
+    var range = box.querySelector(".compare-range");
+    if (!range) return;
+    range.addEventListener("input", function () {
+      box.style.setProperty("--pos", range.value + "%");
+    });
+  });
 })();
