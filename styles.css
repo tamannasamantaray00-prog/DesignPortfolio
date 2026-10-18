@@ -15,7 +15,12 @@
   --inverse-ink: #ffffff;
   --inverse-muted: #a3a3a3;
 
-  --font: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Letter spacing: titles are tightened, paragraphs and labels are opened up slightly */
+  --track-title: -.03em;
+  --track-body: .01em;
+  --track-label: .02em;
 
   --gutter: clamp(1.25rem, 4vw, 3rem);
   --max: 80rem;
@@ -41,14 +46,17 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font);
-  font-optical-sizing: auto;
   font-size: 1.0625rem;
-  line-height: 1.55;
+  line-height: 1.6;
+  letter-spacing: var(--track-body);
   -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
 }
 
 h1, h2, h3, p, ul, figure, blockquote { margin: 0; }
+
+.nav, .case-meta, .early-row, .field label, .form-status,
+.site-footer, .hero-hello, .button, .cursor-label { letter-spacing: var(--track-label); }
 ul { padding: 0; list-style: none; }
 a { color: inherit; }
 
@@ -283,7 +291,7 @@ a { color: inherit; }
 @media (min-width: 52rem) { .quotes { grid-template-columns: repeat(3, 1fr); gap: 3rem; } }
 
 .quote { border-top: 1px solid var(--ink); padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
-.quote blockquote p { font-size: 1.3rem; line-height: 1.35; font-weight: 500; letter-spacing: -.015em; }
+.quote blockquote p { font-size: 1.3rem; line-height: 1.35; font-weight: 500; letter-spacing: 0; }
 .quote figcaption { color: var(--muted); font-size: .95rem; }
 
 /* ==========================================================================
