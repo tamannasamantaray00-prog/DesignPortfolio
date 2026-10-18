@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tamanna Samantaray — Portfolio coming soon</title>
+  <meta name="description" content="Tamanna Samantaray's design portfolio is on its way. Check back soon.">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%233d3bf3'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --paper: #eef1f6;
+      --ink: #101828;
+      --indigo: #3d3bf3;
+      --lilac: #c9c6ff;
+      --muted: #4a5568;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    html, body { height: 100%; margin: 0; }
+
+    body {
+      background: var(--paper);
+      color: var(--ink);
+      font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+      font-optical-sizing: auto;
+      overflow-x: hidden;
+    }
+
+    .page {
+      position: relative;
+      min-height: 100%;
+      min-height: 100svh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      padding: clamp(1.25rem, 4vw, 3rem);
+      isolation: isolate;
+    }
+
+    header { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; }
+
+    main { display: flex; align-items: center; }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(4.5rem, 19vw, 17rem);
+      line-height: 0.86;
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      font-stretch: 100%;
+      animation: settle 1.4s cubic-bezier(.2, .8, .2, 1) both;
+    }
+
+    /* The one moment of motion: the headline relaxes from condensed to its normal width. */
+    @keyframes settle {
+      from { font-stretch: 75%; letter-spacing: -0.02em; }
+      to   { font-stretch: 100%; letter-spacing: -0.045em; }
+    }
+
+    footer {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem 2rem;
+      justify-content: space-between;
+      align-items: end;
+      font-size: 1.125rem;
+      line-height: 1.4;
+    }
+
+    footer p { margin: 0; max-width: 28ch; color: var(--muted); }
+
+    /* Shapes sit behind the type, composed from basic design primitives. */
+    .shapes {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: min(62vw, 46rem);
+      aspect-ratio: 1;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .shape { position: absolute; will-change: transform; }
+    .circle {
+      width: 62%; aspect-ratio: 1; border-radius: 50%;
+      background: var(--lilac);
+      right: 8%; bottom: 22%;
+    }
+    .block {
+      width: 34%; aspect-ratio: 1;
+      background: var(--indigo);
+      right: 0; bottom: 0;
+    }
+    .half {
+      width: 30%; aspect-ratio: 2 / 1;
+      background: var(--ink);
+      border-radius: 999px 999px 0 0;
+      right: 44%; bottom: 0;
+    }
+
+    a { color: inherit; text-underline-offset: 0.2em; }
+    a:focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; }
+
+    @media (max-width: 600px) {
+      footer { flex-direction: column; align-items: start; }
+      .shapes { width: 90vw; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      h1 { animation: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>Tamanna Samantaray</header>
+
+    <main>
+      <h1>Coming<br>soon.</h1>
+    </main>
+
+    <footer>
+      <p>My design portfolio is being put together. Check back soon.</p>
+      <a href="https://github.com/tamannasamantaray00-prog">GitHub</a>
+    </footer>
+
+    <div class="shapes" aria-hidden="true">
+      <div class="shape circle" data-depth="30"></div>
+      <div class="shape half" data-depth="-18"></div>
+      <div class="shape block" data-depth="12"></div>
+    </div>
+  </div>
+
+  <script>
+    // Shapes drift gently with the pointer. Skipped on touch screens and for reduced motion.
+    (function () {
+      var canHover = window.matchMedia("(hover: hover)").matches;
+      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!canHover || reduce) return;
+
+      var shapes = Array.prototype.slice.call(document.querySelectorAll(".shape"));
+      var target = { x: 0, y: 0 }, current = { x: 0, y: 0 }, running = false;
+
+      window.addEventListener("pointermove", function (e) {
+        target.x = e.clientX / window.innerWidth - 0.5;
+        target.y = e.clientY / window.innerHeight - 0.5;
+        if (!running) { running = true; requestAnimationFrame(tick); }
+      });
+
+      function tick() {
+        current.x += (target.x - current.x) * 0.08;
+        current.y += (target.y - current.y) * 0.08;
+        shapes.forEach(function (s) {
+          var d = parseFloat(s.dataset.depth);
+          s.style.transform = "translate(" + (current.x * d) + "px," + (current.y * d) + "px)";
+        });
+        if (Math.abs(target.x - current.x) > 0.001 || Math.abs(target.y - current.y) > 0.001) {
+          requestAnimationFrame(tick);
+        } else {
+          running = false;
+        }
+      }
+    })();
+  </script>
+</body>
+</html>
