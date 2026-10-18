@@ -38,12 +38,21 @@
     });
   }
 
-  /* ---------- Cursor label over work cards and game tiles ---------- */
+  /* ---------- Cursor label ----------
+     - Over anything with data-cursor (work cards, game tiles, photo): shows that text.
+     - Over the rest of the hero: cycles through the hero's data-cursor-cycle phrases
+       as the pointer travels, so the cursor tells people what I do.
+     - Over links and everywhere else: hidden. */
   var cursor = document.querySelector(".cursor");
   if (cursor && canHover) {
     document.documentElement.classList.add("has-cursor");
     var label = cursor.querySelector(".cursor-label");
+    var hero = document.querySelector("[data-cursor-cycle]");
+    var phrases = hero ? hero.getAttribute("data-cursor-cycle").split("|") : [];
+    var phraseIndex = 0, travelled = 0, last = null, currentText = "";
     var target = { x: -100, y: -100 }, pos = { x: -100, y: -100 }, running = false;
+
+    var STEP = 260; // pixels of pointer travel before the next phrase
 
     function frame() {
       var ease = reduceMotion ? 1 : 0.2;
@@ -57,22 +66,61 @@
       }
     }
 
+    function pop() {
+      label.classList.remove("pop");
+      void label.offsetWidth; // restart the animation
+      label.classList.add("pop");
+    }
+
+    function show(text, inverse) {
+      var wasActive = cursor.classList.contains("is-active");
+      if (text !== currentText) {
+        label.textContent = text;
+        currentText = text;
+        if (wasActive && !reduceMotion) pop();
+      }
+      cursor.classList.toggle("on-inverse", inverse);
+      cursor.classList.add("is-active");
+    }
+
+    function hide() {
+      cursor.classList.remove("is-active");
+      currentText = "";
+      last = null;
+    }
+
     window.addEventListener("pointermove", function (e) {
       target.x = e.clientX;
       target.y = e.clientY;
       if (!running) { running = true; requestAnimationFrame(frame); }
+
+      var t = e.target;
+      if (!t || !t.closest) { hide(); return; }
+
+      var el = t.closest("[data-cursor]");
+      if (el) {
+        show(el.getAttribute("data-cursor"), !!el.closest(".section-inverse"));
+        last = null;
+        return;
+      }
+
+      if (hero && phrases.length && t.closest("[data-cursor-cycle]") && !t.closest("a")) {
+        if (last) {
+          travelled += Math.hypot(e.clientX - last.x, e.clientY - last.y);
+          if (travelled > STEP) {
+            travelled = 0;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+          }
+        }
+        last = { x: e.clientX, y: e.clientY };
+        show(phrases[phraseIndex], false);
+        return;
+      }
+
+      hide();
     });
 
-    document.querySelectorAll("[data-cursor]").forEach(function (el) {
-      el.addEventListener("pointerenter", function () {
-        label.textContent = el.getAttribute("data-cursor");
-        cursor.classList.toggle("on-inverse", !!el.closest(".section-inverse"));
-        cursor.classList.add("is-active");
-      });
-      el.addEventListener("pointerleave", function () {
-        cursor.classList.remove("is-active");
-      });
-    });
+    document.documentElement.addEventListener("mouseleave", hide);
   }
 
   /* ---------- Contact form ---------- */
