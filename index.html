@@ -3,166 +3,235 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Tamanna Samantaray — Portfolio coming soon</title>
-  <meta name="description" content="Tamanna Samantaray's design portfolio is on its way. Check back soon.">
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='44' fill='%233d3bf3'/></svg>">
+  <title>Tamanna Samantaray, product designer</title>
+  <meta name="description" content="Tamanna Samantaray is a product designer in Bengaluru who leads design systems and the flows built on them, across fintech and retail.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230a0a0a'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,200..800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --paper: #eef1f6;
-      --ink: #101828;
-      --indigo: #3d3bf3;
-      --lilac: #c9c6ff;
-      --muted: #4a5568;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; }
-
-    html, body { height: 100%; margin: 0; }
-
-    body {
-      background: var(--paper);
-      color: var(--ink);
-      font-family: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
-      font-optical-sizing: auto;
-      overflow-x: hidden;
-    }
-
-    .page {
-      position: relative;
-      min-height: 100%;
-      min-height: 100svh;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-      padding: clamp(1.25rem, 4vw, 3rem);
-      isolation: isolate;
-    }
-
-    header { font-size: 1.125rem; font-weight: 600; letter-spacing: -0.01em; }
-
-    main { display: flex; align-items: center; }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(4.5rem, 19vw, 17rem);
-      line-height: 0.86;
-      font-weight: 800;
-      letter-spacing: -0.045em;
-      font-stretch: 100%;
-      animation: settle 1.4s cubic-bezier(.2, .8, .2, 1) both;
-    }
-
-    /* The one moment of motion: the headline relaxes from condensed to its normal width. */
-    @keyframes settle {
-      from { font-stretch: 75%; letter-spacing: -0.02em; }
-      to   { font-stretch: 100%; letter-spacing: -0.045em; }
-    }
-
-    footer {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.75rem 2rem;
-      justify-content: space-between;
-      align-items: end;
-      font-size: 1.125rem;
-      line-height: 1.4;
-    }
-
-    footer p { margin: 0; max-width: 28ch; color: var(--muted); }
-
-    /* Shapes sit behind the type, composed from basic design primitives. */
-    .shapes {
-      position: absolute;
-      right: 0;
-      bottom: 0;
-      width: min(62vw, 46rem);
-      aspect-ratio: 1;
-      z-index: -1;
-      pointer-events: none;
-    }
-    .shape { position: absolute; will-change: transform; }
-    .circle {
-      width: 62%; aspect-ratio: 1; border-radius: 50%;
-      background: var(--lilac);
-      right: 8%; bottom: 22%;
-    }
-    .block {
-      width: 34%; aspect-ratio: 1;
-      background: var(--indigo);
-      right: 0; bottom: 0;
-    }
-    .half {
-      width: 30%; aspect-ratio: 2 / 1;
-      background: var(--ink);
-      border-radius: 999px 999px 0 0;
-      right: 44%; bottom: 0;
-    }
-
-    a { color: inherit; text-underline-offset: 0.2em; }
-    a:focus-visible { outline: 3px solid var(--indigo); outline-offset: 4px; }
-
-    @media (max-width: 600px) {
-      footer { flex-direction: column; align-items: start; }
-      .shapes { width: 90vw; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      h1 { animation: none; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="page">
-    <header>Tamanna Samantaray</header>
 
-    <main>
-      <h1>Coming<br>soon.</h1>
-    </main>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-    <footer>
-      <p>My design portfolio is being put together. Check back soon.</p>
-      <a href="https://github.com/tamannasamantaray00-prog">GitHub</a>
-    </footer>
+  <!-- HEADER: shared by every page. Copy this block into the case study templates and About page. -->
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Tamanna Samantaray, home">TS</a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link" href="index.html#work" data-link="work">Work</a>
+      <a class="nav-link" href="about.html">About me</a>
+      <a class="nav-link" href="index.html#contact" data-link="contact">Contact me</a>
+      <a class="nav-link" href="resume.pdf" download="Tamanna-Samantaray-Resume.pdf">Resume</a>
+    </nav>
+  </header>
 
-    <div class="shapes" aria-hidden="true">
-      <div class="shape circle" data-depth="30"></div>
-      <div class="shape half" data-depth="-18"></div>
-      <div class="shape block" data-depth="12"></div>
+  <main id="main">
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="wrap">
+        <p class="hero-hello">Hello, I’m Tamanna.</p>
+        <h1 class="hero-title" id="hero-title">Building products users love, and developers don’t curse at.</h1>
+        <div class="hero-foot">
+          <p class="hero-about">
+            I’m a product designer in Bengaluru who leads design systems and the flows built on them, across fintech and retail.
+            Right now I’m at Landmark Group, redesigning customer experiences for retail brands including Babyshop, MAX and Splash.
+          </p>
+          <div class="hero-links">
+            <a class="text-link" href="#work">See my work</a>
+            <a class="text-link" href="resume.pdf" download="Tamanna-Samantaray-Resume.pdf">Download resume</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title" id="work-title">Selected work</h2>
+          <p class="section-intro">Three case studies, newest first. Each one shows the problem, what I decided, and what shipped.</p>
+        </div>
+
+        <!-- TIER 1: flagship case studies (full template).
+             To add a real image: replace the .thumb div with <img class="thumb" src="images/your-cover.jpg" alt="Describe the image"> -->
+        <div class="case-list">
+
+          <a class="case" href="case-study-babyshop.html" data-cursor="View">
+            <div class="case-text">
+              <h3 class="case-title">Rebuilding the basket and product page for Babyshop</h3>
+              <p class="case-desc">A revamp of the product page, basket and checkout across app and web. See what I designed, what is live, and what ships next.</p>
+              <p class="case-meta">Landmark Group, app and web</p>
+            </div>
+            <div class="thumb" role="img" aria-label="Babyshop product page and basket screens">Babyshop screens</div>
+          </a>
+
+          <a class="case" href="case-study-landmark-design-system.html" data-cursor="View">
+            <div class="case-text">
+              <h3 class="case-title">One design system for several retail brands</h3>
+              <p class="case-desc">A tokenised, documented system with live documentation, plus a plugin I co-created that pushes updates straight to developer repositories.</p>
+              <p class="case-meta">Landmark Group, multi-brand</p>
+            </div>
+            <div class="thumb" role="img" aria-label="Design system documentation screens">Design system documentation</div>
+          </a>
+
+          <a class="case" href="case-study-fintech-design-system.html" data-cursor="View">
+            <div class="case-text">
+              <h3 class="case-title">A design system for a white-label banking platform</h3>
+              <p class="case-desc">Built from scratch for corporate and retail banking across the US, Europe and EMEA. Design-to-dev handoff got 35% faster.</p>
+              <p class="case-meta">Wongdoody, fintech</p>
+            </div>
+            <div class="thumb" role="img" aria-label="Fintech design system component library">Component library</div>
+          </a>
+
+        </div>
+
+        <!-- TIER 2 and TIER 3 -->
+        <div class="more">
+          <!-- TIER 2: compact case study -->
+          <a class="card" href="case-study-mintgo.html" data-cursor="View">
+            <h3 class="card-title">MintGo</h3>
+            <p class="card-desc">A personal finance app MVP I’m still building: AI planning, bill splitting and automatic expense categories.</p>
+            <p class="case-meta">Personal project, fintech</p>
+          </a>
+
+          <!-- TIER 3: smaller work, one line each, no page of its own -->
+          <div class="early">
+            <h3 class="early-title">Early work and elsewhere</h3>
+            <ul class="early-list">
+              <li><a class="early-row" href="https://www.figma.com/deck/mK7T8TaGvfo3HxiuN5qol8/Swiggy-Instamart-Work?node-id=2-204&amp;t=oA8zkZU1VwZWBs8M-1" target="_blank" rel="noopener"><span>Swiggy Instamart festive campaigns</span><span class="early-year">2022</span></a></li>
+              <li><a class="early-row" href="https://www.behance.net/tamannasamanta2" target="_blank" rel="noopener"><span>More projects on Behance</span><span class="early-year">Archive</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAY ARENA -->
+    <section class="section section-inverse" id="play" aria-labelledby="play-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title" id="play-title">Play arena</h2>
+          <p class="section-intro">Small games and experiments I build when I’m not at work.</p>
+        </div>
+
+        <!-- Replace each tile with a real game: title, one line, and the live link -->
+        <div class="tiles">
+          <a class="tile" href="#" data-cursor="Play">
+            <h3 class="tile-title">Game title</h3>
+            <p class="tile-desc">One line about what the game is and how you play it.</p>
+          </a>
+          <a class="tile" href="#" data-cursor="Play">
+            <h3 class="tile-title">Game title</h3>
+            <p class="tile-desc">One line about what the game is and how you play it.</p>
+          </a>
+          <a class="tile" href="#" data-cursor="Play">
+            <h3 class="tile-title">Game title</h3>
+            <p class="tile-desc">One line about what the game is and how you play it.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RECOMMENDATIONS -->
+    <section class="section" id="recommendations" aria-labelledby="rec-title">
+      <div class="wrap">
+        <div class="section-head">
+          <h2 class="section-title" id="rec-title">What people say</h2>
+          <p class="section-intro">Words from people I’ve built products with.</p>
+        </div>
+
+        <!-- Paste real recommendations (LinkedIn works). Keep each under about 50 words. -->
+        <div class="quotes">
+          <figure class="quote">
+            <blockquote><p>Paste a recommendation here. Pick the line that says what changed because you were on the team.</p></blockquote>
+            <figcaption>Name, role at company</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote><p>Paste a recommendation here. Pick the line that says what changed because you were on the team.</p></blockquote>
+            <figcaption>Name, role at company</figcaption>
+          </figure>
+          <figure class="quote">
+            <blockquote><p>Paste a recommendation here. Pick the line that says what changed because you were on the team.</p></blockquote>
+            <figcaption>Name, role at company</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section section-tint" id="contact" aria-labelledby="contact-title">
+      <div class="wrap contact">
+        <div class="contact-intro">
+          <h2 class="section-title" id="contact-title">Let’s talk.</h2>
+          <ul class="paths">
+            <li>
+              <h3 class="path-title">Roles and hellos</h3>
+              <p>Happy to talk about teams, roles and design systems.</p>
+            </li>
+            <li>
+              <h3 class="path-title">Freelance projects</h3>
+              <p>Product design, design systems and brand work for teams that need a hand.</p>
+            </li>
+            <li>
+              <h3 class="path-title">Questions</h3>
+              <p>Ask about my process, a case study, or how I’d approach something.</p>
+            </li>
+          </ul>
+          <p class="direct">
+            <a class="text-link" href="mailto:tamannasamantaray00@gmail.com">tamannasamantaray00@gmail.com</a>
+            <a class="text-link" href="https://calendly.com/tamannasamantaray00/30min" target="_blank" rel="noopener">Book a 30 minute call</a>
+          </p>
+        </div>
+
+        <!-- Replace YOUR_FORM_ID with your Formspree form ID (formspree.io, free plan).
+             Until then, the form opens the visitor’s email app instead. -->
+        <form class="form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="post">
+          <div class="field">
+            <label for="topic">What is this about?</label>
+            <select id="topic" name="topic">
+              <option>A role or team conversation</option>
+              <option>A freelance project</option>
+              <option>A question</option>
+              <option>Just saying hello</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Your email</label>
+            <input id="email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+          </div>
+          <button class="button" type="submit">Send message</button>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Tamanna Samantaray</p>
+      <p class="footer-links">
+        <a class="text-link" href="https://www.linkedin.com/in/tamanna-samantaray-86b83352/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="text-link" href="https://www.behance.net/tamannasamanta2" target="_blank" rel="noopener">Behance</a>
+        <a class="text-link" href="https://medium.com/@tamannasamantaray00" target="_blank" rel="noopener">Medium</a>
+      </p>
     </div>
-  </div>
+  </footer>
 
-  <script>
-    // Shapes drift gently with the pointer. Skipped on touch screens and for reduced motion.
-    (function () {
-      var canHover = window.matchMedia("(hover: hover)").matches;
-      var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      if (!canHover || reduce) return;
+  <!-- Cursor label that follows the pointer over work cards and game tiles -->
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
 
-      var shapes = Array.prototype.slice.call(document.querySelectorAll(".shape"));
-      var target = { x: 0, y: 0 }, current = { x: 0, y: 0 }, running = false;
-
-      window.addEventListener("pointermove", function (e) {
-        target.x = e.clientX / window.innerWidth - 0.5;
-        target.y = e.clientY / window.innerHeight - 0.5;
-        if (!running) { running = true; requestAnimationFrame(tick); }
-      });
-
-      function tick() {
-        current.x += (target.x - current.x) * 0.08;
-        current.y += (target.y - current.y) * 0.08;
-        shapes.forEach(function (s) {
-          var d = parseFloat(s.dataset.depth);
-          s.style.transform = "translate(" + (current.x * d) + "px," + (current.y * d) + "px)";
-        });
-        if (Math.abs(target.x - current.x) > 0.001 || Math.abs(target.y - current.y) > 0.001) {
-          requestAnimationFrame(tick);
-        } else {
-          running = false;
-        }
-      }
-    })();
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
