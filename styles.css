@@ -259,6 +259,25 @@ a { color: inherit; }
 .tile:hover .tile-desc { color: var(--muted); }
 
 /* ==========================================================================
+   WRITING
+   ========================================================================== */
+.articles { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 40rem) { .articles { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 72rem) { .articles { grid-template-columns: repeat(4, 1fr); } }
+
+.article { display: block; text-decoration: none; transition: opacity .35s var(--ease); }
+.thumb-wide { aspect-ratio: 16 / 10; }
+.article:hover .thumb { transform: scale(1.025); }
+.thumb-ink {
+  background: var(--ink); color: var(--bg);
+  font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; letter-spacing: -.02em;
+}
+
+/* Hovering one article quietly dims the others, same as the work list */
+.articles:hover .article { opacity: .4; }
+.articles .article:hover { opacity: 1; }
+
+/* ==========================================================================
    RECOMMENDATIONS
    ========================================================================== */
 .quotes { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
@@ -329,7 +348,7 @@ a { color: inherit; }
   white-space: nowrap;
 }
 .cursor.is-active .cursor-label { transform: translate(-50%, -50%) scale(1); }
-.has-cursor .case, .has-cursor .card, .has-cursor .tile { cursor: none; }
+.has-cursor .case, .has-cursor .card, .has-cursor .tile, .has-cursor .article { cursor: none; }
 
 /* Inverse section: the label flips so it stays visible */
 .cursor.on-inverse .cursor-label { background: var(--inverse-ink); color: var(--inverse-bg); }
@@ -350,5 +369,5 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
-  .tile:hover, .tile:nth-child(even):hover, .card:hover, .case:hover .thumb, .logo:hover { transform: none; }
+  .tile:hover, .tile:nth-child(even):hover, .card:hover, .case:hover .thumb, .article:hover .thumb, .logo:hover { transform: none; }
 }
