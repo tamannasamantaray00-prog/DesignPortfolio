@@ -539,6 +539,24 @@ a { color: inherit; }
 .next-label { color: var(--muted); font-weight: 500; }
 .next-title { font-size: clamp(1.75rem, 4.5vw, 3.25rem); font-weight: 600; letter-spacing: var(--track-title); line-height: 1.08; max-width: 22ch; }
 
+/* Extra pieces used by the other case study pages */
+.steps { display: grid; gap: 1rem; max-width: 62ch; padding-left: 1.4rem; margin-top: 1rem; list-style: decimal; }
+.steps li::marker { color: var(--muted); font-weight: 600; }
+.gap-p { margin-top: 1.25rem; font-weight: 500; }
+.cs-main .cs-cover { margin-top: 2rem; }
+
+.cs-solo { max-width: 56rem; }
+.link-row { margin-top: 1.5rem; display: flex; flex-wrap: wrap; gap: .6rem 2rem; font-weight: 500; }
+
+.pillars { display: grid; grid-template-columns: 1fr; gap: 2rem; margin-top: 1rem; }
+@media (min-width: 46rem) { .pillars { grid-template-columns: 1fr 1fr; gap: 2.5rem 3rem; } }
+.pillars p { margin-top: .5rem; color: var(--muted); max-width: 40ch; }
+
+.feature { display: grid; grid-template-columns: 1fr; gap: 1.5rem; padding-block: clamp(1.75rem, 4vw, 2.75rem); border-top: 1px solid var(--line); }
+.feature:last-child { border-bottom: 1px solid var(--line); }
+@media (min-width: 46rem) { .feature { grid-template-columns: 1fr 1.2fr; gap: 3rem; align-items: center; } }
+.shots { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; }
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
