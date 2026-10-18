@@ -183,19 +183,39 @@
     updateProgress();
   }
 
-  // Left rail: mark the section currently being read
+  // Left rail: mark the section currently being read.
+  // The active section is the last one whose top has passed 30% of the way down the screen.
+  // Near the very bottom of the page, where short last sections can never reach that line,
+  // the final section counts as active.
   var railLinks = document.querySelectorAll(".rail-link");
-  if (railLinks.length && "IntersectionObserver" in window) {
-    var railObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (!entry.isIntersecting) return;
-        railLinks.forEach(function (link) {
-          if (link.getAttribute("href") === "#" + entry.target.id) link.setAttribute("aria-current", "true");
-          else link.removeAttribute("aria-current");
-        });
+  if (railLinks.length) {
+    var railSections = Array.prototype.map.call(railLinks, function (link) {
+      return document.querySelector(link.getAttribute("href"));
+    }).filter(Boolean);
+    var railTicking = false;
+
+    var updateRail = function () {
+      railTicking = false;
+      var line = window.innerHeight * 0.3;
+      var current = null;
+      railSections.forEach(function (section) {
+        if (section.getBoundingClientRect().top <= line) current = section;
       });
-    }, { rootMargin: "-25% 0px -65% 0px" });
-    document.querySelectorAll(".cs-section").forEach(function (s) { railObserver.observe(s); });
+      var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      var lastSection = railSections[railSections.length - 1];
+      var lastIsVisible = lastSection && lastSection.getBoundingClientRect().top < window.innerHeight * 0.75;
+      if (atBottom && lastIsVisible) current = lastSection;
+      railLinks.forEach(function (link) {
+        if (current && link.getAttribute("href") === "#" + current.id) link.setAttribute("aria-current", "true");
+        else link.removeAttribute("aria-current");
+      });
+    };
+
+    window.addEventListener("scroll", function () {
+      if (!railTicking) { railTicking = true; requestAnimationFrame(updateRail); }
+    }, { passive: true });
+    window.addEventListener("resize", updateRail);
+    updateRail();
   }
 
   // Before and after sliders
