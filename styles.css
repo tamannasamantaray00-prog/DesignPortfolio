@@ -368,11 +368,11 @@ a { color: inherit; }
 }
 .cursor-label {
   display: block; transform: translate(-50%, -50%) scale(0);
-  background: var(--ink); color: var(--bg);
+  background: var(--label-bg, var(--ink)); color: var(--label-ink, var(--bg));
   font-size: .875rem; font-weight: 600;
   padding: .55rem 1rem; border-radius: var(--pill);
   box-shadow: 0 0 0 2px var(--bg);
-  transition: transform .3s var(--ease);
+  transition: transform .3s var(--ease), background-color .3s var(--ease);
   white-space: nowrap;
 }
 .cursor.is-active .cursor-label { transform: translate(-50%, -50%) scale(1); }
