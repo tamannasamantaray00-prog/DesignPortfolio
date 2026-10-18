@@ -1,0 +1,354 @@
+/* ==========================================================================
+   TOKENS
+   Every color, font and spacing value lives here. The future "colorful mode"
+   will be a [data-theme="colorful"] block that overrides these variables.
+   ========================================================================== */
+:root {
+  --bg: #ffffff;
+  --surface: #f3f3f3;
+  --line: #e2e2e2;
+  --ink: #0a0a0a;
+  --muted: #666666;
+
+  --inverse-bg: #0a0a0a;
+  --inverse-surface: #1a1a1a;
+  --inverse-ink: #ffffff;
+  --inverse-muted: #a3a3a3;
+
+  --font: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --max: 80rem;
+  --header-h: 4.5rem;
+
+  --radius-s: 6px;
+  --radius-m: 20px;
+  --radius-l: 28px;
+  --pill: 999px;
+
+  --ease: cubic-bezier(.2, .8, .2, 1);
+}
+
+/* ==========================================================================
+   BASE
+   ========================================================================== */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-optical-sizing: auto;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, p, ul, figure, blockquote { margin: 0; }
+ul { padding: 0; list-style: none; }
+a { color: inherit; }
+
+:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+
+.skip-link {
+  position: absolute; left: var(--gutter); top: -4rem;
+  background: var(--ink); color: var(--bg);
+  padding: .6rem 1rem; border-radius: var(--pill); z-index: 100;
+}
+.skip-link:focus { top: .75rem; }
+
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+/* Underlined text link that draws its underline on hover */
+.text-link {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) left bottom / 100% 1px no-repeat;
+  padding-bottom: .15em;
+  transition: background-size .35s var(--ease);
+}
+.text-link:hover { background-size: 0% 1px; background-position: right bottom; }
+
+/* ==========================================================================
+   HEADER
+   ========================================================================== */
+.site-header {
+  position: fixed; inset: 0 0 auto 0; z-index: 40;
+  height: var(--header-h);
+  display: flex; align-items: center; justify-content: space-between;
+  padding-inline: var(--gutter);
+  background: var(--bg);
+  border-bottom: 1px solid transparent;
+  transition: transform .4s var(--ease), border-color .3s;
+}
+.site-header.is-scrolled { border-bottom-color: var(--line); }
+.site-header.is-hidden { transform: translateY(-100%); }
+
+.logo {
+  display: grid; place-items: center;
+  width: 2.5rem; height: 2.5rem;
+  border: 1.5px solid var(--ink); border-radius: 50%;
+  font-weight: 700; font-size: .9rem; letter-spacing: -.02em;
+  text-decoration: none;
+  transition: background-color .3s var(--ease), color .3s var(--ease), transform .4s var(--ease);
+}
+.logo:hover { background: var(--ink); color: var(--bg); transform: rotate(-8deg); }
+
+.nav { display: flex; gap: clamp(1rem, 3vw, 2.25rem); font-size: .975rem; font-weight: 500; }
+.nav-link {
+  text-decoration: none;
+  background: linear-gradient(currentColor, currentColor) left bottom / 0% 1.5px no-repeat;
+  padding-bottom: .2em;
+  transition: background-size .35s var(--ease);
+}
+.nav-link:hover, .nav-link[aria-current="true"] { background-size: 100% 1.5px; }
+
+/* ==========================================================================
+   HERO
+   ========================================================================== */
+.hero {
+  min-height: 100svh;
+  display: flex; align-items: flex-end;
+  padding-top: calc(var(--header-h) + 3rem);
+  padding-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+.hero-hello { font-size: 1.25rem; font-weight: 500; color: var(--muted); margin-bottom: 1.5rem; }
+
+.hero-title {
+  font-size: clamp(2.75rem, 7.6vw, 7rem);
+  line-height: .98;
+  font-weight: 600;
+  letter-spacing: -.04em;
+  max-width: 17ch;
+  text-wrap: balance;
+}
+
+.hero-foot {
+  margin-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+  display: flex; flex-wrap: wrap; gap: 1.5rem 4rem; justify-content: space-between; align-items: flex-start;
+}
+.hero-about { max-width: 52ch; color: var(--muted); }
+.hero-links { display: flex; flex-direction: column; gap: .6rem; font-weight: 500; }
+
+/* The one orchestrated moment: the hero lifts in once, in three steps. */
+.hero-hello, .hero-title, .hero-foot {
+  animation: lift .9s var(--ease) both;
+}
+.hero-title { animation-delay: .12s; }
+.hero-foot  { animation-delay: .3s; }
+@keyframes lift {
+  from { opacity: 0; transform: translateY(1.25rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
+   SECTIONS
+   ========================================================================== */
+.section { padding-block: clamp(4.5rem, 11vw, 9rem); }
+.section-inverse { background: var(--inverse-bg); color: var(--inverse-ink); }
+.section-tint { background: var(--surface); }
+
+.section-head {
+  display: grid; grid-template-columns: 1fr; gap: 1rem;
+  margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+}
+.section-title {
+  font-size: clamp(2.25rem, 5.5vw, 4.5rem);
+  line-height: 1; font-weight: 600; letter-spacing: -.035em;
+}
+.section-intro { max-width: 46ch; color: var(--muted); }
+.section-inverse .section-intro { color: var(--inverse-muted); }
+
+@media (min-width: 52rem) {
+  .section-head { grid-template-columns: 1fr 1fr; align-items: end; }
+  .section-intro { justify-self: end; }
+}
+
+/* ==========================================================================
+   WORK
+   ========================================================================== */
+.case {
+  display: grid; grid-template-columns: 1fr; gap: 1.5rem;
+  padding-block: clamp(1.75rem, 4vw, 3rem);
+  border-top: 1px solid var(--line);
+  text-decoration: none;
+  transition: opacity .35s var(--ease);
+}
+.case:last-child { border-bottom: 1px solid var(--line); }
+
+.case-title {
+  font-size: clamp(1.6rem, 3.2vw, 2.75rem);
+  line-height: 1.08; font-weight: 600; letter-spacing: -.03em;
+  max-width: 18ch;
+}
+.case-desc { margin-top: 1rem; max-width: 46ch; color: var(--muted); }
+.case-meta { margin-top: 1.5rem; font-size: .95rem; font-weight: 500; }
+
+.thumb {
+  display: grid; place-items: center;
+  aspect-ratio: 4 / 3; width: 100%;
+  background: var(--surface); color: var(--muted);
+  border-radius: var(--radius-s);
+  overflow: hidden; object-fit: cover;
+  font-size: .95rem; text-align: center; padding: 1rem;
+  transition: transform .6s var(--ease);
+}
+.case:hover .thumb { transform: scale(1.025); }
+
+/* Hovering one case quietly dims the others */
+.case-list:hover .case { opacity: .4; }
+.case-list .case:hover { opacity: 1; }
+
+@media (min-width: 52rem) {
+  .case { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+}
+
+/* Tier 2 card and Tier 3 list */
+.more {
+  display: grid; grid-template-columns: 1fr; gap: 2rem;
+  margin-top: clamp(3rem, 7vw, 5rem);
+}
+@media (min-width: 52rem) { .more { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; } }
+
+.card {
+  display: block; text-decoration: none;
+  background: var(--surface); border-radius: var(--radius-m);
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  transition: background-color .3s var(--ease), color .3s var(--ease), transform .4s var(--ease);
+}
+.card:hover { background: var(--ink); color: var(--bg); transform: translateY(-4px); }
+.card:hover .card-desc { color: var(--inverse-muted); }
+.card-title { font-size: clamp(1.75rem, 3vw, 2.25rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
+.card-desc { margin-top: .75rem; max-width: 40ch; color: var(--muted); transition: color .3s var(--ease); }
+
+.early-title { font-size: 1.25rem; font-weight: 600; letter-spacing: -.02em; margin-bottom: 1rem; }
+.early-row {
+  display: flex; justify-content: space-between; gap: 1.5rem;
+  padding-block: 1rem; border-top: 1px solid var(--line);
+  text-decoration: none; font-weight: 500;
+  transition: padding-left .35s var(--ease);
+}
+.early-list li:last-child .early-row { border-bottom: 1px solid var(--line); }
+.early-row:hover { padding-left: .75rem; }
+.early-year { color: var(--muted); font-weight: 400; }
+
+/* ==========================================================================
+   PLAY ARENA
+   ========================================================================== */
+.tiles { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
+@media (min-width: 46rem) { .tiles { grid-template-columns: repeat(3, 1fr); } }
+
+.tile {
+  display: flex; flex-direction: column; justify-content: space-between; gap: 3rem;
+  min-height: 16rem; padding: 1.75rem;
+  background: var(--inverse-surface);
+  border-radius: var(--radius-l);
+  text-decoration: none;
+  transition: transform .5s var(--ease), background-color .3s var(--ease), color .3s var(--ease);
+}
+.tile-title { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
+.tile-desc { color: var(--inverse-muted); max-width: 30ch; transition: color .3s var(--ease); }
+.tile:hover { background: var(--inverse-ink); color: var(--inverse-bg); transform: translateY(-8px) rotate(-1.5deg); }
+.tile:nth-child(even):hover { transform: translateY(-8px) rotate(1.5deg); }
+.tile:hover .tile-desc { color: var(--muted); }
+
+/* ==========================================================================
+   RECOMMENDATIONS
+   ========================================================================== */
+.quotes { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+@media (min-width: 52rem) { .quotes { grid-template-columns: repeat(3, 1fr); gap: 3rem; } }
+
+.quote { border-top: 1px solid var(--ink); padding-top: 1.5rem; display: flex; flex-direction: column; gap: 1.5rem; }
+.quote blockquote p { font-size: 1.3rem; line-height: 1.35; font-weight: 500; letter-spacing: -.015em; }
+.quote figcaption { color: var(--muted); font-size: .95rem; }
+
+/* ==========================================================================
+   CONTACT
+   ========================================================================== */
+.contact { display: grid; grid-template-columns: 1fr; gap: clamp(2.5rem, 6vw, 5rem); }
+@media (min-width: 56rem) { .contact { grid-template-columns: 1fr 1fr; align-items: start; } }
+
+.paths { margin-top: 2rem; display: grid; gap: 1.5rem; }
+.path-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em; }
+.paths p { color: var(--muted); max-width: 42ch; }
+.direct { margin-top: 2rem; display: flex; flex-direction: column; gap: .6rem; align-items: flex-start; font-weight: 500; }
+
+.form { display: grid; gap: 1.5rem; }
+.field { display: grid; gap: .4rem; }
+.field label { font-size: .95rem; font-weight: 500; }
+.field input, .field select, .field textarea {
+  font: inherit; color: inherit;
+  background: transparent;
+  border: 0; border-bottom: 1.5px solid var(--ink);
+  border-radius: 0; padding: .6rem 0;
+  transition: border-color .3s, padding-left .3s var(--ease);
+}
+.field textarea { resize: vertical; min-height: 7rem; }
+.field input:focus, .field select:focus, .field textarea:focus { outline: none; padding-left: .5rem; border-bottom-width: 3px; }
+
+.button {
+  justify-self: start;
+  font: inherit; font-weight: 600;
+  background: var(--ink); color: var(--bg);
+  border: 1.5px solid var(--ink); border-radius: var(--pill);
+  padding: .85rem 1.75rem; cursor: pointer;
+  transition: background-color .3s var(--ease), color .3s var(--ease), transform .3s var(--ease);
+}
+.button:hover { background: transparent; color: var(--ink); }
+.button:active { transform: scale(.97); }
+.button[disabled] { opacity: .5; cursor: progress; }
+.form-status { min-height: 1.5em; font-weight: 500; }
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.site-footer { padding-block: 2rem; border-top: 1px solid var(--line); font-size: .95rem; }
+.footer-inner { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; }
+.footer-links { display: flex; gap: 1.5rem; }
+
+/* ==========================================================================
+   CURSOR LABEL (hover devices only; JS adds .has-cursor to <html>)
+   ========================================================================== */
+.cursor { display: none; }
+.has-cursor .cursor {
+  display: block; position: fixed; left: 0; top: 0; z-index: 60; pointer-events: none;
+  will-change: transform;
+}
+.cursor-label {
+  display: block; transform: translate(-50%, -50%) scale(0);
+  background: var(--ink); color: var(--bg);
+  font-size: .875rem; font-weight: 600;
+  padding: .55rem 1rem; border-radius: var(--pill);
+  transition: transform .3s var(--ease);
+  white-space: nowrap;
+}
+.cursor.is-active .cursor-label { transform: translate(-50%, -50%) scale(1); }
+.has-cursor .case, .has-cursor .card, .has-cursor .tile { cursor: none; }
+
+/* Inverse section: the label flips so it stays visible */
+.cursor.on-inverse .cursor-label { background: var(--inverse-ink); color: var(--inverse-bg); }
+
+/* ==========================================================================
+   MOBILE
+   ========================================================================== */
+@media (max-width: 36rem) {
+  :root { --header-h: 4rem; }
+  .nav { gap: .9rem; font-size: .875rem; }
+  .logo { width: 2.25rem; height: 2.25rem; }
+  .hero-foot { flex-direction: column; }
+}
+
+/* ==========================================================================
+   REDUCED MOTION
+   ========================================================================== */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
+  .tile:hover, .tile:nth-child(even):hover, .card:hover, .case:hover .thumb, .logo:hover { transform: none; }
+}
