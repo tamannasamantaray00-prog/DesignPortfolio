@@ -55,17 +55,28 @@
       </div>
     </section>
 
-    <div class="wrap">
-      <div class="cs-solo">
+    <div class="wrap cs-layout">
 
-        <section class="cs-section" aria-labelledby="problem-h">
+      <!-- Left rail: highlights the section you are reading -->
+      <nav class="rail" aria-label="On this page">
+        <ul class="rail-list">
+          <li><a class="rail-link" href="#problem">The problem</a></li>
+          <li><a class="rail-link" href="#what">What it does</a></li>
+          <li><a class="rail-link" href="#features">Features</a></li>
+          <li><a class="rail-link" href="#status">Status</a></li>
+        </ul>
+      </nav>
+
+      <div class="cs-main">
+
+        <section class="cs-section" id="problem" aria-labelledby="problem-h">
           <h2 class="cs-h2" id="problem-h">The problem</h2>
           <div class="callout">
             <p>Most money apps ask people to do the work: sort expenses, build spreadsheets, remember due dates. MintGo aims to be a simple, AI-powered personal finance app that does the thinking, across devices, for real people.</p>
           </div>
         </section>
 
-        <section class="cs-section" aria-labelledby="what-h">
+        <section class="cs-section" id="what" aria-labelledby="what-h">
           <h2 class="cs-h2" id="what-h">What it does</h2>
           <div class="pillars">
             <div>
@@ -87,7 +98,7 @@
           </div>
         </section>
 
-        <section class="cs-section" aria-labelledby="features-h">
+        <section class="cs-section" id="features" aria-labelledby="features-h">
           <h2 class="cs-h2" id="features-h">Features I designed</h2>
 
           <article class="feature">
@@ -146,7 +157,7 @@
           </article>
         </section>
 
-        <section class="cs-section" aria-labelledby="status-h">
+        <section class="cs-section" id="status" aria-labelledby="status-h">
           <h2 class="cs-h2" id="status-h">Still in the works</h2>
           <div class="prose">
             <p>This MVP is just getting started. I am building the rest of the flows, with smarter splits, wallet insights and cross-group transfers coming next.</p>
