@@ -29,20 +29,30 @@
 
   <main id="main">
 
-    <!-- HERO -->
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="wrap">
-        <p class="hero-hello">Hello, I’m Tamanna.</p>
-        <h1 class="hero-title" id="hero-title">Building products users love, and developers don’t curse at.</h1>
-        <div class="hero-foot">
-          <p class="hero-about">
-            I’m a product designer in Bengaluru who leads design systems and the flows built on them, across fintech and retail.
-            Right now I’m at Landmark Group, redesigning customer experiences for retail brands including Babyshop, MAX and Splash.
-          </p>
-          <div class="hero-links">
-            <a class="text-link" href="#work">See my work</a>
-            <a class="text-link" href="resume.pdf" download="Tamanna-Samantaray-Resume.pdf">Download resume</a>
+    <!-- HERO
+         data-cursor-cycle: the phrases that appear on the cursor as it moves across the hero, separated by | -->
+    <section class="hero" aria-labelledby="hero-title" data-cursor-cycle="Product design|Design systems|Fintech|Retail|DesignOps">
+      <div class="wrap hero-grid">
+        <div class="hero-text">
+          <p class="hero-hello">Hello, I’m Tamanna.</p>
+          <h1 class="hero-title" id="hero-title">Building products users love, and developers don’t curse at.</h1>
+          <div class="hero-foot">
+            <p class="hero-about">
+              I’m a product designer in Bengaluru who leads design systems and the flows built on them, across fintech and retail.
+              Right now I’m at Landmark Group, redesigning customer experiences for retail brands including Babyshop, MAX and Splash.
+            </p>
+            <div class="hero-links">
+              <a class="text-link" href="#work">See my work</a>
+              <a class="text-link" href="resume.pdf" download="Tamanna-Samantaray-Resume.pdf">Download resume</a>
+            </div>
           </div>
+        </div>
+
+        <!-- YOUR PHOTO: upload a portrait (about 4:5, bright and uncluttered) to an "images" folder as tamanna.jpg,
+             then replace the placeholder div below with:
+             <img class="portrait" src="images/tamanna.jpg" alt="Photo of Tamanna Samantaray" data-cursor="That’s me"> -->
+        <div class="hero-photo">
+          <div class="portrait" role="img" aria-label="Photo of Tamanna Samantaray" data-cursor="That’s me">Your photo</div>
         </div>
       </div>
     </section>
