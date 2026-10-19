@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en" class="about">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About me | Tamanna Samantaray</title>
+  <meta name="description" content="Tamanna Samantaray is a design system architect and lead product designer from Bengaluru. Her story, what drives her, and life outside work.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230a0a0a'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Hanken Grotesk for the site, Caveat only for the small handwritten notes -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="about.css">
+</head>
+<body class="about">
+
+  <a class="skip-link" href="#hscroll">Skip to content</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Tamanna Samantaray, home">TS</a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link" href="index.html#work">Work</a>
+      <a class="nav-link" href="about.html" aria-current="page">About me</a>
+      <a class="nav-link" href="index.html#contact">Contact me</a>
+      <a class="nav-link" href="resume.pdf" download="Tamanna-Samantaray-Resume.pdf">Resume</a>
+    </nav>
+  </header>
+
+  <!--
+    HOW THIS PAGE WORKS
+    One wide row of chapters (<section class="chapter">). Visitors scroll sideways: a mouse wheel or trackpad
+    scrolls the row, and touch screens swipe. data-group decides which label in the bottom bar is highlighted:
+    about, story, life or connect.
+    To add a chapter, copy any <section class="chapter"> block and give it a new id.
+    The width of each chapter is set inline, for example style="width:min(90vw,38rem)".
+  -->
+  <main>
+    <div class="hscroll" id="hscroll" tabindex="0" role="region" aria-label="About me. Scroll sideways to read on.">
+
+      <!-- ===== ABOUT ME ===== -->
+      <section class="chapter" id="p-hello" data-group="about" style="width:min(100vw,80rem)" aria-label="Hello">
+        <div class="chapter-in hello">
+          <div class="hello-text">
+            <p class="hello-small">Hello!</p>
+            <h1 class="about-title">I’m Tamanna.</h1>
+            <p class="about-lead">Design system architect and lead product designer from Bengaluru, India.</p>
+          </div>
+
+          <figure class="photo-card" data-cursor="That’s me">
+            <img src="images/tamanna.png" alt="Photo of Tamanna Samantaray" width="603" height="803">
+            <figcaption class="note note-hello">
+              <span>hi there</span>
+              <svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6c30 2 52 22 50 50"/><path d="M42 46l12 12 8-14"/></svg>
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="chapter" id="p-how" data-group="about" style="width:min(92vw,40rem)" aria-label="How I work">
+        <div class="chapter-in">
+          <h2 class="chapter-label">How I work</h2>
+          <p class="big-text">I design scalable, dev-friendly systems that bridge design, tech and business, for products that are not just usable but profitable. From foundational principles to edge cases, I lead product design with a systems-thinking mindset and a deep appreciation for details that matter at scale.</p>
+        </div>
+      </section>
+
+      <section class="chapter" id="p-drives" data-group="about" style="width:min(92vw,40rem)" aria-label="What drives me">
+        <div class="chapter-in">
+          <h2 class="chapter-label">What drives me</h2>
+          <p class="big-text">The sweet spot where structure meets creativity. I’m passionate about mentoring young designers and love contributing to cultures that value thoughtful design systems. If you’re building something cool, chaotic or complex, count me in.</p>
+          <p class="note note-sticky"><span>sticky notes included</span></p>
+        </div>
+      </section>
+
+      <!-- ===== MY STORY ===== -->
+      <section class="chapter" id="p-journey" data-group="story" style="width:min(92vw,40rem)" aria-label="My story">
+        <div class="chapter-in">
+          <h2 class="chapter-label">My story</h2>
+          <p class="big-text">Over the years I’ve crafted fintech platforms at Infosys, launched festive campaigns at Swiggy, and scaled systems for fast-moving teams.</p>
+          <p class="story-hint">Keep scrolling for the journey, newest first.</p>
+        </div>
+      </section>
+
+      <section class="chapter story" id="p-landmark" data-group="story" style="width:min(92vw,54rem)" aria-label="Landmark Group">
+        <div class="chapter-in">
+          <div class="tl"><span class="tl-date">December 2025 to present</span></div>
+          <h3 class="story-name">Landmark Group</h3>
+          <p class="story-role">Senior Product Designer</p>
+          <ul class="story-list">
+            <li>Leading customer experience revamps across web, mWeb and app for legacy retail brands including MAX, Babyshop, Splash and Centerpoint in the UAE region.</li>
+            <li>Shipped a large-scale brand revamp for Babyshop, covering the product page, basket and checkout on the app.</li>
+            <li>Driving DesignOps: building multi-brand design systems with interactive documentation, and improving how design and development work together.</li>
+            <li>Building an internal platform for design system governance, tokenisation and workflows, and co-created a plugin that syncs tokens to developer repositories.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter story" id="p-wongdoody" data-group="story" style="width:min(92vw,54rem)" aria-label="Wongdoody">
+        <div class="chapter-in">
+          <div class="tl"><span class="tl-date">August 2022 to December 2025</span></div>
+          <h3 class="story-name">Wongdoody, an Infosys company</h3>
+          <p class="story-role">Senior Lead UX Designer, then Lead UX Designer</p>
+          <ul class="story-list">
+            <li>Drove product thinking from 0 to 1 and led end-to-end UX strategy across multiple enterprise platforms.</li>
+            <li>Led a team of designers while working with business, tech and consultancy stakeholders, and mentored junior designers.</li>
+            <li>Ran sessions on design systems, accessibility and using AI to work smarter as a designer.</li>
+            <li>Delivered across finance, retail, logistics and manufacturing, and ran early workshops with product, business and engineering to align on direction.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter story" id="p-swiggy" data-group="story" style="width:min(92vw,46rem)" aria-label="Swiggy">
+        <div class="chapter-in">
+          <div class="tl"><span class="tl-date">December 2021 to May 2022</span></div>
+          <h3 class="story-name">Swiggy Instamart</h3>
+          <ul class="story-list">
+            <li>Highlighted brand SKUs and designed storefront campaign UI that went live on the Instamart app for Christmas, New Year, Valentine’s Week, Holi, Mangosteen and the summer campaign.</li>
+            <li>Worked with the design team to set themes, visual direction and final assets, keeping the look consistent across in-app placements.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="chapter story" id="p-education" data-group="story" style="width:min(92vw,46rem)" aria-label="Education">
+        <div class="chapter-in">
+          <div class="tl"><span class="tl-date">July 2018 to June 2022</span></div>
+          <h3 class="story-name">National Institute of Fashion Technology, Bhubaneswar</h3>
+          <p class="story-role">Bachelor of Design, Design and Visual Communications</p>
+          <p class="award">Best Graduation Project II</p>
+          <p class="story-small">Before that, higher secondary education in Science at Mother’s Public School, 2016 to 2018.</p>
+        </div>
+      </section>
+
+      <!-- ===== LIFE OUTSIDE WORK ===== -->
+      <section class="chapter" id="p-out" data-group="life" style="width:min(92vw,38rem)" aria-label="Out of office">
+        <div class="chapter-in">
+          <h2 class="chapter-label">Out of office</h2>
+          <p class="big-text">After hours, you’ll find me toggling between too many hobbies: sketching, chasing sunsets, hoarding new books, experimenting with yet another side project, or just backpacking. I believe winding down is an art too.</p>
+        </div>
+      </section>
+
+      <!-- Five hobby cards. Replace each grey box with a photo:
+           <img src="images/life-1.jpg" alt="Describe the photo">
+           Each caption is a handwritten note. Change --r (tilt) and --y (height) to rearrange them. -->
+      <section class="chapter" id="p-life" data-group="life" style="width:auto" aria-label="Photos from life outside work">
+        <div class="chapter-in polaroids">
+          <figure class="polaroid" style="--r:-4deg;--y:1.5rem">
+            <div class="polaroid-img" role="img" aria-label="Sketching">Photo</div>
+            <figcaption class="note"><span>sketching</span></figcaption>
+          </figure>
+          <figure class="polaroid" style="--r:3deg;--y:-2rem">
+            <div class="polaroid-img" role="img" aria-label="Chasing sunsets">Photo</div>
+            <figcaption class="note"><span>chasing sunsets</span></figcaption>
+          </figure>
+          <figure class="polaroid" style="--r:-2deg;--y:2rem">
+            <div class="polaroid-img" role="img" aria-label="New books">Photo</div>
+            <figcaption class="note"><span>too many new books</span></figcaption>
+          </figure>
+          <figure class="polaroid" style="--r:4deg;--y:-1rem">
+            <div class="polaroid-img" role="img" aria-label="Side projects">Photo</div>
+            <figcaption class="note"><span>yet another side project</span></figcaption>
+          </figure>
+          <figure class="polaroid" style="--r:-3deg;--y:1.5rem">
+            <div class="polaroid-img" role="img" aria-label="Backpacking">Photo</div>
+            <figcaption class="note"><span>backpacking</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ===== CONNECT ===== -->
+      <section class="chapter" id="p-connect" data-group="connect" style="width:min(100vw,52rem)" aria-label="Say hello">
+        <div class="chapter-in">
+          <h2 class="about-title connect-title">Let’s connect.</h2>
+          <ul class="connect-list">
+            <li><a class="connect-link" href="mailto:tamannasamantaray00@gmail.com">tamannasamantaray00@gmail.com</a></li>
+            <li><a class="connect-link" href="https://www.linkedin.com/in/tamanna-samantaray-86b83352/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><a class="connect-link" href="https://www.behance.net/tamannasamanta2" target="_blank" rel="noopener">Behance</a></li>
+            <li><a class="connect-link" href="https://medium.com/@tamannasamantaray00" target="_blank" rel="noopener">Medium</a></li>
+          </ul>
+          <p class="connect-back"><a class="text-link" href="index.html#work">Back to my work</a></p>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Bottom bar: jump between parts, see where you are, step back and forward -->
+  <div class="scrub">
+    <button class="scrub-step" type="button" id="prev" aria-label="Previous section">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+    </button>
+    <nav class="scrub-bar" aria-label="Parts of this page">
+      <span class="scrub-indicator" aria-hidden="true"></span>
+      <button class="scrub-item" type="button" data-goto="p-hello" data-group="about">About me</button>
+      <button class="scrub-item" type="button" data-goto="p-journey" data-group="story">My story</button>
+      <button class="scrub-item" type="button" data-goto="p-out" data-group="life">Life outside work</button>
+      <button class="scrub-item" type="button" data-goto="p-connect" data-group="connect">Say hello</button>
+      <span class="scrub-line" aria-hidden="true"><i></i></span>
+    </nav>
+    <button class="scrub-step" type="button" id="next" aria-label="Next section">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+    </button>
+  </div>
+
+  <p class="hint" id="hint" aria-hidden="true">Scroll sideways</p>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+  <script src="main.js"></script>
+  <script src="about.js"></script>
+</body>
+</html>
