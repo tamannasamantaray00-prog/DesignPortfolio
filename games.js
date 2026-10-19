@@ -14,11 +14,11 @@
   var GAMES = [
     { title: "Figma Snake",
       desc: "Snake with a Figma theme, built on Figma Make. Faster, with a leaderboard, so the team can compete when they’re bored.",
-      url: "#", tag: "Made with Figma Make", cursor: "Play" },
+      url: "https://cow-jeep-83925303.figma.site/", tag: "Made with Figma Make", cursor: "Play" },
 
     { title: "Coffee Catcher",
-      desc: "A Monday morning fuel-up: sharpen your instincts, speed up your reactions and build rapport with the team.",
-      url: "#", tag: "", cursor: "Play" },
+      desc: "Catch the falling coffee cups to fill the heart meter: a Monday morning fuel-up to sharpen your instincts and reactions, and build rapport with the team.",
+      url: "https://align-claim-64288058.figma.site/", tag: "Made with Figma Make", cursor: "Play" },
 
     // Runs on a MacBook Air, so the link is a video of it working (paste the video link as the url).
     { title: "Kitchen Remote",
@@ -27,11 +27,11 @@
 
     { title: "What in the DesOps",
       desc: "A quick card game to refresh your design fundamentals.",
-      url: "#", tag: "", cursor: "Play" },
+      url: "#", tag: "Coming soon", cursor: "Play" },
 
-    { title: "What in the Meme",
-      desc: "The meme card game as a virtual game night, with separate rooms to play in.",
-      url: "#", tag: "", cursor: "Play" }
+    { title: "Meme Court",
+      desc: "The meme card game as a virtual game night: start a room, share the code, and play with 3 to 8 friends on their own phones or laptops.",
+      url: "https://meme-court-xk7l.vercel.app/", tag: "Built with Claude", cursor: "Play" }
   ];
 
   // Nothing below needs editing.
