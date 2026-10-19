@@ -270,19 +270,65 @@
   }
 })();
 
-/* ---------- Recommendations reader ----------
-   Click a card: on desktop and tablet it grows from its own spot over the other cards,
-   on phones it slides up as a drawer (swipe down to close). Esc, the close button
-   or a click outside close it. */
+/* ---------- Recommendations: sideways scroller and reader ----------
+   The cards sit in one row that scrolls sideways (swipe, trackpad, drag, or the arrow buttons).
+   Click anywhere on a card: on desktop and tablet it grows from its own spot over the other cards,
+   on phones it slides up as a drawer (swipe down to close). Esc, the close button or a click outside close it. */
 (function () {
   "use strict";
 
+  var scroller = document.getElementById("recs");
   var cards = Array.prototype.slice.call(document.querySelectorAll(".rec"));
-  if (!cards.length) return;
+  if (!scroller || !cards.length) return;
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var phone = window.matchMedia("(max-width: 40rem)");
 
+  /* ----- the sideways scroller: arrows, edge fades, and drag with the mouse ----- */
+  var prevBtn = document.getElementById("recs-prev");
+  var nextBtn = document.getElementById("recs-next");
+
+  function cardStep() {
+    var gap = parseFloat(getComputedStyle(scroller).columnGap) || 20;
+    return cards[0].getBoundingClientRect().width + gap;
+  }
+  function updateScroller() {
+    var max = scroller.scrollWidth - scroller.clientWidth;
+    scroller.classList.toggle("has-left", scroller.scrollLeft > 4);
+    scroller.classList.toggle("at-end", scroller.scrollLeft >= max - 4);
+    if (prevBtn) prevBtn.disabled = scroller.scrollLeft <= 4;
+    if (nextBtn) nextBtn.disabled = scroller.scrollLeft >= max - 4;
+  }
+  if (prevBtn) prevBtn.addEventListener("click", function () { scroller.scrollBy({ left: -cardStep(), behavior: reduce ? "auto" : "smooth" }); });
+  if (nextBtn) nextBtn.addEventListener("click", function () { scroller.scrollBy({ left: cardStep(), behavior: reduce ? "auto" : "smooth" }); });
+  scroller.addEventListener("scroll", updateScroller, { passive: true });
+  window.addEventListener("resize", updateScroller);
+  window.addEventListener("load", updateScroller);
+  updateScroller();
+
+  // Drag with a mouse. A drag scrolls the row, a plain click opens the card.
+  var down = null, dragged = false;
+  scroller.addEventListener("pointerdown", function (e) {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    down = { x: e.clientX, left: scroller.scrollLeft };
+    dragged = false;
+  });
+  window.addEventListener("pointermove", function (e) {
+    if (!down) return;
+    var dx = e.clientX - down.x;
+    if (!dragged && Math.abs(dx) > 6) { dragged = true; scroller.classList.add("is-dragging"); }
+    if (dragged) scroller.scrollLeft = down.left - dx;
+  });
+  window.addEventListener("pointerup", function () {
+    if (!down) return;
+    down = null;
+    if (dragged) {
+      scroller.classList.remove("is-dragging");
+      setTimeout(function () { dragged = false; }, 0);   // lets the click that follows a drag be ignored
+    }
+  });
+
+  /* ----- the reader ----- */
   var closeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
 
   var scrim = document.createElement("div");
@@ -335,7 +381,18 @@
     body.scrollTop = 0;
   }
 
-  // Works out where the grown card sits: it keeps to the side of the card you clicked and stays on screen.
+  // If the card is partly hidden at the edge of the row, bring it fully into view first.
+  function ensureVisible(card) {
+    var s = scroller.getBoundingClientRect();
+    var r = card.getBoundingClientRect();
+    var pad = 16;
+    if (r.right > s.right - pad) scroller.scrollLeft += r.right - s.right + pad;
+    else if (r.left < s.left + pad) scroller.scrollLeft -= s.left + pad - r.left;
+  }
+
+  function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+
+  // Works out where the grown card sits: it keeps to the side of the card you clicked and always stays on screen.
   function place(card) {
     var r = card.getBoundingClientRect();
     var rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
@@ -349,10 +406,10 @@
 
     var left = r.left;
     if (left + tw > vw - m) left = r.right - tw;
-    if (left < m) left = Math.max(m, (vw - tw) / 2);
+    left = clamp(left, m, Math.max(m, vw - tw - m));
     var top = r.top;
     if (top + th > vh - m) top = r.bottom - th;
-    if (top < m) top = Math.max(m, (vh - th) / 2);
+    top = clamp(top, m, Math.max(m, vh - th - m));
 
     // start exactly on top of the card
     pop.style.cssText = "transition:none;visibility:visible;left:" + r.left + "px;top:" + r.top + "px;width:" + r.width + "px;height:" + r.height + "px;";
@@ -379,13 +436,16 @@
     isOpen = true;
     active = card;
     lastFocus = document.activeElement;
+    isDrawer = phone.matches;
+    if (!isDrawer) ensureVisible(card);
     fill(card);
     pop.style.setProperty("--glow", card.style.getPropertyValue("--glow") || "#A259FF");
     document.documentElement.classList.add("modal-open");
     setInert(true);
+    var cursorLabel = document.querySelector(".cursor");
+    if (cursorLabel) cursorLabel.classList.remove("is-active");   // hide the "Read" label while the reader is open
     scrim.hidden = false;
     pop.hidden = false;
-    isDrawer = phone.matches;
     pop.classList.toggle("is-drawer", isDrawer);
 
     if (isDrawer) {
@@ -437,9 +497,12 @@
     }
   }
 
+  // The whole card opens the reader. The "Read in full" button gives keyboard and screen reader users the same thing.
   cards.forEach(function (card) {
-    var button = card.querySelector(".rec-open");
-    if (button) button.addEventListener("click", function () { open(card); });
+    card.addEventListener("click", function () {
+      if (dragged) return;
+      open(card);
+    });
   });
 
   closeBtn.addEventListener("click", function () { close(); });
