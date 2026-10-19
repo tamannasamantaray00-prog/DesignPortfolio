@@ -1,38 +1,69 @@
 /* ==========================================================================
    YOUR GAMES: edit this one list and both the About page and the Play arena update.
-   For each game set a title, a one-line description, and the link (url).
-   While a url is "#", the game shows as a plain, non-clickable placeholder.
-   The Play arena on the landing page shows the first three games, the About page shows all five.
+   For each game set:
+     title   the name
+     desc    one line: what it is and how you play it
+     url     the link people open (a new tab). While it is "#", the tile shows as "coming soon" and does nothing.
+     tag     optional small label on the tile, for example "Made with Figma Make". Leave "" for none.
+     cursor  optional word on the cursor when hovering, for example "Play" or "Watch". Leave "" for "Play".
+   The Play arena on the landing page and the About page both show all five games, in this order.
    ========================================================================== */
 (function () {
   "use strict";
 
   var GAMES = [
-    { title: "Game 1", desc: "One line about what the game is and how you play it.", url: "#" },
-    { title: "Game 2", desc: "One line about what the game is and how you play it.", url: "#" },
-    { title: "Game 3", desc: "One line about what the game is and how you play it.", url: "#" },
-    { title: "Game 4", desc: "One line about what the game is and how you play it.", url: "#" },
-    { title: "Game 5", desc: "One line about what the game is and how you play it.", url: "#" }
+    { title: "Figma Snake",
+      desc: "Snake with a Figma theme, built on Figma Make. Faster, with a leaderboard, so the team can compete when they’re bored.",
+      url: "#", tag: "Made with Figma Make", cursor: "Play" },
+
+    { title: "Coffee Catcher",
+      desc: "A Monday morning fuel-up: sharpen your instincts, speed up your reactions and build rapport with the team.",
+      url: "#", tag: "", cursor: "Play" },
+
+    // Runs on a MacBook Air, so the link is a video of it working (paste the video link as the url).
+    { title: "Kitchen Remote",
+      desc: "Runs in my MacBook Air’s terminal to control YouTube and YouTube Music while I cook or eat, so my keyboard stays clean.",
+      url: "#", tag: "Demo video", cursor: "Watch" },
+
+    { title: "What in the DesOps",
+      desc: "A quick card game to refresh your design fundamentals.",
+      url: "#", tag: "", cursor: "Play" },
+
+    { title: "What in the Meme",
+      desc: "The meme card game as a virtual game night, with separate rooms to play in.",
+      url: "#", tag: "", cursor: "Play" }
   ];
 
   // Nothing below needs editing.
   document.querySelectorAll("[data-game]").forEach(function (el) {
     var game = GAMES[parseInt(el.getAttribute("data-game"), 10)];
-    if (!game) return;
+    if (!game) {
+      // no game for this slot: hide it
+      var item = el.closest("li") || el;
+      item.hidden = true;
+      return;
+    }
 
     var title = el.querySelector("[data-game-title]");
     var desc = el.querySelector("[data-game-desc]");
+    var tag = el.querySelector("[data-game-tag]");
     if (title) title.textContent = game.title;
     if (desc) desc.textContent = game.desc;
+    if (tag) {
+      tag.textContent = game.tag || "";
+      tag.hidden = !game.tag;
+    }
 
     if (game.url && game.url !== "#") {
       el.setAttribute("href", game.url);
       el.setAttribute("target", "_blank");
       el.setAttribute("rel", "noopener");
+      if (el.hasAttribute("data-cursor")) el.setAttribute("data-cursor", game.cursor || "Play");
     } else {
-      // placeholder: don't jump to the top of the page when clicked
+      // placeholder: stays put when clicked and says so on the cursor
       el.setAttribute("href", "#");
       el.addEventListener("click", function (e) { e.preventDefault(); });
+      if (el.hasAttribute("data-cursor")) el.setAttribute("data-cursor", "Coming soon");
     }
   });
 })();
