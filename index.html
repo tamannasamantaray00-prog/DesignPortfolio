@@ -66,84 +66,67 @@
           <p class="section-intro">Four flagship projects, each in one line: what I did and why it mattered.</p>
         </div>
 
-        <!-- FLAGSHIPS: one tab and one panel per project. To change the order, move both the tab and its panel.
-             To add a cover image, replace the grey .thumb div inside a panel with
+        <!-- FLAGSHIPS: four columns, all visible at once. Each has a tag, a title (what I did), a description (why it mattered),
+             a link, and a cover. Hover a column to highlight it. To change the order, move a whole <article>.
+             To add a cover image, replace the grey .thumb div with
              <img class="thumb" src="images/your-cover.jpg" alt="Describe the image"> -->
-        <div class="showcase" data-tabs>
-          <div class="tabs" role="tablist" aria-label="Flagship case studies">
-            <span class="tab-indicator" aria-hidden="true"></span>
-        <button class="tab" type="button" role="tab" id="tab-babyshop" aria-controls="panel-babyshop" aria-selected="true">Babyshop</button>
-        <button class="tab" type="button" role="tab" id="tab-retail-ds" aria-controls="panel-retail-ds" aria-selected="false" tabindex="-1">Retail design system</button>
-        <button class="tab" type="button" role="tab" id="tab-banking" aria-controls="panel-banking" aria-selected="false" tabindex="-1">Banking product</button>
-        <button class="tab" type="button" role="tab" id="tab-ai-ds" aria-controls="panel-ai-ds" aria-selected="false" tabindex="-1">AI design system</button>
-          </div>
+        <div class="flow">
 
-          <div class="panels">
+          <article class="flow-col" style="--glow:#A259FF">
+            <div class="flow-head"><span class="flow-tag">Babyshop</span></div>
+            <div class="flow-body">
+              <h3 class="flow-title">Revamped brand UI, product page and basket</h3>
+              <p class="flow-desc">Promotions and offers now sit inline, so checkout is faster and smoother for parents on the app and site.</p>
+              <a class="text-link flow-link" href="case-study-babyshop.html">Read the case study</a>
+            </div>
+            <div class="flow-media">
+              <a class="flow-thumb" href="case-study-babyshop.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Babyshop screens">
+                <div class="thumb" role="img" aria-label="Babyshop screens">Babyshop screens</div>
+              </a>
+            </div>
+          </article>
 
-        <article class="panel" role="tabpanel" id="panel-babyshop" aria-labelledby="tab-babyshop" style="--glow:#A259FF">
-          <div class="panel-text">
-            <h3 class="panel-story">I helped revamp Babyshop’s brand UI and redesigned the product page and basket, bringing promotions and offers inline so checkout is faster and smoother for parents on the app and site.</h3>
-            <p class="panel-meta">Brand revamp | Product design, E-commerce, App and web</p>
-            <ul class="chips">
-            <li>Senior Product Designer</li>
-            <li>App and web</li>
-            <li>Brand UI, product page, basket</li>
-            </ul>
-            <a class="text-link panel-link" href="case-study-babyshop.html">Read the case study</a>
-          </div>
-          <a class="panel-thumb" href="case-study-babyshop.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Babyshop screens">
-            <div class="thumb" role="img" aria-label="Babyshop screens">Babyshop screens</div>
-          </a>
-        </article>
+          <article class="flow-col" style="--glow:#0ACF83">
+            <div class="flow-head"><span class="flow-tag">Retail design system</span></div>
+            <div class="flow-body">
+              <h3 class="flow-title">A design system for 7 brands</h3>
+              <p class="flow-desc">Built for 17 designers and a 30+ developer team to pull straight into code, so every brand builds from one source of truth.</p>
+              <a class="text-link flow-link" href="case-study-landmark-design-system.html">Read the case study</a>
+            </div>
+            <div class="flow-media">
+              <a class="flow-thumb" href="case-study-landmark-design-system.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Design system documentation">
+                <div class="thumb" role="img" aria-label="Design system documentation">Design system documentation</div>
+              </a>
+            </div>
+          </article>
 
-        <article class="panel" role="tabpanel" id="panel-retail-ds" aria-labelledby="tab-retail-ds" style="--glow:#0ACF83" hidden>
-          <div class="panel-text">
-            <h3 class="panel-story">I built a design system for 17 designers across 7 brands and a 30+ developer team to pull straight into code, so every brand builds from one source of truth.</h3>
-            <p class="panel-meta">Design systems | 7 brands, DesignOps</p>
-            <ul class="chips">
-            <li>17 designers</li>
-            <li>7 brands</li>
-            <li>30+ developers</li>
-            </ul>
-            <a class="text-link panel-link" href="case-study-landmark-design-system.html">Read the case study</a>
-          </div>
-          <a class="panel-thumb" href="case-study-landmark-design-system.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Design system documentation">
-            <div class="thumb" role="img" aria-label="Design system documentation">Design system documentation</div>
-          </a>
-        </article>
+          <article class="flow-col" style="--glow:#1ABCFE">
+            <div class="flow-head"><span class="flow-tag">Banking product</span></div>
+            <div class="flow-body">
+              <h3 class="flow-title">Led 8 designers on a white-label banking product</h3>
+              <p class="flow-desc">I owned the end-to-end flows and a re-skinnable component system so partner banks could launch under their own brand.</p>
+              <a class="text-link flow-link" href="case-study-banking-product.html">Read the case study</a>
+            </div>
+            <div class="flow-media">
+              <a class="flow-thumb" href="case-study-banking-product.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Banking product screens">
+                <div class="thumb" role="img" aria-label="Banking product screens">Banking product screens</div>
+              </a>
+            </div>
+          </article>
 
-        <article class="panel" role="tabpanel" id="panel-banking" aria-labelledby="tab-banking" style="--glow:#1ABCFE" hidden>
-          <div class="panel-text">
-            <h3 class="panel-story">I led 8 designers on a white-label B2B banking product, owning the end-to-end flows and a re-skinnable component system so partner banks could launch under their own brand.</h3>
-            <p class="panel-meta">9 months | Product design, Fintech, B2B, Team lead</p>
-            <ul class="chips">
-            <li>8 designers led</li>
-            <li>3 partner design teams</li>
-            <li>12-member dev team</li>
-            </ul>
-            <a class="text-link panel-link" href="case-study-banking-product.html">Read the case study</a>
-          </div>
-          <a class="panel-thumb" href="case-study-banking-product.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Banking product screens">
-            <div class="thumb" role="img" aria-label="Banking product screens">Banking product screens</div>
-          </a>
-        </article>
-
-        <article class="panel" role="tabpanel" id="panel-ai-ds" aria-labelledby="tab-ai-ds" style="--glow:#FF7262" hidden>
-          <div class="panel-text">
-            <h3 class="panel-story">I built an AI-first design system that scales across products, with guidelines written alongside the team so AI agents can handle final development, and design-to-dev handoff got 35% faster.</h3>
-            <p class="panel-meta">Design systems | Fintech, AI-first</p>
-            <ul class="chips">
-            <li>35% faster handoff</li>
-            <li>AI-first</li>
-            <li>Built for scale</li>
-            </ul>
-            <a class="text-link panel-link" href="case-study-fintech-design-system.html">Read the case study</a>
-          </div>
-          <a class="panel-thumb" href="case-study-fintech-design-system.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Component library">
-            <div class="thumb" role="img" aria-label="Component library">Component library</div>
-          </a>
-        </article>
-          </div>
+          <article class="flow-col" style="--glow:#FF7262">
+            <div class="flow-head"><span class="flow-tag">AI design system</span></div>
+            <div class="flow-body">
+              <h3 class="flow-title">An AI-first design system that scales</h3>
+              <p class="flow-desc">Guidelines written alongside the team so AI agents can handle final development, and design-to-dev handoff got 35% faster.</p>
+              <a class="text-link flow-link" href="case-study-fintech-design-system.html">Read the case study</a>
+            </div>
+            <div class="flow-media">
+              <a class="flow-thumb" href="case-study-fintech-design-system.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Component library">
+                <div class="thumb" role="img" aria-label="Component library">Component library</div>
+              </a>
+            </div>
+          </article>
         </div>
 
         <!-- MORE WORK: one line each. The first links to a case study page, the others open elsewhere. -->
