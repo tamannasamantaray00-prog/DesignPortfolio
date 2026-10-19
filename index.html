@@ -184,19 +184,52 @@
           <p class="section-intro">Words from people I’ve built products with.</p>
         </div>
 
-        <!-- Paste real recommendations (LinkedIn works). Keep each under about 50 words. -->
-        <div class="quotes">
-          <figure class="quote">
-            <blockquote><p>Paste a recommendation here. Pick the line that says what changed because you were on the team.</p></blockquote>
-            <figcaption>Name, role at company</figcaption>
+        <!-- RECOMMENDATIONS: one .rec card per person (LinkedIn recommendations work well).
+             Each card: a short pull-quote, one or two supporting sentences, then the person.
+             --glow is the color of the soft gradient that rises on hover.
+             To use a photo instead of initials, replace the .rec-avatar span with
+             <img class="rec-avatar" src="images/name.jpg" alt="Name">
+             Add as many cards as you like. More than four will scroll sideways. -->
+        <div class="recs" role="group" aria-label="Recommendations" tabindex="0">
+          <figure class="rec" style="--glow:#A259FF">
+            <blockquote>
+              <p class="rec-quote">Short pull-quote from the recommendation.</p>
+              <p class="rec-more">One or two supporting sentences about what changed because you were on the team.</p>
+            </blockquote>
+            <figcaption class="rec-who">
+              <span class="rec-avatar" aria-hidden="true">AB</span>
+              <span class="rec-text"><span class="rec-name">Name</span><span class="rec-role">Role at company</span></span>
+            </figcaption>
           </figure>
-          <figure class="quote">
-            <blockquote><p>Paste a recommendation here. Pick the line that says what changed because you were on the team.</p></blockquote>
-            <figcaption>Name, role at company</figcaption>
+          <figure class="rec" style="--glow:#1ABCFE">
+            <blockquote>
+              <p class="rec-quote">Short pull-quote from the recommendation.</p>
+              <p class="rec-more">One or two supporting sentences about what changed because you were on the team.</p>
+            </blockquote>
+            <figcaption class="rec-who">
+              <span class="rec-avatar" aria-hidden="true">CD</span>
+              <span class="rec-text"><span class="rec-name">Name</span><span class="rec-role">Role at company</span></span>
+            </figcaption>
           </figure>
-          <figure class="quote">
-            <blockquote><p>Paste a recommendation here. Pick the line that says what changed because you were on the team.</p></blockquote>
-            <figcaption>Name, role at company</figcaption>
+          <figure class="rec" style="--glow:#0ACF83">
+            <blockquote>
+              <p class="rec-quote">Short pull-quote from the recommendation.</p>
+              <p class="rec-more">One or two supporting sentences about what changed because you were on the team.</p>
+            </blockquote>
+            <figcaption class="rec-who">
+              <span class="rec-avatar" aria-hidden="true">EF</span>
+              <span class="rec-text"><span class="rec-name">Name</span><span class="rec-role">Role at company</span></span>
+            </figcaption>
+          </figure>
+          <figure class="rec" style="--glow:#FF7262">
+            <blockquote>
+              <p class="rec-quote">Short pull-quote from the recommendation.</p>
+              <p class="rec-more">One or two supporting sentences about what changed because you were on the team.</p>
+            </blockquote>
+            <figcaption class="rec-who">
+              <span class="rec-avatar" aria-hidden="true">GH</span>
+              <span class="rec-text"><span class="rec-name">Name</span><span class="rec-role">Role at company</span></span>
+            </figcaption>
           </figure>
         </div>
       </div>
