@@ -244,12 +244,19 @@ img.polaroid-img { display: block; }
    ========================================================================== */
 .chapter .collage { width: min(100%, 32rem, calc((100vh - 13rem) / 1.04)); width: min(100%, 32rem, calc((100svh - 13rem) / 1.04)); margin-inline: 0; }
 
-/* Two cards: class 8 and games */
-.chapter .collage-2 { aspect-ratio: 1 / 1; width: min(100%, 28rem, calc(100vh - 13rem)); width: min(100%, 28rem, calc(100svh - 13rem)); }
-.shot-d { left: 4%;  top: 17%; width: 46%; --r: -5deg; z-index: 2; }
+/* Two-card clusters. They use the same cluster size and the same upright card shape and size as the three-card cluster
+   (the cards are the two upright cards from it, moved closer so they overlap). */
+.shot-d { left: 12%;  top: 14%; width: 39%; --r: -4deg; z-index: 2; }
 .shot-d .collage-img { aspect-ratio: 3 / 4; }
-.shot-e { right: 4%; top: 22%; width: 48%; --r: 4deg;  z-index: 1; }
-.shot-e .collage-img { aspect-ratio: 4 / 5; }
-.scribble-d { left: 9%; top: 3%; transform: rotate(-3deg); }
-.scribble-e { right: 8%; bottom: 1%; transform: rotate(2deg); align-items: flex-end; }
+.shot-e { right: 12%; top: 33%; width: 39%; --r: 4deg;  z-index: 3; }
+.shot-e .collage-img { aspect-ratio: 3 / 4; }
+.scribble-d { left: 10%; top: 5%; transform: rotate(-3deg); }
+.scribble-e { right: 7%; bottom: 8%; transform: rotate(2deg); align-items: flex-end; }
 .scribble-e svg { margin-bottom: .45rem; transform: rotate(180deg); }
+
+/* Mirrored version (after "What drives me"): the right card sits higher, the left card lower */
+.collage-flip .shot-d { top: 33%; --r: -4deg; z-index: 3; }
+.collage-flip .shot-e { top: 14%; --r: 4deg; z-index: 2; }
+.collage-flip .scribble-d { left: auto; right: 9%; top: 5%; transform: rotate(3deg); }
+.collage-flip .scribble-e { right: auto; left: 7%; bottom: 8%; transform: rotate(-2deg); }
+.collage-flip .scribble-e svg { transform: rotate(180deg) scaleX(-1); }
