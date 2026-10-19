@@ -367,35 +367,42 @@ a { color: inherit; }
 /* ==========================================================================
    WRITING
    ========================================================================== */
-.articles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
-@media (min-width: 52rem) { .articles { grid-template-columns: repeat(4, 1fr); } }
+.articles { display: grid; grid-template-columns: 1fr; gap: 1.75rem 1.25rem; }
+@media (min-width: 40rem) { .articles { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 66rem) { .articles { grid-template-columns: repeat(4, 1fr); } }
 
-.article { position: relative; display: block; text-decoration: none; transition: opacity .35s var(--ease), transform .5s var(--ease); }
+.article { position: relative; display: block; text-decoration: none; transition: transform .5s var(--ease); }
+.article:hover, .article:focus-visible { transform: translateY(-6px); }
 
-/* Gradient sits over the thumbnail (works for a placeholder box or a real image) */
-.article::after {
-  content: ""; position: absolute; inset: 0; border-radius: var(--radius-l);
+/* Cover. The gradient sits over it and rises on hover (works over a Medium cover or your own image). */
+.article-media { position: relative; overflow: hidden; border-radius: var(--radius-l); background: var(--surface); }
+.article-media::after {
+  content: ""; position: absolute; inset: 0;
   background: radial-gradient(ellipse 85% 100% at 50% 100%, var(--glow, #A259FF), transparent 75%) bottom / 100% 35% no-repeat;
   opacity: 0;
   transition: opacity .6s var(--ease), background-size .8s var(--ease);
   pointer-events: none;
 }
-.article:hover, .article:focus-visible { transform: translateY(-6px); }
-.article:hover::after, .article:focus-visible::after { opacity: .55; background-size: 100% 100%; }
-.thumb-wide { aspect-ratio: auto; height: clamp(10rem, 18vw, 15rem); border-radius: var(--radius-l); }
+.article:hover .article-media::after, .article:focus-visible .article-media::after { opacity: .55; background-size: 100% 100%; }
+.thumb-wide { aspect-ratio: auto; height: clamp(9rem, 13vw, 11.5rem); border-radius: 0; display: block; width: 100%; padding: 0; object-fit: cover; }
 .thumb-ink {
+  display: grid; place-items: center;
   background: var(--ink); color: var(--bg);
   font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; letter-spacing: -.02em;
 }
 
-/* Hovering one article quietly dims the others, same as the work list */
-.articles:hover .article { opacity: .4; }
-.articles .article:hover { opacity: 1; }
+.article-title { margin-top: 1rem; font-size: 1.1rem; line-height: 1.25; font-weight: 600; letter-spacing: -.02em; text-wrap: balance; }
+.article-desc { margin-top: .5rem; font-size: .92rem; line-height: 1.5; color: var(--muted); }
+.article-badge {
+  display: block; width: fit-content; white-space: nowrap; margin-top: .75rem; padding: .2rem .75rem; border-radius: var(--pill);
+  background: var(--ink); color: var(--bg); font-size: .78rem; font-weight: 600; letter-spacing: var(--track-label);
+}
+.article-meta { margin-top: .75rem; font-size: .85rem; color: var(--muted); letter-spacing: var(--track-label); }
 
 /* Touch screens have no hover, so the tile and article gradients stay faintly visible */
 @media (hover: none) {
   .tile::before { opacity: .35; background-size: 100% 100%; }
-  .article::after { opacity: .3; background-size: 100% 100%; }
+  .article-media::after { opacity: .3; background-size: 100% 100%; }
 }
 
 /* ==========================================================================
@@ -658,7 +665,7 @@ img.collage-img { display: block; }
 .social:hover { background: var(--bg); transform: translateY(-4px); }
 
 .icon { display: block; }
-.contact-email { margin-top: 1.75rem; font-weight: 500; letter-spacing: var(--track-label); }
+.contact-email { margin-top: 1.75rem; display: flex; flex-wrap: wrap; gap: .5rem 1.75rem; font-weight: 500; letter-spacing: var(--track-label); }
 
 /* ==========================================================================
    FOOTER
