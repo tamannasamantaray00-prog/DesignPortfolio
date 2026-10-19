@@ -72,10 +72,9 @@
       <nav class="rail" aria-label="On this page">
         <ul class="rail-list">
           <li><a class="rail-link" href="#context">Where it started</a></li>
-          <li><a class="rail-link" href="#goals">What we wanted</a></li>
+          <li><a class="rail-link" href="#screens">The two screens</a></li>
           <li><a class="rail-link" href="#role">My part in it</a></li>
-          <li><a class="rail-link" href="#decisions">How we solved it</a></li>
-          <li><a class="rail-link" href="#status">From design to live</a></li>
+          <li><a class="rail-link" href="#gap">Closing the gap</a></li>
           <li><a class="rail-link" href="#impact">What changed</a></li>
           <li><a class="rail-link" href="#reflection">Looking back</a></li>
         </ul>
@@ -97,18 +96,136 @@
           </div>
         </section>
 
-        <!-- GOALS -->
-        <section class="cs-section" id="goals" aria-labelledby="goals-h">
-          <h2 class="cs-h2" id="goals-h">What we wanted</h2>
-          <p class="prose">We did not start by drawing screens. We started by agreeing what a better version would feel like. Without launch numbers yet, this is the standard the design is judged against.</p>
-          <ul class="bullets">
-            <li>Show promotions and offers clearly, right in line with the product and the basket</li>
-            <li>Clear the clutter, so the things that matter stand out</li>
-            <li>Make checkout easier, and let parents make conscious choices on the app and the site</li>
-          </ul>
-        </section>
+        <section class="cs-section" id="screens" aria-labelledby="screens-h">
+          <h2 class="cs-h2" id="screens-h">Two screens, one story</h2>
+          <p class="prose">The same two problems showed up on both screens: too much on the page, and offers that were easy to miss. So we worked through each screen in turn. Pick one to see how it went.</p>
 
-        <!-- ROLE AND LEADERSHIP -->
+          <!-- Switch between the two screens. Everything for one screen sits in its own panel below.
+               To link someone straight to the basket, share the page address ending in #basket. -->
+          <div class="screen-tabs" data-tabs>
+            <div class="screen-switch" role="tablist" aria-label="Choose a screen">
+              <span class="tab-indicator" aria-hidden="true"></span>
+              <button class="tab" type="button" role="tab" id="tab-product" data-hash="product-page" aria-controls="panel-product" aria-selected="true">Product page</button>
+              <button class="tab" type="button" role="tab" id="tab-basket" data-hash="basket" aria-controls="panel-basket" aria-selected="false" tabindex="-1">Basket</button>
+            </div>
+          <div class="screen-panel" role="tabpanel" id="panel-product" aria-labelledby="tab-product">
+            <h3 class="cs-h3">What we wanted</h3>
+            <ul class="bullets">
+              <li>Show promotions and offers clearly, in line with the product</li>
+              <li>Clear the clutter, so the things that matter stand out</li>
+              <li>Help parents make conscious choices on the app and the site</li>
+            </ul>
+
+            <article class="theme">
+              <h3 class="cs-h3">How we solved it</h3>
+              <div class="two-col">
+                <div class="prose">
+                  <p class="theme-label">What was going on</p>
+                  <p>The product page was crowded, and the promotions and offers were hard to see. They never sat in line with the product, so a parent could miss a saving that was right there.</p>
+                </div>
+                <div class="prose">
+                  <p class="theme-label">What we did, and why</p>
+                  <p class="todo">The turn in the story: what you changed on this screen, what else you tried, and what you gave up for it.</p>
+                </div>
+              </div>
+            <!-- Replace the two placeholder layers with images: images/babyshop-pdp-before.jpg and images/babyshop-pdp-after.jpg -->
+            <div class="compare" style="--pos:50%" data-cursor="Drag">
+              <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before screen</div>
+              <div class="compare-layer compare-after"><span class="compare-tag">After</span>After screen</div>
+              <div class="compare-handle" aria-hidden="true"></div>
+              <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+            </div>
+              <div class="proof">
+                <p class="theme-label">Details worth a look</p>
+                <ul class="bullets">
+                  <li class="todo">A small feature you designed on this screen, with one line on why</li>
+                  <li class="todo">Another detail</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="theme">
+              <h3 class="cs-h3">From design to live</h3>
+              <p class="prose">A design is a promise, and shipping is where it gets tested.</p>
+            <div class="stages">
+              <figure class="stage">
+                <span class="stage-tag is-designed">Designed</span>
+                <div class="shot shot-tall" role="img" aria-label="Product page: designed screens">Designed screens</div>
+                <figcaption>The promise: the new brand UI on a calmer product page, on app and web.</figcaption>
+              </figure>
+              <figure class="stage">
+                <span class="stage-tag is-live">Live on prod</span>
+                <div class="shot shot-tall" role="img" aria-label="Product page: live in production">Live screens</div>
+                <figcaption>The reality today: live on production, and still being refined with engineering.</figcaption>
+              </figure>
+              <figure class="stage">
+                <span class="stage-tag is-next">Next, MVP in progress</span>
+                <div class="shot shot-tall" role="img" aria-label="Product page: upcoming MVP screens">MVP screens</div>
+                <figcaption>The next chapter: what the team is still building for the MVP.</figcaption>
+              </figure>
+            </div>
+            </article>
+          </div>
+          <div class="screen-panel" role="tabpanel" id="panel-basket" aria-labelledby="tab-basket" hidden>
+            <h3 class="cs-h3">What we wanted</h3>
+            <ul class="bullets">
+              <li>Show promotions and offers clearly, in line with the items in the basket</li>
+              <li>Clear the clutter, so the things that matter stand out</li>
+              <li>Make checkout easier for parents on the app and the site</li>
+            </ul>
+
+            <article class="theme">
+              <h3 class="cs-h3">How we solved it</h3>
+              <div class="two-col">
+                <div class="prose">
+                  <p class="theme-label">What was going on</p>
+                  <p>The basket had the same trouble: it was crowded, and the offers were not visible or in line with the items a parent was adding up.</p>
+                </div>
+                <div class="prose">
+                  <p class="theme-label">What we did, and why</p>
+                  <p class="todo">The turn in the story: what you changed on this screen, what else you tried, and what you gave up for it.</p>
+                </div>
+              </div>
+            <!-- Replace the two placeholder layers with images: images/babyshop-basket-before.jpg and images/babyshop-basket-after.jpg -->
+            <div class="compare" style="--pos:50%" data-cursor="Drag">
+              <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before screen</div>
+              <div class="compare-layer compare-after"><span class="compare-tag">After</span>After screen</div>
+              <div class="compare-handle" aria-hidden="true"></div>
+              <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
+            </div>
+              <div class="proof">
+                <p class="theme-label">Details worth a look</p>
+                <ul class="bullets">
+                  <li class="todo">A small feature you designed on this screen, with one line on why</li>
+                  <li class="todo">Another detail</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="theme">
+              <h3 class="cs-h3">From design to live</h3>
+              <p class="prose">A design is a promise, and shipping is where it gets tested.</p>
+            <div class="stages">
+              <figure class="stage">
+                <span class="stage-tag is-designed">Designed</span>
+                <div class="shot shot-tall" role="img" aria-label="Basket: designed screens">Designed screens</div>
+                <figcaption>The promise: the new brand UI on a calmer basket, on app and web.</figcaption>
+              </figure>
+              <figure class="stage">
+                <span class="stage-tag is-live">Live on prod</span>
+                <div class="shot shot-tall" role="img" aria-label="Basket: live in production">Live screens</div>
+                <figcaption>The reality today: live on production, and still being refined with engineering.</figcaption>
+              </figure>
+              <figure class="stage">
+                <span class="stage-tag is-next">Next, MVP in progress</span>
+                <div class="shot shot-tall" role="img" aria-label="Basket: upcoming MVP screens">MVP screens</div>
+                <figcaption>The next chapter: what the team is still building for the MVP.</figcaption>
+              </figure>
+            </div>
+            </article>
+          </div>
+          </div>
+        </section>
         <section class="cs-section" id="role" aria-labelledby="role-h">
           <h2 class="cs-h2" id="role-h">My part in it</h2>
           <div class="two-col">
@@ -130,103 +247,15 @@
             </div>
           </div>
         </section>
-
-        <!-- PROBLEMS AND DECISIONS
-             Group by problem theme, not by screen. Copy one .theme block per theme (two to four is plenty). -->
-        <section class="cs-section" id="decisions" aria-labelledby="decisions-h">
-          <h2 class="cs-h2" id="decisions-h">How we solved it</h2>
-          <p class="prose">We took the problems one at a time, not one screen at a time. For each one: what was going on, what we did about it, and how it looks now. Drag the slider to see the before and after.</p>
-
-          <article class="theme">
-            <h3 class="cs-h3">Offers that were easy to miss, now in line</h3>
-            <div class="two-col">
-              <div class="prose">
-                <p class="theme-label">What was going on</p>
-                <p>The promotions and offers were hard to see, and they never sat in line with the product and the basket. A parent could miss a saving that was right there on the screen.</p>
-              </div>
-              <div class="prose">
-                <p class="theme-label">What we did, and why</p>
-                <p class="todo">The turn in the story: where promotions and offers sit now, what else you tried, and what you gave up for it.</p>
-              </div>
-            </div>
-
-            <!-- Replace the two placeholder layers with images:
-                 <img src="images/theme1-before.jpg" alt="Before: ..."> and <img src="images/theme1-after.jpg" alt="After: ..."> -->
-            <div class="compare" style="--pos:50%" data-cursor="Drag">
-              <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before screen</div>
-              <div class="compare-layer compare-after"><span class="compare-tag">After</span>After screen</div>
-              <div class="compare-handle" aria-hidden="true"></div>
-              <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
-            </div>
-
-            <div class="proof">
-              <p class="theme-label">Feature details inside this theme</p>
-              <ul class="bullets">
-                <li class="todo">Small feature you designed, with one line on why</li>
-                <li class="todo">Another feature</li>
-              </ul>
-            </div>
-          </article>
-
-          <article class="theme">
-            <h3 class="cs-h3">Too much on the screen, now only what matters</h3>
-            <div class="two-col">
-              <div class="prose">
-                <p class="theme-label">What was going on</p>
-                <p>Both screens were crowded, with too much asking for attention at once. The important things had to fight to be seen.</p>
-              </div>
-              <div class="prose">
-                <p class="theme-label">What we did, and why</p>
-                <p class="todo">The turn in the story: what you removed, moved or grouped, and why it made the screen calmer.</p>
-              </div>
-            </div>
-            <div class="compare" style="--pos:50%" data-cursor="Drag">
-              <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before screen</div>
-              <div class="compare-layer compare-after"><span class="compare-tag">After</span>After screen</div>
-              <div class="compare-handle" aria-hidden="true"></div>
-              <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare before and after">
-            </div>
-            <div class="proof">
-              <p class="theme-label">Feature details inside this theme</p>
-              <ul class="bullets">
-                <li class="todo">Small feature you designed, with one line on why</li>
-              </ul>
-            </div>
-          </article>
-        </section>
-
-        <!-- DESIGNED, LIVE, NEXT -->
-        <section class="cs-section" id="status" aria-labelledby="status-h">
-          <h2 class="cs-h2" id="status-h">From design to live</h2>
-          <p class="prose">A design is a promise, and shipping is where it gets tested. Here is what I designed, what is live on production today, and what the team is still building for the MVP.</p>
-
-          <div class="stages">
-            <figure class="stage">
-              <span class="stage-tag is-designed">Designed</span>
-              <div class="shot shot-tall" role="img" aria-label="Designed screens">Designed screens</div>
-              <figcaption>The promise: the new brand UI on a calmer product page and basket, on app and web.</figcaption>
-            </figure>
-            <figure class="stage">
-              <span class="stage-tag is-live">Live on prod</span>
-              <div class="shot shot-tall" role="img" aria-label="Screens live in production">Live screens</div>
-              <figcaption>The reality today: live on production, and still being refined with engineering.</figcaption>
-            </figure>
-            <figure class="stage">
-              <span class="stage-tag is-next">Next, MVP in progress</span>
-              <div class="shot shot-tall" role="img" aria-label="Upcoming MVP screens">MVP screens</div>
-              <figcaption>The next chapter: what the team is still building for the MVP.</figcaption>
-            </figure>
-          </div>
-
-          <h3 class="cs-h3 gap-h">Closing the gap</h3>
+        <section class="cs-section" id="gap" aria-labelledby="gap-h">
+          <h2 class="cs-h2" id="gap-h">Closing the gap</h2>
+          <p class="prose">The live build is still being refined with engineering. This is what I did to keep it close to the design, on both screens.</p>
           <ul class="bullets">
             <li class="todo">Design QA: how you reviewed builds against the design</li>
             <li class="todo">Specs and handoff: what you gave engineers</li>
             <li class="todo">Refinement rounds: what you worked through with the team</li>
           </ul>
         </section>
-
-        <!-- IMPACT -->
         <section class="cs-section" id="impact" aria-labelledby="impact-h">
           <h2 class="cs-h2" id="impact-h">What changed</h2>
           <p class="prose">We do not have launch numbers yet, so I will not quote any. Here is what I can say today.</p>
@@ -241,8 +270,6 @@
           </div>
           -->
         </section>
-
-        <!-- REFLECTION -->
         <section class="cs-section" id="reflection" aria-labelledby="reflection-h">
           <h2 class="cs-h2" id="reflection-h">Looking back</h2>
           <div class="prose">
