@@ -382,19 +382,45 @@ a { color: inherit; }
    Compact cards in a grid. Opening one grows it over its neighbours into a reader (desktop and tablet)
    or slides it up as a drawer (phones). The behaviour lives in main.js.
    ========================================================================== */
-.recs { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-@media (min-width: 40rem) { .recs { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 66rem) { .recs { grid-template-columns: repeat(3, 1fr); } }
-.recs-more { margin-top: 2rem; font-weight: 500; }
+/* One row that scrolls sideways: swipe, trackpad, drag with the mouse, or use the arrows below.
+   The edges fade to show there is more. */
+.recs {
+  --fade-l: 0rem; --fade-r: 4rem;
+  display: grid; grid-auto-flow: column; grid-auto-columns: min(21rem, 82vw); gap: 1.25rem;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity; scrollbar-width: none;
+  padding: .9rem 0; margin-block: -.9rem;            /* room for the hover lift inside the scroll area */
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+          mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-l), #000 calc(100% - var(--fade-r)), transparent 100%);
+}
+.recs::-webkit-scrollbar { display: none; }
+.recs.has-left { --fade-l: 4rem; }
+.recs.at-end { --fade-r: 0rem; }
+.recs.is-dragging { scroll-snap-type: none; cursor: grabbing; user-select: none; }
+.recs:focus-visible { outline: 2px solid var(--ink); outline-offset: 6px; border-radius: var(--radius-l); }
+
+.recs-foot { margin-top: 1.75rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
+.recs-more { font-weight: 500; }
+.recs-nav { display: flex; gap: .6rem; }
+.recs-step {
+  display: grid; place-items: center; width: 2.9rem; height: 2.9rem;
+  border: 0; border-radius: 50%; background: var(--surface); color: var(--ink); cursor: pointer;
+  transition: background-color .3s var(--ease), color .3s var(--ease), opacity .3s;
+}
+.recs-step svg { width: 1.25rem; height: 1.25rem; }
+.recs-step:hover:not(:disabled) { background: var(--ink); color: var(--bg); }
+.recs-step:disabled { opacity: .35; cursor: default; }
+.recs-step:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
 
 .rec {
   position: relative; isolation: isolate; overflow: hidden;
   display: flex; flex-direction: column; justify-content: space-between; gap: 1.75rem;
   min-height: 17rem; padding: 1.6rem;
   background: var(--surface); border-radius: var(--radius-l);
+  scroll-snap-align: start; cursor: pointer;
   transition: transform .5s var(--ease);
 }
-@media (max-width: 40rem) { .rec { min-height: 0; padding: 1.35rem; gap: 1.25rem; } }
+@media (max-width: 40rem) { .rec { padding: 1.35rem; gap: 1.25rem; } }
 
 /* soft gradient that rises from the bottom on hover */
 .rec::before {
@@ -422,9 +448,8 @@ a { color: inherit; }
 .rec-role { font-size: .85rem; color: var(--ink); opacity: .7; }
 .rec-meta { margin-top: .15rem; font-size: .8rem; color: var(--muted); }
 
-/* "Read in full": the whole card is clickable through this button */
+/* "Read in full": the whole card opens the reader; this button is the keyboard and screen reader way in */
 .rec-open { justify-self: start; font: inherit; font-size: .95rem; font-weight: 500; color: inherit; background-color: transparent; border: 0; padding: 0 0 .15em; cursor: pointer; }
-.rec-open::after { content: ""; position: absolute; inset: 0; z-index: 1; }
 .rec-open:focus-visible { outline: none; }
 .has-cursor .rec { cursor: none; }
 
