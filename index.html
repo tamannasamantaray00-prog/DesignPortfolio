@@ -167,20 +167,20 @@
           <p class="section-intro">Small games and experiments I build when I’m not at work.</p>
         </div>
 
-        <!-- Replace each tile with a real game: title, one line, and the live link.
+        <!-- The title, description and link for each tile come from games.js. Edit that one file.
              --glow is the color of the soft gradient that rises on hover. -->
         <div class="tiles">
-          <a class="tile" href="#" data-cursor="Play" style="--glow:#A259FF">
-            <h3 class="tile-title">Game title</h3>
-            <p class="tile-desc">One line about what the game is and how you play it.</p>
+          <a class="tile" href="#" data-game="0" data-cursor="Play" style="--glow:#A259FF">
+            <h3 class="tile-title" data-game-title>Game title</h3>
+            <p class="tile-desc" data-game-desc>One line about what the game is and how you play it.</p>
           </a>
-          <a class="tile" href="#" data-cursor="Play" style="--glow:#0ACF83">
-            <h3 class="tile-title">Game title</h3>
-            <p class="tile-desc">One line about what the game is and how you play it.</p>
+          <a class="tile" href="#" data-game="1" data-cursor="Play" style="--glow:#0ACF83">
+            <h3 class="tile-title" data-game-title>Game title</h3>
+            <p class="tile-desc" data-game-desc>One line about what the game is and how you play it.</p>
           </a>
-          <a class="tile" href="#" data-cursor="Play" style="--glow:#1ABCFE">
-            <h3 class="tile-title">Game title</h3>
-            <p class="tile-desc">One line about what the game is and how you play it.</p>
+          <a class="tile" href="#" data-game="2" data-cursor="Play" style="--glow:#1ABCFE">
+            <h3 class="tile-title" data-game-title>Game title</h3>
+            <p class="tile-desc" data-game-desc>One line about what the game is and how you play it.</p>
           </a>
         </div>
       </div>
@@ -322,5 +322,6 @@
   <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
 
   <script src="main.js"></script>
+  <script src="games.js"></script>
 </body>
 </html>
