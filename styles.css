@@ -718,12 +718,22 @@ img.collage-img { display: block; }
   transform: scaleX(0); transform-origin: left; pointer-events: none;
 }
 
-.cs-hero { padding-top: calc(var(--header-h) + 2rem); }
-.cs-back { display: inline-block; font-weight: 500; margin-bottom: 1.75rem; }
+.cs-hero { padding-top: calc(var(--header-h) + 1rem); }
+.cs-back { display: inline-block; font-weight: 500; }
+
+/* Order on the page: cover first, then the title block, then the snapshot.
+   The cover is tall enough to feel like a hero, but short enough that the title shows on the first screen. */
+.cs-hero .cs-cover .shot-wide { aspect-ratio: auto; height: clamp(16rem, 58vh, 38rem); border-radius: var(--radius-l); }
+@media (max-width: 40rem) { .cs-hero .cs-cover .shot-wide { height: clamp(13rem, 62vw, 20rem); } }
+
+.cs-head { margin-top: clamp(1.75rem, 4vw, 2.75rem); display: grid; grid-template-columns: 1fr; gap: 1rem 4rem; align-items: end; }
+.cs-head .cs-back { grid-column: 1 / -1; justify-self: start; }
+.cs-head .cs-summary { margin-top: 0; }
+@media (min-width: 60rem) { .cs-head { grid-template-columns: 1.35fr 1fr; } }
 .cs-title {
-  font-size: clamp(2.1rem, 5vw, 4rem);
-  line-height: 1.04; font-weight: 600; letter-spacing: var(--track-title);
-  max-width: 20ch; text-wrap: balance;
+  font-size: clamp(1.75rem, 3.4vw, 2.75rem);      /* same size as the section titles on the landing page */
+  line-height: 1.08; font-weight: 600; letter-spacing: var(--track-title);
+  max-width: 24ch; text-wrap: balance;
 }
 .cs-summary { margin-top: 1.25rem; max-width: 58ch; font-size: 1.2rem; line-height: 1.5; color: var(--muted); }
 
@@ -737,7 +747,7 @@ img.collage-img { display: block; }
 .snapshot dt { font-size: .9rem; color: var(--muted); letter-spacing: var(--track-label); }
 .snapshot dd { margin: .2rem 0 0; font-weight: 500; }
 
-.cs-cover { margin: clamp(2rem, 5vw, 3rem) 0 0; }
+.cs-cover { margin: 0; }
 
 /* Images and their placeholders */
 .shot {
