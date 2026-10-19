@@ -374,35 +374,38 @@ a { color: inherit; }
 .article { position: relative; display: block; text-decoration: none; transition: transform .5s var(--ease); }
 .article:hover, .article:focus-visible { transform: translateY(-6px); }
 
-/* Cover. The gradient sits over it and rises on hover (works over a Medium cover or your own image). */
-.article-media { position: relative; overflow: hidden; border-radius: var(--radius-l); background: var(--surface); }
-.article-media::after {
-  content: ""; position: absolute; inset: 0;
+/* The card: the article title sits inside it. A soft gradient rises from the bottom on hover. */
+.article-card {
+  position: relative; isolation: isolate; overflow: hidden;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 1rem;
+  min-height: 12rem; padding: 1.4rem;
+  background: var(--surface); border-radius: var(--radius-l);
+}
+.article-card::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
   background: radial-gradient(ellipse 85% 100% at 50% 100%, var(--glow, #A259FF), transparent 75%) bottom / 100% 35% no-repeat;
   opacity: 0;
   transition: opacity .6s var(--ease), background-size .8s var(--ease);
   pointer-events: none;
 }
-.article:hover .article-media::after, .article:focus-visible .article-media::after { opacity: .55; background-size: 100% 100%; }
-.thumb-wide { aspect-ratio: auto; height: clamp(9rem, 13vw, 11.5rem); border-radius: 0; display: block; width: 100%; padding: 0; object-fit: cover; }
-.thumb-ink {
-  display: grid; place-items: center;
-  background: var(--ink); color: var(--bg);
-  font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; letter-spacing: -.02em;
-}
+.article:hover .article-card::before, .article:focus-visible .article-card::before { opacity: .55; background-size: 100% 100%; }
+.article-card-ink { background: var(--ink); color: var(--bg); }
 
-.article-title { margin-top: 1rem; font-size: 1.1rem; line-height: 1.25; font-weight: 600; letter-spacing: -.02em; text-wrap: balance; }
-.article-desc { margin-top: .5rem; font-size: .92rem; line-height: 1.5; color: var(--muted); }
+.article-title { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.22; font-weight: 600; letter-spacing: var(--track-title); text-wrap: balance; }
 .article-badge {
-  display: block; width: fit-content; white-space: nowrap; margin-top: .75rem; padding: .2rem .75rem; border-radius: var(--pill);
+  display: block; width: fit-content; white-space: nowrap;
+  padding: .2rem .75rem; border-radius: var(--pill);
   background: var(--ink); color: var(--bg); font-size: .78rem; font-weight: 600; letter-spacing: var(--track-label);
 }
-.article-meta { margin-top: .75rem; font-size: .85rem; color: var(--muted); letter-spacing: var(--track-label); }
+
+/* Underneath the card: the platform, then the read time and date */
+.article-source { margin-top: .9rem; font-weight: 600; font-size: .95rem; letter-spacing: var(--track-label); }
+.article-meta { margin-top: .15rem; font-size: .88rem; color: var(--muted); letter-spacing: var(--track-label); }
 
 /* Touch screens have no hover, so the tile and article gradients stay faintly visible */
 @media (hover: none) {
   .tile::before { opacity: .35; background-size: 100% 100%; }
-  .article-media::after { opacity: .3; background-size: 100% 100%; }
+  .article-card::before { opacity: .3; background-size: 100% 100%; }
 }
 
 /* ==========================================================================
