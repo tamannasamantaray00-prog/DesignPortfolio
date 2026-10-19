@@ -221,57 +221,89 @@
       <div class="wrap">
         <div class="section-head">
           <h2 class="section-title" id="rec-title">What people say</h2>
-          <p class="section-intro">Words from people I’ve built products with.</p>
+          <p class="section-intro">Words from people I’ve worked with, newest first. Open a card to read the full recommendation.</p>
         </div>
 
-        <!-- RECOMMENDATIONS: one .rec card per person (LinkedIn recommendations work well).
-             Each card: a short pull-quote, one or two supporting sentences, then the person.
-             --glow is the color of the soft gradient that rises on hover.
-             To use a photo instead of initials, replace the .rec-avatar span with
-             <img class="rec-avatar" src="images/name.jpg" alt="Name">
-             Add as many cards as you like. More than four will scroll sideways. -->
-        <div class="recs" role="group" aria-label="Recommendations" tabindex="0">
-          <figure class="rec" style="--glow:#A259FF">
-            <blockquote>
-              <p class="rec-quote">Short pull-quote from the recommendation.</p>
-              <p class="rec-more">One or two supporting sentences about what changed because you were on the team.</p>
-            </blockquote>
-            <figcaption class="rec-who">
-              <span class="rec-avatar" aria-hidden="true">AB</span>
-              <span class="rec-text"><span class="rec-name">Name</span><span class="rec-role">Role at company</span></span>
-            </figcaption>
-          </figure>
-          <figure class="rec" style="--glow:#1ABCFE">
-            <blockquote>
-              <p class="rec-quote">Short pull-quote from the recommendation.</p>
-              <p class="rec-more">One or two supporting sentences about what changed because you were on the team.</p>
-            </blockquote>
-            <figcaption class="rec-who">
-              <span class="rec-avatar" aria-hidden="true">CD</span>
-              <span class="rec-text"><span class="rec-name">Name</span><span class="rec-role">Role at company</span></span>
-            </figcaption>
-          </figure>
-          <figure class="rec" style="--glow:#0ACF83">
-            <blockquote>
-              <p class="rec-quote">Short pull-quote from the recommendation.</p>
-              <p class="rec-more">One or two supporting sentences about what changed because you were on the team.</p>
-            </blockquote>
-            <figcaption class="rec-who">
-              <span class="rec-avatar" aria-hidden="true">EF</span>
-              <span class="rec-text"><span class="rec-name">Name</span><span class="rec-role">Role at company</span></span>
-            </figcaption>
-          </figure>
-          <figure class="rec" style="--glow:#FF7262">
-            <blockquote>
-              <p class="rec-quote">Short pull-quote from the recommendation.</p>
-              <p class="rec-more">One or two supporting sentences about what changed because you were on the team.</p>
-            </blockquote>
-            <figcaption class="rec-who">
-              <span class="rec-avatar" aria-hidden="true">GH</span>
-              <span class="rec-text"><span class="rec-name">Name</span><span class="rec-role">Role at company</span></span>
-            </figcaption>
-          </figure>
+        <!-- One .rec card per person, newest first. Each card shows one pull-quote (an exact sentence from the
+             recommendation). The full text sits in the hidden .rec-full block and opens when the card is clicked.
+             Keep the recommendation word for word. To add one, copy a whole <article class="rec"> block.
+             --glow is the color of the soft gradient on hover. -->
+        <div class="recs">
+
+          <article class="rec" style="--glow:#A259FF" data-cursor="Read">
+            <blockquote class="rec-top"><p class="rec-quote">She thinks beyond screens and flows and takes responsibility for the overall UX outcomes of a product.</p></blockquote>
+            <div class="rec-bottom">
+              <div class="rec-who">
+                <span class="rec-avatar" aria-hidden="true">JJ</span>
+                <span class="rec-text"><span class="rec-name">Joms Jose</span><span class="rec-role">Design Director, India Studios, Infosys + Wongdoody</span><span class="rec-meta">Managed me directly, April 2026</span></span>
+              </div>
+              <button class="text-link rec-open" type="button" aria-label="Read the full recommendation from Joms Jose">Read in full</button>
+            </div>
+            <div class="rec-full" hidden><p>Tamanna is a highly thoughtful and driven product designer with a strong self-starting spirit and a natural bias toward action. She approaches challenges with problem-solving as a default mindset, navigating ambiguity with clarity, structure, and a deep focus on user needs.</p><p>One quality that sets Tamanna apart is her ability to own the UX backlog for a product, rather than operating only within the boundaries of execution. There is a fine but important distinction between being a product designer and truly owning UX as a product discipline. This includes understanding priorities, sequencing work, making informed trade-offs, and aligning closely with product owners to shape direction. Tamanna possesses this rare capability. She thinks beyond screens and flows and takes responsibility for the overall UX outcomes of a product.</p><p>During the time she reported directly to me, she demonstrated strong ownership across complex, high-impact initiatives, leading work end-to-end while collaborating effectively across functions and balancing user experience, system integrity, and business goals.</p><p>A particular strength Tamanna brings is her passion for design systems. She does not treat systems as static artifacts, but as evolving foundations for scalable, consistent, and high-quality experiences. Her depth of system thinking, paired with practical delivery, raised the bar for both the quality and sustainability of the work around her.</p><p>Beyond skill and execution, Tamanna leads with empathy, curiosity, and professionalism. She contributes positively to team culture, asks thoughtful questions, and continuously looks for opportunities to improve both the product and the way teams work together.</p><p>She would be a strong asset to any team looking for a designer who combines craft, systems thinking, and true UX ownership at a product level.</p></div>
+          </article>
+
+          <article class="rec" style="--glow:#1ABCFE" data-cursor="Read">
+            <blockquote class="rec-top"><p class="rec-quote">She is a talented UX designer with special focus on design system using latest Figma hacks.</p></blockquote>
+            <div class="rec-bottom">
+              <div class="rec-who">
+                <span class="rec-avatar" aria-hidden="true">AK</span>
+                <span class="rec-text"><span class="rec-name">Asutosh Kar</span><span class="rec-role">Sr Design Director, Wongdoody and Infosys</span><span class="rec-meta">Managed me directly, March 2026</span></span>
+              </div>
+              <button class="text-link rec-open" type="button" aria-label="Read the full recommendation from Asutosh Kar">Read in full</button>
+            </div>
+            <div class="rec-full" hidden><p>Energetic and keen learner. She is a talented UX designer with special focus on design system using latest Figma hacks. She is great with networking and a great team player too. She brings a lot of positive energy to work.</p></div>
+          </article>
+
+          <article class="rec" style="--glow:#0ACF83" data-cursor="Read">
+            <blockquote class="rec-top"><p class="rec-quote">She has a strong ability to translate complex concepts into engaging narratives.</p></blockquote>
+            <div class="rec-bottom">
+              <div class="rec-who">
+                <span class="rec-avatar" aria-hidden="true">BR</span>
+                <span class="rec-text"><span class="rec-name">Bindya Raj</span><span class="rec-role">ex-Vice President, Global Delivery Head, Digital Experience and WongDoody</span><span class="rec-role">Now Vice President, Global GTM Head at Cognizant</span><span class="rec-meta">My mentor, October 2025</span></span>
+              </div>
+              <button class="text-link rec-open" type="button" aria-label="Read the full recommendation from Bindya Raj">Read in full</button>
+            </div>
+            <div class="rec-full" hidden><p>Tamanna is an exceptional communicator with a real knack for storytelling and structuring presentations that connect effortlessly with clients. She has a strong ability to translate complex concepts into engaging narratives. Her calm presence, attention to detail, and professionalism make her a genuine asset on any client-facing engagement.</p></div>
+          </article>
+
+          <article class="rec" style="--glow:#FF7262" data-cursor="Read">
+            <blockquote class="rec-top"><p class="rec-quote">I was impressed by her ability to handle any unforeseen requests calmly and patiently, even with the toughest clients.</p></blockquote>
+            <div class="rec-bottom">
+              <div class="rec-who">
+                <span class="rec-avatar" aria-hidden="true">AB</span>
+                <span class="rec-text"><span class="rec-name">Aayush Bakre</span><span class="rec-role">Business Analyst, building brands</span><span class="rec-meta">Managed me directly, September 2021</span></span>
+              </div>
+              <button class="text-link rec-open" type="button" aria-label="Read the full recommendation from Aayush Bakre">Read in full</button>
+            </div>
+            <div class="rec-full" hidden><p>Working with Tamanna was a fulfilling professional experience. Tamanna effectively filled the Graphic Design role for the company’s design needs. I was impressed by her ability to handle any unforeseen requests calmly and patiently, even with the toughest clients. This skill of hers has helped us serve clients exceptionally through her time with us. Tamanna has been a valuable asset to our company and will continue to be a professional I appreciate.</p></div>
+          </article>
+
+          <article class="rec" style="--glow:#A259FF" data-cursor="Read">
+            <blockquote class="rec-top"><p class="rec-quote">When she was given her own team of design volunteers she could conceptualise and communicate effectively with clarity.</p></blockquote>
+            <div class="rec-bottom">
+              <div class="rec-who">
+                <span class="rec-avatar" aria-hidden="true">NS</span>
+                <span class="rec-text"><span class="rec-name">Nimisha Singla</span><span class="rec-role">Engineering with Nature (and not against it)</span><span class="rec-meta">Worked with me on the same team, September 2021</span></span>
+              </div>
+              <button class="text-link rec-open" type="button" aria-label="Read the full recommendation from Nimisha Singla">Read in full</button>
+            </div>
+            <div class="rec-full" hidden><p>Working with Tamanna on the campaigns we designed at India Against Covid was a delight. Her fresh ideas and perspective for social media not only helped the non-profit gain traction but also attracted a lot of volunteers. When she was given her own team of design volunteers she could conceptualise and communicate effectively with clarity. It is a pleasure to be associated with someone of her calibre and I wish her all the best for all her future endeavours!</p></div>
+          </article>
+
+          <article class="rec" style="--glow:#1ABCFE" data-cursor="Read">
+            <blockquote class="rec-top"><p class="rec-quote">She facilitated effective branding strategies to uplift the social media game of various companies, specifically, in the Food, FMCG and Adventure industries.</p></blockquote>
+            <div class="rec-bottom">
+              <div class="rec-who">
+                <span class="rec-avatar" aria-hidden="true">RP</span>
+                <span class="rec-text"><span class="rec-name">Rahul Panda</span><span class="rec-role">Founder, building The Social Ants</span><span class="rec-meta">My mentor, September 2021</span></span>
+              </div>
+              <button class="text-link rec-open" type="button" aria-label="Read the full recommendation from Rahul Panda">Read in full</button>
+            </div>
+            <div class="rec-full" hidden><p>Tamanna had been a major team player in the Indian Segment of The Social Ants.</p><p>She facilitated effective branding strategies to uplift the social media game of various companies, specifically, in the Food, FMCG and Adventure industries.</p><p>As a diligent member of the company, she has driven enough potential into brands.</p></div>
+          </article>
         </div>
+
+        <p class="recs-more"><a class="text-link" href="https://www.linkedin.com/in/tamanna-samantaray-86b83352/" target="_blank" rel="noopener">See all recommendations on LinkedIn</a></p>
       </div>
     </section>
 
