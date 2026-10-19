@@ -47,6 +47,21 @@ html.about, body.about { height: 100%; overflow: hidden; }
 .way-title { font-size: 1.2rem; line-height: 1.25; font-weight: 600; letter-spacing: -.02em; }
 .way-text { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.55; }
 .ways-note { margin-top: 1.75rem; max-width: 46ch; font-weight: 500; font-size: 1.05rem; line-height: 1.45; }
+@media (min-width: 48rem) { .ways-3 { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 40rem) { .ways-4 { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 64rem) { .ways-4 { grid-template-columns: repeat(4, 1fr); gap: 1.75rem; } }
+
+/* Games I built: a small row of links */
+.games { margin-top: 1.75rem; }
+.games-title { font-size: .9rem; font-weight: 600; color: var(--muted); letter-spacing: var(--track-label); margin-bottom: .7rem; }
+.games-list { display: flex; flex-wrap: wrap; gap: .5rem; }
+.game-link {
+  display: inline-block; padding: .4rem 1rem;
+  font-size: .95rem; font-weight: 500; letter-spacing: var(--track-label); text-decoration: none;
+  border: 1.5px solid var(--ink); border-radius: var(--pill);
+  transition: background-color .3s var(--ease), color .3s var(--ease), transform .35s var(--ease);
+}
+.game-link:hover { background: var(--ink); color: var(--bg); transform: translateY(-2px); }
 
 /* Handwritten notes: the only place this font appears */
 .note {
@@ -190,6 +205,20 @@ img.polaroid-img { display: block; }
   /* "hi there" sits on the photo's corner, without the arrow */
   .note-hello { left: auto; right: -.4rem; top: -1.2rem; margin: 0; }
   .note-hello svg { display: none; }
+
+  /* tighter text blocks so the longer chapters (How I work, What drives me, My story) fit one screen */
+  .chapter-label { margin-bottom: .75rem; }
+  .big-text { font-size: 1.25rem; }
+  .ways { gap: .75rem; margin-top: 1rem; }
+  .way { padding-top: .65rem; }
+  .way-title { font-size: 1rem; }
+  .way-text { font-size: .875rem; margin-top: .25rem; line-height: 1.4; }
+  .ways-note { margin-top: 1rem; font-size: .95rem; }
+  .games { margin-top: 1rem; }
+  .games-title { margin-bottom: .5rem; }
+  .game-link { padding: .3rem .8rem; font-size: .875rem; }
+  .story-hint { margin-top: 1rem; }
+  .note-sticky { margin-top: 1rem; }
 
   /* a little tighter so each story chapter fits without inner scrolling */
   .story-name { font-size: 1.5rem; }
