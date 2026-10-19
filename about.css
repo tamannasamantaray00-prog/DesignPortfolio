@@ -40,6 +40,14 @@ html.about, body.about { height: 100%; overflow: hidden; }
 .hello-small { font-size: 1.25rem; font-weight: 500; color: var(--muted); margin-bottom: .75rem; }
 .story-hint { margin-top: 1.75rem; color: var(--muted); }
 
+/* How I work: two ways side by side, with a closing line */
+.ways { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+@media (min-width: 40rem) { .ways { grid-template-columns: 1fr 1fr; gap: 2rem; } }
+.way { border-top: 1.5px solid var(--ink); padding-top: 1rem; }
+.way-title { font-size: 1.2rem; line-height: 1.25; font-weight: 600; letter-spacing: -.02em; }
+.way-text { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.55; }
+.ways-note { margin-top: 1.75rem; max-width: 46ch; font-weight: 500; font-size: 1.05rem; line-height: 1.45; }
+
 /* Handwritten notes: the only place this font appears */
 .note {
   font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
