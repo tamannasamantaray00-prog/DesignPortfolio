@@ -547,7 +547,7 @@
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   roots.forEach(function (root) {
-    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]:not([disabled])'));   // a locked tab is left out
     var panels = tabs.map(function (tab) { return document.getElementById(tab.getAttribute("aria-controls")); });
     var bar = tabs.length ? tabs[0].parentElement : null;
     var indicator = bar ? bar.querySelector(".tab-indicator") : null;
