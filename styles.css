@@ -53,7 +53,7 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, p, ul, figure, blockquote { margin: 0; }
+h1, h2, h3, h4, p, ul, figure, blockquote { margin: 0; }
 
 .nav, .case-meta, .early-row, .field label, .form-status,
 .site-footer, .hero-hello, .button, .cursor-label { letter-spacing: var(--track-label); }
@@ -894,6 +894,11 @@ img.collage-img { display: block; }
 
 /* ---- Screen switch (Babyshop): Product page and Basket, with a sliding pill ---- */
 .screen-tabs { margin-top: 1.5rem; }
+.switch-note { font-size: .9rem; color: var(--muted); margin-bottom: .75rem; }
+/* A tab that is not available yet: muted, with a lock, and it does nothing when clicked */
+.tab-locked { display: inline-flex; align-items: center; gap: .45rem; cursor: not-allowed; opacity: .6; }
+.tab-locked:hover { color: var(--muted); }
+.tab-lock { width: .95rem; height: .95rem; flex: none; }
 .screen-switch {
   position: sticky; top: calc(var(--header-h) + .5rem); z-index: 30;
   display: inline-flex; gap: .25rem; padding: .35rem;
@@ -928,6 +933,37 @@ img.collage-img { display: block; }
   .screen-switch { display: flex; width: 100%; }
   .tab { flex: 1; padding: .7rem 1rem; }
 }
+
+/* ---- Case study storytelling pieces (Babyshop) ---- */
+.pull { font-size: clamp(1.35rem, 2.4vw, 1.85rem); line-height: 1.22; font-weight: 600; letter-spacing: var(--track-title); max-width: 32ch; text-wrap: balance; margin-bottom: 1.25rem; }
+.pull-small { font-size: clamp(1.15rem, 1.9vw, 1.4rem); margin-top: 1.75rem; margin-bottom: 0; }
+
+/* Four numbered objectives */
+.objectives { margin-top: 1.25rem; display: grid; }
+.obj { display: grid; grid-template-columns: 3.25rem 1fr; gap: .5rem 1rem; padding-block: 1.2rem; border-top: 1px solid var(--line); }
+.obj:last-child { border-bottom: 1px solid var(--line); }
+.obj-num { font-weight: 600; color: var(--muted); letter-spacing: var(--track-label); }
+.obj-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -.015em; line-height: 1.25; }
+.obj p { margin-top: .35rem; color: var(--muted); max-width: 62ch; }
+
+/* Four-part card: one idea per row, with an icon */
+.four-part { margin-top: 1.25rem; border: 1px solid var(--line); border-radius: var(--radius-m); padding: .25rem clamp(1.1rem, 3vw, 1.75rem); background: var(--bg); }
+.four-row { display: grid; grid-template-columns: 2rem 1fr; gap: 1.25rem; padding-block: 1.35rem; align-items: start; }
+.four-row + .four-row { border-top: 1px solid var(--line); }
+.four-icon { width: 1.6rem; height: 1.6rem; margin-top: .15rem; color: var(--ink); }
+.four-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -.015em; line-height: 1.25; }
+.four-text { margin-top: .3rem; color: var(--muted); max-width: 62ch; }
+
+/* Features and where each one stands */
+.feature-list { margin-top: 1rem; display: grid; }
+.feature-row { padding-block: 1.2rem; border-top: 1px solid var(--line); }
+.feature-row:last-child { border-bottom: 1px solid var(--line); }
+.feature-head { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
+.feature-name { font-size: 1.1rem; font-weight: 600; letter-spacing: -.015em; }
+.feature-row p { margin-top: .4rem; color: var(--muted); max-width: 62ch; }
+
+.role-cols { margin-top: 2rem; margin-bottom: 2rem; }
+.cs-main .prose strong { font-weight: 600; }
 
 /* ==========================================================================
    MOBILE
