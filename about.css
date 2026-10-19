@@ -237,3 +237,19 @@ img.polaroid-img { display: block; }
   .photo-card:hover, .polaroid:hover { transform: none; }
   .polaroid { transform: none; }
 }
+
+/* ==========================================================================
+   PHOTO CLUSTERS (the cards and captions come from styles.css, the same ones the contact section uses)
+   The cluster is sized from the screen height too, so it never runs under the bottom bar.
+   ========================================================================== */
+.chapter .collage { width: min(100%, 32rem, calc((100vh - 13rem) / 1.04)); width: min(100%, 32rem, calc((100svh - 13rem) / 1.04)); margin-inline: 0; }
+
+/* Two cards: class 8 and games */
+.chapter .collage-2 { aspect-ratio: 1 / 1; width: min(100%, 28rem, calc(100vh - 13rem)); width: min(100%, 28rem, calc(100svh - 13rem)); }
+.shot-d { left: 4%;  top: 17%; width: 46%; --r: -5deg; z-index: 2; }
+.shot-d .collage-img { aspect-ratio: 3 / 4; }
+.shot-e { right: 4%; top: 22%; width: 48%; --r: 4deg;  z-index: 1; }
+.shot-e .collage-img { aspect-ratio: 4 / 5; }
+.scribble-d { left: 9%; top: 3%; transform: rotate(-3deg); }
+.scribble-e { right: 8%; bottom: 1%; transform: rotate(2deg); align-items: flex-end; }
+.scribble-e svg { margin-bottom: .45rem; transform: rotate(180deg); }
