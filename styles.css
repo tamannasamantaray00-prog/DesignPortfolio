@@ -892,6 +892,43 @@ img.collage-img { display: block; }
 .cs-main .prose p, .cs-main .bullets li, .cs-main .steps li { text-wrap: pretty; }
 .cs-main .callout { width: 100%; }
 
+/* ---- Screen switch (Babyshop): Product page and Basket, with a sliding pill ---- */
+.screen-tabs { margin-top: 1.5rem; }
+.screen-switch {
+  position: sticky; top: calc(var(--header-h) + .5rem); z-index: 30;
+  display: inline-flex; gap: .25rem; padding: .35rem;
+  background: var(--surface); border-radius: var(--pill);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, .07);
+}
+.tab-indicator {
+  position: absolute; top: .35rem; bottom: .35rem; left: 0; width: 0; z-index: 0;
+  background: var(--ink); border-radius: var(--pill);
+  transition: transform .45s var(--ease), width .45s var(--ease);
+  pointer-events: none;
+}
+.tab {
+  position: relative; z-index: 1;
+  font: inherit; font-weight: 500; letter-spacing: var(--track-label);
+  padding: .7rem 1.6rem; border: 0; border-radius: var(--pill);
+  background: transparent; color: var(--muted); white-space: nowrap; cursor: pointer;
+  transition: color .3s var(--ease);
+}
+.tab:hover { color: var(--ink); }
+.tab[aria-selected="true"] { color: var(--bg); }
+.tab:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+.screen-panel { margin-top: 2.25rem; animation: panel-in .55s var(--ease) both; }
+.screen-panel[hidden] { display: none; }
+@keyframes panel-in { from { opacity: 0; transform: translateY(.9rem); } to { opacity: 1; transform: none; } }
+.screen-panel > .theme:first-of-type { margin-top: clamp(2rem, 4vw, 3rem); }
+.panel-next { margin-top: clamp(2rem, 4vw, 3rem); font-weight: 500; }
+.panel-next .text-link { font: inherit; font-weight: 500; color: inherit; background-color: transparent; border: 0; padding: 0 0 .15em; cursor: pointer; }
+
+@media (max-width: 40rem) {
+  .screen-switch { display: flex; width: 100%; }
+  .tab { flex: 1; padding: .7rem 1rem; }
+}
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
