@@ -63,59 +63,115 @@
       <div class="wrap">
         <div class="section-head">
           <h2 class="section-title" id="work-title">Selected work</h2>
-          <p class="section-intro">Three case studies, newest first. Each one shows the problem, what I decided, and what shipped.</p>
+          <p class="section-intro">Four flagship projects, each in one line: what I did and why it mattered.</p>
         </div>
 
-        <!-- TIER 1: flagship case studies (full template).
-             To add a real image: replace the .thumb div with <img class="thumb" src="images/your-cover.jpg" alt="Describe the image"> -->
-        <div class="case-list">
-
-          <a class="case" href="case-study-babyshop.html" data-cursor="View">
-            <div class="case-text">
-              <h3 class="case-title">Rebuilding the basket and product page for Babyshop</h3>
-              <p class="case-desc">A revamp of the product page, basket and checkout across app and web. See what I designed, what is live, and what ships next.</p>
-              <p class="case-meta">Landmark Group, app and web</p>
-            </div>
-            <div class="thumb" role="img" aria-label="Babyshop product page and basket screens">Babyshop screens</div>
-          </a>
-
-          <a class="case" href="case-study-landmark-design-system.html" data-cursor="View">
-            <div class="case-text">
-              <h3 class="case-title">One design system for several retail brands</h3>
-              <p class="case-desc">A tokenised, documented system with live documentation, plus a plugin I co-created that pushes updates straight to developer repositories.</p>
-              <p class="case-meta">Landmark Group, multi-brand</p>
-            </div>
-            <div class="thumb" role="img" aria-label="Design system documentation screens">Design system documentation</div>
-          </a>
-
-          <a class="case" href="case-study-fintech-design-system.html" data-cursor="View">
-            <div class="case-text">
-              <h3 class="case-title">A design system for a white-label banking platform</h3>
-              <p class="case-desc">Built from scratch for corporate and retail banking across the US, Europe and EMEA. Design-to-dev handoff got 35% faster.</p>
-              <p class="case-meta">Wongdoody, fintech</p>
-            </div>
-            <div class="thumb" role="img" aria-label="Fintech design system component library">Component library</div>
-          </a>
-
-        </div>
-
-        <!-- TIER 2 and TIER 3 -->
-        <div class="more">
-          <!-- TIER 2: compact case study -->
-          <a class="card" href="case-study-mintgo.html" data-cursor="View">
-            <h3 class="card-title">MintGo</h3>
-            <p class="card-desc">A personal finance app MVP I’m still building: AI planning, bill splitting and automatic expense categories.</p>
-            <p class="case-meta">Personal project, fintech</p>
-          </a>
-
-          <!-- TIER 3: smaller work, one line each, no page of its own -->
-          <div class="early">
-            <h3 class="early-title">Early work and elsewhere</h3>
-            <ul class="early-list">
-              <li><a class="early-row" href="https://www.figma.com/deck/mK7T8TaGvfo3HxiuN5qol8/Swiggy-Instamart-Work?node-id=2-204&amp;t=oA8zkZU1VwZWBs8M-1" target="_blank" rel="noopener"><span>Swiggy Instamart festive campaigns</span><span class="early-year">2022</span></a></li>
-              <li><a class="early-row" href="https://www.behance.net/tamannasamanta2" target="_blank" rel="noopener"><span>More projects on Behance</span><span class="early-year">Archive</span></a></li>
-            </ul>
+        <!-- FLAGSHIPS: one tab and one panel per project. To change the order, move both the tab and its panel.
+             To add a cover image, replace the grey .thumb div inside a panel with
+             <img class="thumb" src="images/your-cover.jpg" alt="Describe the image"> -->
+        <div class="showcase" data-tabs>
+          <div class="tabs" role="tablist" aria-label="Flagship case studies">
+            <span class="tab-indicator" aria-hidden="true"></span>
+        <button class="tab" type="button" role="tab" id="tab-babyshop" aria-controls="panel-babyshop" aria-selected="true">Babyshop</button>
+        <button class="tab" type="button" role="tab" id="tab-retail-ds" aria-controls="panel-retail-ds" aria-selected="false" tabindex="-1">Retail design system</button>
+        <button class="tab" type="button" role="tab" id="tab-banking" aria-controls="panel-banking" aria-selected="false" tabindex="-1">Banking product</button>
+        <button class="tab" type="button" role="tab" id="tab-ai-ds" aria-controls="panel-ai-ds" aria-selected="false" tabindex="-1">AI design system</button>
           </div>
+
+          <div class="panels">
+
+        <article class="panel" role="tabpanel" id="panel-babyshop" aria-labelledby="tab-babyshop" style="--glow:#A259FF">
+          <div class="panel-text">
+            <h3 class="panel-story">I helped revamp Babyshop’s brand UI and redesigned the product page and basket, bringing promotions and offers inline so checkout is faster and smoother for parents on the app and site.</h3>
+            <p class="panel-meta">Brand revamp | Product design, E-commerce, App and web</p>
+            <ul class="chips">
+            <li>Senior Product Designer</li>
+            <li>App and web</li>
+            <li>Brand UI, product page, basket</li>
+            </ul>
+            <a class="text-link panel-link" href="case-study-babyshop.html">Read the case study</a>
+          </div>
+          <a class="panel-thumb" href="case-study-babyshop.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Babyshop screens">
+            <div class="thumb" role="img" aria-label="Babyshop screens">Babyshop screens</div>
+          </a>
+        </article>
+
+        <article class="panel" role="tabpanel" id="panel-retail-ds" aria-labelledby="tab-retail-ds" style="--glow:#0ACF83" hidden>
+          <div class="panel-text">
+            <h3 class="panel-story">I built a design system for 17 designers across 7 brands and a 30+ developer team to pull straight into code, so every brand builds from one source of truth.</h3>
+            <p class="panel-meta">Design systems | 7 brands, DesignOps</p>
+            <ul class="chips">
+            <li>17 designers</li>
+            <li>7 brands</li>
+            <li>30+ developers</li>
+            </ul>
+            <a class="text-link panel-link" href="case-study-landmark-design-system.html">Read the case study</a>
+          </div>
+          <a class="panel-thumb" href="case-study-landmark-design-system.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Design system documentation">
+            <div class="thumb" role="img" aria-label="Design system documentation">Design system documentation</div>
+          </a>
+        </article>
+
+        <article class="panel" role="tabpanel" id="panel-banking" aria-labelledby="tab-banking" style="--glow:#1ABCFE" hidden>
+          <div class="panel-text">
+            <h3 class="panel-story">I led 8 designers on a white-label B2B banking product, owning the end-to-end flows and a re-skinnable component system so partner banks could launch under their own brand.</h3>
+            <p class="panel-meta">9 months | Product design, Fintech, B2B, Team lead</p>
+            <ul class="chips">
+            <li>8 designers led</li>
+            <li>3 partner design teams</li>
+            <li>12-member dev team</li>
+            </ul>
+            <a class="text-link panel-link" href="case-study-banking-product.html">Read the case study</a>
+          </div>
+          <a class="panel-thumb" href="case-study-banking-product.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Banking product screens">
+            <div class="thumb" role="img" aria-label="Banking product screens">Banking product screens</div>
+          </a>
+        </article>
+
+        <article class="panel" role="tabpanel" id="panel-ai-ds" aria-labelledby="tab-ai-ds" style="--glow:#FF7262" hidden>
+          <div class="panel-text">
+            <h3 class="panel-story">I built an AI-first design system that scales across products, with guidelines written alongside the team so AI agents can handle final development, and design-to-dev handoff got 35% faster.</h3>
+            <p class="panel-meta">Design systems | Fintech, AI-first</p>
+            <ul class="chips">
+            <li>35% faster handoff</li>
+            <li>AI-first</li>
+            <li>Built for scale</li>
+            </ul>
+            <a class="text-link panel-link" href="case-study-fintech-design-system.html">Read the case study</a>
+          </div>
+          <a class="panel-thumb" href="case-study-fintech-design-system.html" data-cursor="View" tabindex="-1" aria-label="Open the case study: Component library">
+            <div class="thumb" role="img" aria-label="Component library">Component library</div>
+          </a>
+        </article>
+          </div>
+        </div>
+
+        <!-- MORE WORK: one line each. The first links to a case study page, the others open elsewhere. -->
+        <div class="more-work">
+          <h3 class="more-title">More work</h3>
+          <ul class="more-list">
+            <li>
+              <a class="more-row" href="case-study-mintgo.html" data-cursor="View">
+                <span class="more-name">MintGo</span>
+                <span class="more-story">I’m designing and building a finance app that sorts your spending for you and splits bills with friends, so managing money takes less effort.</span>
+                <span class="more-meta">MVP in progress</span>
+              </a>
+            </li>
+            <li>
+              <a class="more-row" href="https://www.figma.com/deck/mK7T8TaGvfo3HxiuN5qol8/Swiggy-Instamart-Work?node-id=2-204&amp;t=oA8zkZU1VwZWBs8M-1" target="_blank" rel="noopener" data-cursor="Open">
+                <span class="more-name">Swiggy Instamart</span>
+                <span class="more-story">I highlighted brand SKUs and designed the campaign UI that shipped on the Instamart app page, so brands stood out right where shoppers browse.</span>
+                <span class="more-meta">2022</span>
+              </a>
+            </li>
+            <li>
+              <a class="more-row" href="https://www.behance.net/tamannasamanta2" target="_blank" rel="noopener" data-cursor="Open">
+                <span class="more-name">Behance</span>
+                <span class="more-story">Smaller projects and earlier work, all in one place.</span>
+                <span class="more-meta">Archive</span>
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </section>
