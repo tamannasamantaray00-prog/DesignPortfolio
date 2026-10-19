@@ -269,3 +269,206 @@
     };
   }
 })();
+
+/* ---------- Recommendations reader ----------
+   Click a card: on desktop and tablet it grows from its own spot over the other cards,
+   on phones it slides up as a drawer (swipe down to close). Esc, the close button
+   or a click outside close it. */
+(function () {
+  "use strict";
+
+  var cards = Array.prototype.slice.call(document.querySelectorAll(".rec"));
+  if (!cards.length) return;
+
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var phone = window.matchMedia("(max-width: 40rem)");
+
+  var closeIcon = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>';
+
+  var scrim = document.createElement("div");
+  scrim.className = "rec-scrim";
+  scrim.hidden = true;
+  scrim.setAttribute("aria-hidden", "true");
+
+  var pop = document.createElement("div");
+  pop.className = "rec-pop";
+  pop.hidden = true;
+  pop.setAttribute("role", "dialog");
+  pop.setAttribute("aria-modal", "true");
+  pop.setAttribute("aria-labelledby", "rec-pop-name");
+  pop.innerHTML =
+    '<div class="rec-pop-grab" aria-hidden="true"></div>' +
+    '<div class="rec-pop-head">' +
+      '<span class="rec-avatar" aria-hidden="true"></span>' +
+      '<div class="rec-text"></div>' +
+      '<button class="rec-pop-close" type="button" aria-label="Close recommendation">' + closeIcon + '</button>' +
+    '</div>' +
+    '<div class="rec-pop-body" tabindex="0"></div>';
+
+  document.body.appendChild(scrim);
+  document.body.appendChild(pop);
+
+  var avatar = pop.querySelector(".rec-avatar");
+  var who = pop.querySelector(".rec-text");
+  var body = pop.querySelector(".rec-pop-body");
+  var closeBtn = pop.querySelector(".rec-pop-close");
+
+  var active = null, isOpen = false, closing = false, isDrawer = false, lastFocus = null, inertEls = [], timer = null;
+
+  function setInert(on) {
+    if (on) {
+      inertEls = Array.prototype.filter.call(document.body.children, function (el) {
+        return el !== scrim && el !== pop && el.tagName !== "SCRIPT";
+      });
+      inertEls.forEach(function (el) { el.setAttribute("inert", ""); });
+    } else {
+      inertEls.forEach(function (el) { el.removeAttribute("inert"); });
+      inertEls = [];
+    }
+  }
+
+  function fill(card) {
+    avatar.textContent = card.querySelector(".rec-avatar").textContent;
+    who.innerHTML = card.querySelector(".rec-text").innerHTML;
+    who.querySelector(".rec-name").id = "rec-pop-name";
+    body.innerHTML = card.querySelector(".rec-full").innerHTML;
+    body.scrollTop = 0;
+  }
+
+  // Works out where the grown card sits: it keeps to the side of the card you clicked and stays on screen.
+  function place(card) {
+    var r = card.getBoundingClientRect();
+    var rem = parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+    var vw = window.innerWidth, vh = window.innerHeight, m = 16;
+    var tw = Math.min(40 * rem, vw - 2 * m);
+
+    // measure how tall the full text wants to be at this width
+    pop.style.cssText = "transition:none;visibility:hidden;left:0;top:0;width:" + tw + "px;height:auto;";
+    var natural = pop.offsetHeight;
+    var th = Math.min(natural, vh - 2 * m, vh * 0.84);
+
+    var left = r.left;
+    if (left + tw > vw - m) left = r.right - tw;
+    if (left < m) left = Math.max(m, (vw - tw) / 2);
+    var top = r.top;
+    if (top + th > vh - m) top = r.bottom - th;
+    if (top < m) top = Math.max(m, (vh - th) / 2);
+
+    // start exactly on top of the card
+    pop.style.cssText = "transition:none;visibility:visible;left:" + r.left + "px;top:" + r.top + "px;width:" + r.width + "px;height:" + r.height + "px;";
+    void pop.offsetWidth;
+    scrim.classList.add("is-in");
+
+    if (reduce) {
+      pop.style.cssText = "transition:none;left:" + left + "px;top:" + top + "px;width:" + tw + "px;height:" + th + "px;";
+      pop.classList.add("is-open");
+      return;
+    }
+    pop.style.transition = "";
+    requestAnimationFrame(function () {
+      pop.style.left = left + "px";
+      pop.style.top = top + "px";
+      pop.style.width = tw + "px";
+      pop.style.height = th + "px";
+      pop.classList.add("is-open");
+    });
+  }
+
+  function open(card) {
+    if (isOpen || closing) return;
+    isOpen = true;
+    active = card;
+    lastFocus = document.activeElement;
+    fill(card);
+    pop.style.setProperty("--glow", card.style.getPropertyValue("--glow") || "#A259FF");
+    document.documentElement.classList.add("modal-open");
+    setInert(true);
+    scrim.hidden = false;
+    pop.hidden = false;
+    isDrawer = phone.matches;
+    pop.classList.toggle("is-drawer", isDrawer);
+
+    if (isDrawer) {
+      pop.style.cssText = "";
+      void pop.offsetWidth;
+      requestAnimationFrame(function () {
+        scrim.classList.add("is-in");
+        pop.classList.add("is-in", "is-open");
+      });
+    } else {
+      place(card);
+    }
+    closeBtn.focus({ preventScroll: true });
+  }
+
+  function finish() {
+    clearTimeout(timer);
+    pop.hidden = true;
+    scrim.hidden = true;
+    scrim.classList.remove("is-in");
+    pop.className = "rec-pop";
+    pop.style.cssText = "";
+    document.documentElement.classList.remove("modal-open");
+    setInert(false);
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+    closing = false;
+    active = null;
+  }
+
+  function close(instant) {
+    if (!isOpen || closing) return;
+    isOpen = false;
+    closing = true;
+    if (instant === true || reduce) { finish(); return; }
+
+    scrim.classList.remove("is-in");
+    pop.classList.remove("is-open");
+    if (isDrawer) {
+      pop.style.transform = "";
+      pop.classList.remove("is-in");
+      timer = setTimeout(finish, 480);
+    } else {
+      var r = active.getBoundingClientRect();
+      pop.style.left = r.left + "px";
+      pop.style.top = r.top + "px";
+      pop.style.width = r.width + "px";
+      pop.style.height = r.height + "px";
+      timer = setTimeout(finish, 540);
+    }
+  }
+
+  cards.forEach(function (card) {
+    var button = card.querySelector(".rec-open");
+    if (button) button.addEventListener("click", function () { open(card); });
+  });
+
+  closeBtn.addEventListener("click", function () { close(); });
+  scrim.addEventListener("click", function () { close(); });
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape" && isOpen) { e.preventDefault(); close(); }
+  });
+  window.addEventListener("resize", function () { if (isOpen) close(true); });
+
+  // Phones: drag the top of the drawer down to close it.
+  var drag = null;
+  pop.addEventListener("pointerdown", function (e) {
+    if (!isDrawer || !e.target.closest(".rec-pop-grab, .rec-pop-head") || e.target.closest(".rec-pop-close")) return;
+    drag = { y: e.clientY };
+    try { pop.setPointerCapture(e.pointerId); } catch (err) { /* not supported */ }
+    pop.style.transition = "none";
+  });
+  pop.addEventListener("pointermove", function (e) {
+    if (!drag) return;
+    pop.style.transform = "translateY(" + Math.max(0, e.clientY - drag.y) + "px)";
+  });
+  function endDrag(e) {
+    if (!drag) return;
+    var dy = Math.max(0, e.clientY - drag.y);
+    drag = null;
+    pop.style.transition = "";
+    if (dy > 100) close();
+    else pop.style.transform = "";
+  }
+  pop.addEventListener("pointerup", endDrag);
+  pop.addEventListener("pointercancel", endDrag);
+})();
