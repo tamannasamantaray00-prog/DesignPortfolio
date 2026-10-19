@@ -75,6 +75,10 @@ html.about, body.about { height: 100%; overflow: hidden; }
 }
 .tl::before { content: ""; position: absolute; top: -6px; left: var(--chapter-pad); width: 11px; height: 11px; border-radius: 50%; background: var(--ink); }
 .tl-date { font-weight: 600; color: var(--muted); letter-spacing: var(--track-label); }
+
+/* Work that ran alongside the chapters either side: dashed line and a hollow dot */
+.story-parallel .tl { border-top-style: dashed; }
+.story-parallel .tl::before { background: var(--bg); border: 2px solid var(--ink); }
 .story-name { font-size: clamp(1.75rem, 3.2vw, 2.75rem); line-height: 1.06; font-weight: 600; letter-spacing: var(--track-title); max-width: 18ch; text-wrap: balance; }
 .story-role { margin-top: .6rem; font-weight: 500; font-size: 1.15rem; }
 .story-list { margin-top: 1.4rem; display: grid; gap: .7rem; max-width: 60ch; padding-left: 1.2rem; list-style: disc; color: var(--muted); font-size: .975rem; line-height: 1.5; }
