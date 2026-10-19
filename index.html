@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230a0a0a'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -320,7 +320,8 @@
     <!-- CONTACT -->
     <section class="section section-tint contact-section" id="contact" aria-labelledby="contact-title">
       <div class="contact-glow" aria-hidden="true"></div>
-      <div class="wrap">
+      <div class="wrap contact-layout">
+        <div class="contact-copy">
         <h2 class="contact-title" id="contact-title">Let’s get to know each other!</h2>
         <p class="contact-sub">Open to roles, freelance projects, questions, or just a hello. Drop me a message anytime.</p>
 
@@ -344,6 +345,31 @@
         </div>
 
         <p class="contact-email"><a class="text-link" href="mailto:tamannasamantaray00@gmail.com">tamannasamantaray00@gmail.com</a></p>
+        </div>
+
+        <!-- COLLAGE: three tilted photo cards with handwritten captions.
+             To use a real photo, replace the grey .collage-img div with
+             <img class="collage-img" src="images/collage-1.jpg" alt="Describe the photo">
+             Photos with an upright (portrait) shape suit cards 1 and 3, a wider one suits card 2.
+             Edit the words inside each .scribble to change a caption. -->
+        <div class="collage" role="group" aria-label="A few photos from life outside work">
+          <p class="scribble scribble-a">backpacking</p>
+
+          <figure class="shot-card shot-a">
+            <div class="collage-img" role="img" aria-label="Backpacking">Photo 1</div>
+          </figure>
+
+          <figure class="shot-card shot-b">
+            <div class="collage-img" role="img" aria-label="Sketching">Photo 2</div>
+          </figure>
+
+          <figure class="shot-card shot-c">
+            <div class="collage-img" role="img" aria-label="Chasing sunsets">Photo 3</div>
+          </figure>
+
+          <p class="scribble scribble-b">chasing sunsets<svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6c30 2 52 22 50 50"/><path d="M42 46l12 12 8-14"/></svg></p>
+          <p class="scribble scribble-c"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6c30 2 52 22 50 50"/><path d="M42 46l12 12 8-14"/></svg>sketching</p>
+        </div>
       </div>
     </section>
 
