@@ -535,3 +535,93 @@
   pop.addEventListener("pointerup", endDrag);
   pop.addEventListener("pointercancel", endDrag);
 })();
+
+/* ---------- Screen tabs (Babyshop case study) ----------
+   A switch between two screens. Arrow keys, Home and End work. The address ends in #basket or #product-page
+   so a screen can be linked to directly, and the "Next" link at the end of each panel jumps to the other one. */
+(function () {
+  "use strict";
+
+  var roots = document.querySelectorAll("[data-tabs]");
+  if (!roots.length) return;
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  roots.forEach(function (root) {
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var panels = tabs.map(function (tab) { return document.getElementById(tab.getAttribute("aria-controls")); });
+    var bar = tabs.length ? tabs[0].parentElement : null;
+    var indicator = bar ? bar.querySelector(".tab-indicator") : null;
+    var current = 0;
+
+    function moveIndicator() {
+      if (!indicator || !tabs[current]) return;
+      indicator.style.width = tabs[current].offsetWidth + "px";
+      indicator.style.transform = "translateX(" + tabs[current].offsetLeft + "px)";
+    }
+
+    // Bring the start of the tabbed area back into view, so a new screen is read from its beginning.
+    function toTop() {
+      var top = root.getBoundingClientRect().top;
+      var limit = 110;                      // roughly the header plus the switch
+      if (top < limit) {
+        window.scrollTo({ top: window.scrollY + top - limit, behavior: reduce ? "auto" : "smooth" });
+      }
+    }
+
+    function select(index, opts) {
+      opts = opts || {};
+      current = index;
+      tabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+        tab.tabIndex = on ? 0 : -1;
+        if (panels[i]) panels[i].hidden = !on;
+      });
+      moveIndicator();
+      if (opts.focus) tabs[index].focus();
+      if (opts.updateHash !== false && tabs[index].dataset.hash && window.history && history.replaceState) {
+        history.replaceState(null, "", "#" + tabs[index].dataset.hash);
+      }
+      if (opts.scroll) toTop();
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(i, { scroll: true }); });
+      tab.addEventListener("keydown", function (e) {
+        var next = null;
+        if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+        else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabs.length - 1;
+        if (next !== null) { e.preventDefault(); select(next, { focus: true }); }
+      });
+    });
+
+    // "Next" and "Back" links inside the panels
+    root.querySelectorAll("[data-switch]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var i = tabs.findIndex(function (t) { return t.dataset.hash === btn.getAttribute("data-switch"); });
+        if (i > -1) { select(i, { scroll: true }); }
+      });
+    });
+
+    // Place the pill without animating on first paint, and again once fonts have loaded.
+    if (indicator) { indicator.style.transition = "none"; moveIndicator(); void indicator.offsetWidth; indicator.style.transition = ""; }
+    window.addEventListener("resize", moveIndicator);
+    window.addEventListener("load", moveIndicator);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveIndicator);
+
+    // A link such as page.html#basket opens that screen straight away.
+    function fromHash() {
+      var h = window.location.hash.replace("#", "");
+      var i = tabs.findIndex(function (t) { return t.dataset.hash === h; });
+      if (i > -1) {
+        select(i, { updateHash: false });
+        var section = root.closest(".cs-section") || root;
+        setTimeout(function () { section.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" }); }, 60);
+      }
+    }
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+  });
+})();
