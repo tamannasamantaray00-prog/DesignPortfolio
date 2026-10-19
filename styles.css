@@ -391,15 +391,15 @@ a { color: inherit; }
 .article:hover .article-card::before, .article:focus-visible .article-card::before { opacity: .55; background-size: 100% 100%; }
 .article-card-ink { background: var(--ink); color: var(--bg); }
 
-.article-title { font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.22; font-weight: 600; letter-spacing: var(--track-title); text-wrap: balance; }
+.article-title { margin-top: auto; font-size: clamp(1.15rem, 1.6vw, 1.35rem); line-height: 1.22; font-weight: 600; letter-spacing: var(--track-title); text-wrap: balance; }   /* auto margin pushes the title to the bottom */
 .article-badge {
   display: block; width: fit-content; white-space: nowrap;
   padding: .2rem .75rem; border-radius: var(--pill);
   background: var(--ink); color: var(--bg); font-size: .78rem; font-weight: 600; letter-spacing: var(--track-label);
 }
 
-/* Underneath the card: the platform, then the read time and date */
-.article-source { margin-top: .9rem; font-weight: 600; font-size: .95rem; letter-spacing: var(--track-label); }
+/* Underneath the card: a number-led hook, then the read time and date */
+.article-hook { margin-top: .9rem; font-weight: 600; font-size: .95rem; letter-spacing: var(--track-label); }
 .article-meta { margin-top: .15rem; font-size: .88rem; color: var(--muted); letter-spacing: var(--track-label); }
 
 /* Touch screens have no hover, so the tile and article gradients stay faintly visible */
