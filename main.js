@@ -268,4 +268,58 @@
       done(ok ? "Email copied" : "Copy failed, use the address below");
     };
   }
+
+  /* ---------- Tabs (Selected work) ---------- */
+  document.querySelectorAll("[data-tabs]").forEach(function (root) {
+    var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+    var panels = tabs.map(function (tab) { return document.getElementById(tab.getAttribute("aria-controls")); });
+    var indicator = root.querySelector(".tab-indicator");
+    var bar = tabs.length ? tabs[0].parentElement : null;
+    var current = 0;
+
+    function moveIndicator() {
+      if (!indicator || !tabs[current]) return;
+      indicator.style.width = tabs[current].offsetWidth + "px";
+      indicator.style.transform = "translateX(" + tabs[current].offsetLeft + "px)";
+    }
+
+    function select(index, focus) {
+      current = index;
+      tabs.forEach(function (tab, i) {
+        var on = i === index;
+        tab.setAttribute("aria-selected", on ? "true" : "false");
+        tab.tabIndex = on ? 0 : -1;
+        if (panels[i]) panels[i].hidden = !on;
+      });
+      moveIndicator();
+      // keep the active tab visible when the row scrolls sideways on small screens
+      if (bar && bar.scrollWidth > bar.clientWidth) {
+        bar.scrollTo({ left: Math.max(tabs[index].offsetLeft - 16, 0), behavior: reduceMotion ? "auto" : "smooth" });
+      }
+      if (focus) tabs[index].focus();
+    }
+
+    tabs.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(i, false); });
+      tab.addEventListener("keydown", function (e) {
+        var next = null;
+        if (e.key === "ArrowRight") next = (i + 1) % tabs.length;
+        else if (e.key === "ArrowLeft") next = (i - 1 + tabs.length) % tabs.length;
+        else if (e.key === "Home") next = 0;
+        else if (e.key === "End") next = tabs.length - 1;
+        if (next !== null) { e.preventDefault(); select(next, true); }
+      });
+    });
+
+    // Place the indicator without animating on first paint, and again once fonts have loaded.
+    if (indicator) {
+      indicator.style.transition = "none";
+      moveIndicator();
+      void indicator.offsetWidth;
+      indicator.style.transition = "";
+    }
+    window.addEventListener("resize", moveIndicator);
+    window.addEventListener("load", moveIndicator);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(moveIndicator);
+  });
 })();
