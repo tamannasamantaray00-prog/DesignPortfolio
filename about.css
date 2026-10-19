@@ -40,6 +40,9 @@ html.about, body.about { height: 100%; overflow: hidden; }
 .hello-small { font-size: 1.25rem; font-weight: 500; color: var(--muted); margin-bottom: .75rem; }
 .story-hint { margin-top: 1.75rem; color: var(--muted); }
 
+/* My story: running text under a larger opening line */
+.story-prose { margin-top: 1.5rem; max-width: 38em; display: grid; gap: 1rem; font-size: clamp(1.05rem, 1.45vw, 1.2rem); line-height: 1.6; text-wrap: pretty; }
+
 /* How I work: two ways side by side, with a closing line */
 .ways { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
 @media (min-width: 40rem) { .ways { grid-template-columns: 1fr 1fr; gap: 2rem; } }
@@ -48,8 +51,7 @@ html.about, body.about { height: 100%; overflow: hidden; }
 .way-text { margin-top: .6rem; color: var(--muted); font-size: 1rem; line-height: 1.55; }
 .ways-note { margin-top: 1.75rem; max-width: 46ch; font-weight: 500; font-size: 1.05rem; line-height: 1.45; }
 @media (min-width: 48rem) { .ways-3 { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 40rem) { .ways-4 { grid-template-columns: repeat(2, 1fr); } }
-@media (min-width: 64rem) { .ways-4 { grid-template-columns: repeat(4, 1fr); gap: 1.75rem; } }
+
 
 /* Games I built: a small row of links */
 .games { margin-top: 1.75rem; }
@@ -218,6 +220,7 @@ img.polaroid-img { display: block; }
   .games-title { margin-bottom: .5rem; }
   .game-link { padding: .3rem .8rem; font-size: .875rem; }
   .story-hint { margin-top: 1rem; }
+  .story-prose { margin-top: 1rem; gap: .75rem; font-size: 1rem; line-height: 1.5; }
   .note-sticky { margin-top: 1rem; }
 
   /* a little tighter so each story chapter fits without inner scrolling */
