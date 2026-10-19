@@ -226,4 +226,46 @@
       box.style.setProperty("--pos", range.value + "%");
     });
   });
+
+  /* ---------- Copy email button ---------- */
+  var copyBtn = document.querySelector("[data-copy]");
+  if (copyBtn) {
+    var pill = copyBtn.closest(".contact-btn");
+    var tip = document.getElementById("copy-tip");
+    var copyTimer;
+
+    var done = function (message) {
+      pill.classList.add("is-copied");
+      if (tip) tip.textContent = message;
+      clearTimeout(copyTimer);
+      copyTimer = setTimeout(function () {
+        pill.classList.remove("is-copied");
+        if (tip) tip.textContent = "";
+      }, 2000);
+    };
+
+    copyBtn.addEventListener("click", function () {
+      var text = copyBtn.getAttribute("data-copy");
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(function () { done("Email copied"); }, function () { fallbackCopy(text); });
+      } else {
+        fallbackCopy(text);
+      }
+    });
+
+    // Older browsers: select a temporary field and copy it.
+    var fallbackCopy = function (text) {
+      var field = document.createElement("textarea");
+      field.value = text;
+      field.setAttribute("readonly", "");
+      field.style.position = "fixed";
+      field.style.opacity = "0";
+      document.body.appendChild(field);
+      field.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(field);
+      done(ok ? "Email copied" : "Copy failed, use the address below");
+    };
+  }
 })();
