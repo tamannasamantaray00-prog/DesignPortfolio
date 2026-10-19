@@ -275,18 +275,29 @@ a { color: inherit; }
 @media (min-width: 46rem) { .tiles { grid-template-columns: repeat(3, 1fr); } }
 
 .tile {
+  position: relative; isolation: isolate; overflow: hidden;
   display: flex; flex-direction: column; justify-content: space-between; gap: 3rem;
   min-height: 16rem; padding: 1.75rem;
   background: var(--inverse-surface);
   border-radius: var(--radius-l);
   text-decoration: none;
-  transition: transform .5s var(--ease), background-color .3s var(--ease), color .3s var(--ease);
+  transition: transform .5s var(--ease);
+}
+
+/* The gradient grows up from the bottom edge and fades in (same effect as the recommendation cards) */
+.tile::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background: radial-gradient(ellipse 85% 100% at 50% 100%, var(--glow, #A259FF), transparent 75%) bottom / 100% 35% no-repeat;
+  opacity: 0;
+  transition: opacity .6s var(--ease), background-size .8s var(--ease);
+  pointer-events: none;
 }
 .tile-title { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
 .tile-desc { color: var(--inverse-muted); max-width: 30ch; transition: color .3s var(--ease); }
-.tile:hover { background: var(--inverse-ink); color: var(--inverse-bg); transform: translateY(-8px) rotate(-1.5deg); }
-.tile:nth-child(even):hover { transform: translateY(-8px) rotate(1.5deg); }
-.tile:hover .tile-desc { color: var(--muted); }
+.tile:hover, .tile:focus-visible { transform: translateY(-8px) rotate(-1.5deg); }
+.tile:nth-child(even):hover, .tile:nth-child(even):focus-visible { transform: translateY(-8px) rotate(1.5deg); }
+.tile:hover::before, .tile:focus-visible::before { opacity: .65; background-size: 100% 100%; }
+.tile:hover .tile-desc, .tile:focus-visible .tile-desc { color: var(--inverse-ink); }
 
 /* ==========================================================================
    WRITING
@@ -294,9 +305,19 @@ a { color: inherit; }
 .articles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
 @media (min-width: 52rem) { .articles { grid-template-columns: repeat(4, 1fr); } }
 
-.article { display: block; text-decoration: none; transition: opacity .35s var(--ease); }
+.article { position: relative; display: block; text-decoration: none; transition: opacity .35s var(--ease), transform .5s var(--ease); }
+
+/* Gradient sits over the thumbnail (works for a placeholder box or a real image) */
+.article::after {
+  content: ""; position: absolute; inset: 0; border-radius: var(--radius-l);
+  background: radial-gradient(ellipse 85% 100% at 50% 100%, var(--glow, #A259FF), transparent 75%) bottom / 100% 35% no-repeat;
+  opacity: 0;
+  transition: opacity .6s var(--ease), background-size .8s var(--ease);
+  pointer-events: none;
+}
+.article:hover, .article:focus-visible { transform: translateY(-6px); }
+.article:hover::after, .article:focus-visible::after { opacity: .55; background-size: 100% 100%; }
 .thumb-wide { aspect-ratio: auto; height: clamp(10rem, 18vw, 15rem); border-radius: var(--radius-l); }
-.article:hover .thumb { transform: scale(1.025); }
 .thumb-ink {
   background: var(--ink); color: var(--bg);
   font-size: clamp(1.25rem, 2vw, 1.5rem); font-weight: 600; letter-spacing: -.02em;
@@ -305,6 +326,12 @@ a { color: inherit; }
 /* Hovering one article quietly dims the others, same as the work list */
 .articles:hover .article { opacity: .4; }
 .articles .article:hover { opacity: 1; }
+
+/* Touch screens have no hover, so the tile and article gradients stay faintly visible */
+@media (hover: none) {
+  .tile::before { opacity: .35; background-size: 100% 100%; }
+  .article::after { opacity: .3; background-size: 100% 100%; }
+}
 
 /* ==========================================================================
    RECOMMENDATIONS
@@ -360,39 +387,74 @@ a { color: inherit; }
 /* ==========================================================================
    CONTACT
    ========================================================================== */
-.contact { display: grid; grid-template-columns: 1fr; gap: clamp(2.5rem, 6vw, 5rem); }
-@media (min-width: 56rem) { .contact { grid-template-columns: 1fr 1fr; align-items: start; } }
+.contact-section { position: relative; overflow: hidden; isolation: isolate; }
 
-.paths { margin-top: 2rem; display: grid; gap: 1.5rem; }
-.path-title { font-size: 1.125rem; font-weight: 600; letter-spacing: -.01em; }
-.paths p { color: var(--muted); max-width: 42ch; }
-.direct { margin-top: 2rem; display: flex; flex-direction: column; gap: .6rem; align-items: flex-start; font-weight: 500; }
-
-.form { display: grid; gap: 1.5rem; }
-.field { display: grid; gap: .4rem; }
-.field label { font-size: .95rem; font-weight: 500; }
-.field input, .field select, .field textarea {
-  font: inherit; color: inherit;
-  background: transparent;
-  border: 0; border-bottom: 1.5px solid var(--ink);
-  border-radius: 0; padding: .6rem 0;
-  transition: border-color .3s, padding-left .3s var(--ease);
+/* Soft gradient in the corner, in Figma purple and blue. It swells when you hover Contact. */
+.contact-glow {
+  position: absolute; inset: auto -12% -45% auto; z-index: -1;
+  width: min(60rem, 95vw); aspect-ratio: 1;
+  background:
+    radial-gradient(closest-side at 62% 52%, rgba(162, 89, 255, .30), transparent),
+    radial-gradient(closest-side at 38% 66%, rgba(26, 188, 254, .24), transparent);
+  transition: transform 1s var(--ease), opacity 1s var(--ease);
+  pointer-events: none;
 }
-.field textarea { resize: vertical; min-height: 7rem; }
-.field input:focus, .field select:focus, .field textarea:focus { outline: none; padding-left: .5rem; border-bottom-width: 3px; }
+.contact-section:has(.contact-btn:hover) .contact-glow,
+.contact-section:has(.contact-btn:focus-within) .contact-glow { transform: scale(1.12) translate(-3%, -3%); }
 
-.button {
-  justify-self: start;
-  font: inherit; font-weight: 600;
-  background: var(--ink); color: var(--bg);
-  border: 1.5px solid var(--ink); border-radius: var(--pill);
-  padding: .85rem 1.75rem; cursor: pointer;
-  transition: background-color .3s var(--ease), color .3s var(--ease), transform .3s var(--ease);
+.contact-title {
+  font-size: clamp(2rem, 5vw, 3.75rem);
+  line-height: 1.06; font-weight: 600; letter-spacing: var(--track-title);
+  max-width: 16ch; text-wrap: balance;
 }
-.button:hover { background: transparent; color: var(--ink); }
-.button:active { transform: scale(.97); }
-.button[disabled] { opacity: .5; cursor: progress; }
-.form-status { min-height: 1.5em; font-weight: 500; }
+.contact-sub { margin-top: 1.25rem; max-width: 38ch; font-size: 1.2rem; line-height: 1.5; color: var(--muted); }
+
+.contact-actions { margin-top: clamp(2rem, 4vw, 2.75rem); display: grid; gap: 2rem; justify-items: start; }
+
+/* Pill button with a divider and a copy control */
+.contact-btn {
+  position: relative; display: inline-flex; align-items: stretch;
+  background: var(--ink); color: var(--bg); border-radius: var(--pill);
+  transition: transform .3s var(--ease);
+}
+.contact-btn:hover { transform: translateY(-2px); }
+.contact-btn-main {
+  padding: 1.05rem 1.6rem 1.05rem 1.9rem;
+  font-weight: 600; font-size: 1.05rem; letter-spacing: var(--track-label);
+  text-decoration: none; border-radius: var(--pill) 0 0 var(--pill);
+}
+.contact-btn-copy {
+  display: grid; place-items: center; position: relative;
+  padding: 0 1.3rem 0 1.15rem; border: 0; border-left: 1px solid rgba(255, 255, 255, .22);
+  background: transparent; color: inherit; cursor: pointer; border-radius: 0 var(--pill) var(--pill) 0;
+  transition: background-color .3s var(--ease);
+}
+.contact-btn-copy:hover { background: rgba(255, 255, 255, .12); }
+.contact-btn-copy .icon { grid-area: 1 / 1; width: 1.35rem; height: 1.35rem; transition: transform .35s var(--ease), opacity .25s; }
+.contact-btn-copy .icon-check { opacity: 0; transform: scale(.5); }
+.contact-btn.is-copied .icon-copy { opacity: 0; transform: scale(.5); }
+.contact-btn.is-copied .icon-check { opacity: 1; transform: none; }
+
+/* "Copied" tooltip above the button */
+.contact-tip {
+  position: absolute; left: 100%; top: 50%; margin-left: .9rem;
+  transform: translate(-6px, -50%); opacity: 0; pointer-events: none;
+  font-size: .9rem; font-weight: 600; white-space: nowrap; color: var(--ink);
+  transition: opacity .25s var(--ease), transform .35s var(--ease);
+}
+.contact-btn.is-copied .contact-tip { opacity: 1; transform: translate(0, -50%); }
+
+/* Social icons */
+.socials { display: flex; gap: .5rem; }
+.social {
+  display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%;
+  transition: background-color .3s var(--ease), transform .35s var(--ease);
+}
+.social .icon { width: 1.6rem; height: 1.6rem; }
+.social:hover { background: var(--bg); transform: translateY(-4px); }
+
+.icon { display: block; }
+.contact-email { margin-top: 1.75rem; font-weight: 500; letter-spacing: var(--track-label); }
 
 /* ==========================================================================
    FOOTER
@@ -622,9 +684,11 @@ a { color: inherit; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
-  .tile:hover, .tile:nth-child(even):hover, .card:hover, .case:hover .thumb, .article:hover .thumb, .logo:hover, .compare:hover .compare-handle::after { transform: none; }
+  .tile:hover, .tile:nth-child(even):hover, .tile:focus-visible, .tile:nth-child(even):focus-visible, .card:hover, .case:hover .thumb, .article:hover, .article:focus-visible, .logo:hover, .compare:hover .compare-handle::after { transform: none; }
   .compare:hover .compare-handle::after { transform: translate(-50%, -50%); }
   .rec:hover, .rec:focus-within { transform: none; }
   .rec::before { transform: none; }
+  .contact-btn:hover, .social:hover { transform: none; }
+  .contact-section:has(.contact-btn:hover) .contact-glow, .contact-section:has(.contact-btn:focus-within) .contact-glow { transform: none; }
   .next-case:hover { padding-left: 0; }
 }
