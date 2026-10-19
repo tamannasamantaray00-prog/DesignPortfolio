@@ -316,7 +316,19 @@ a { color: inherit; }
    PLAY ARENA
    ========================================================================== */
 .tiles { display: grid; grid-template-columns: 1fr; gap: 1.25rem; }
-@media (min-width: 46rem) { .tiles { grid-template-columns: repeat(3, 1fr); } }
+/* Tablets: two across, and a lone last tile spans the full width */
+@media (min-width: 40rem) {
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 40rem) and (max-width: 65.99rem) {
+  .tiles .tile:last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+/* Desktop: three tiles on top, two wider tiles below (a six-column grid) */
+@media (min-width: 66rem) {
+  .tiles { grid-template-columns: repeat(6, 1fr); }
+  .tiles .tile { grid-column: span 2; }
+  .tiles .tile:nth-child(n+4) { grid-column: span 3; }
+}
 
 .tile {
   position: relative; isolation: isolate; overflow: hidden;
@@ -336,6 +348,15 @@ a { color: inherit; }
   transition: opacity .6s var(--ease), background-size .8s var(--ease);
   pointer-events: none;
 }
+.tile-top { display: grid; gap: .75rem; justify-items: start; }
+.tile-tag {
+  display: flex; align-items: center; min-height: 1.9rem; width: fit-content;
+  padding: .25rem .75rem; border: 1px solid rgba(255, 255, 255, .28); border-radius: var(--pill);
+  font-size: .8rem; font-weight: 500; letter-spacing: var(--track-label); color: var(--inverse-muted);
+  transition: color .3s var(--ease), border-color .3s var(--ease);
+}
+.tile-tag[hidden] { display: flex; visibility: hidden; }   /* keeps every title at the same height, with or without a tag */
+.tile:hover .tile-tag, .tile:focus-visible .tile-tag { color: var(--inverse-ink); border-color: rgba(255, 255, 255, .6); }
 .tile-title { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: -.03em; line-height: 1.1; }
 .tile-desc { color: var(--inverse-muted); max-width: 30ch; transition: color .3s var(--ease); }
 .tile:hover, .tile:focus-visible { transform: translateY(-8px) rotate(-1.5deg); }
