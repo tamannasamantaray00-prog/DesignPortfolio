@@ -260,3 +260,16 @@ img.polaroid-img { display: block; }
 .collage-flip .scribble-d { left: auto; right: 9%; top: 5%; transform: rotate(3deg); }
 .collage-flip .scribble-e { right: auto; left: 7%; bottom: 8%; transform: rotate(-2deg); }
 .collage-flip .scribble-e svg { transform: rotate(180deg) scaleX(-1); }
+
+/* Titles and display text: Instrument Serif (see styles.css) */
+.about-title, .big-text, .story-name, .way-title, .connect-link {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.about-title { letter-spacing: -.012em; }
+.about-title { font-size: clamp(2.8rem, 5.8vw, 4.9rem); line-height: 1.0; }
+.big-text    { font-size: clamp(1.5rem, 2.5vw, 2.3rem); line-height: 1.12; }
+.story-name  { font-size: clamp(1.9rem, 3.4vw, 2.9rem); line-height: 1.04; }
+.way-title   { font-size: 1.45rem; line-height: 1.1; }
+.connect-link { font-size: clamp(1.4rem, 2.8vw, 2.2rem); line-height: 1.1; }

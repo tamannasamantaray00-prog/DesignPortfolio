@@ -16,6 +16,9 @@
   --inverse-muted: #a3a3a3;
 
   --font: "Hanken Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;   /* titles and display text */
+  --note-bg: #EFF6FE;     /* the light blue box, for short notes */
+  --note-ink: #3561E2;
 
   /* Letter spacing: titles are tightened, paragraphs and labels are opened up slightly */
   --track-title: -.03em;
@@ -146,7 +149,11 @@ a { color: inherit; }
   border-top: 1px solid var(--line);
   display: grid; gap: 1.25rem;
 }
-.hero-about { max-width: 52ch; color: var(--muted); }
+.hero-about {
+  max-width: 34rem; padding: 1.15rem 1.5rem; border-radius: 1rem;
+  background: var(--note-bg); color: var(--note-ink);
+  font-size: 1.05rem; line-height: 1.55; font-weight: 500;
+}
 .hero-links { display: flex; flex-wrap: wrap; gap: .6rem 2rem; font-weight: 500; }
 
 /* Photo: sits above the text on phones, to the right on larger screens */
@@ -1058,3 +1065,32 @@ img.collage-img { display: block; }
   .contact-section:has(.contact-btn:hover) .contact-glow, .contact-section:has(.contact-btn:focus-within) .contact-glow { transform: none; }
   .next-case:hover { padding-left: 0; }
 }
+
+/* ==========================================================================
+   TITLES AND DISPLAY TEXT: Instrument Serif only.
+   It has one weight (regular), so the old bold is switched off, and the tracking is looser than the grotesk's.
+   Body copy, labels, buttons and small headings stay in Hanken Grotesk.
+   ========================================================================== */
+.hero-title, .section-title, .contact-title, .next-title, .stat-num,
+.tile-title, .flow-title, .more-title, .article-title,
+.cs-title, .cs-h2, .cs-h3, .pull {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+.hero-title, .section-title, .contact-title, .next-title, .stat-num, .cs-title, .cs-h2 { letter-spacing: -.012em; }
+.hero-title    { font-size: clamp(2.2rem, 4.5vw, 3.7rem);  line-height: 1.02; max-width: 28ch; }
+.section-title { font-size: clamp(2.1rem, 4vw, 3.2rem);    line-height: 1.02; }
+.contact-title { font-size: clamp(2.4rem, 5.4vw, 4.25rem); line-height: 1.0; }
+.next-title    { font-size: clamp(2.1rem, 5vw, 3.6rem);    line-height: 1.02; }
+.stat-num      { font-size: clamp(2.8rem, 6.4vw, 4.4rem);  line-height: 1; }
+.tile-title    { font-size: clamp(1.8rem, 2.9vw, 2.35rem); line-height: 1.04; }
+.flow-title    { font-size: 1.55rem;  line-height: 1.12; }
+.more-title    { font-size: 1.5rem;   line-height: 1.12; }
+.article-title { font-size: clamp(1.4rem, 1.9vw, 1.6rem); line-height: 1.12; }
+.cs-title      { font-size: clamp(2.1rem, 3.8vw, 3.2rem);  line-height: 1.04; }
+.cs-h2         { font-size: clamp(2rem, 3.5vw, 2.8rem);    line-height: 1.05; }
+.cs-h3         { font-size: 1.65rem;  line-height: 1.12; }
+.pull          { font-size: clamp(1.55rem, 2.7vw, 2.1rem); line-height: 1.12; }
+.pull-small    { font-size: clamp(1.3rem, 2.1vw, 1.6rem); }
+
