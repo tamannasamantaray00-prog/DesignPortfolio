@@ -965,6 +965,51 @@ img.collage-img { display: block; }
 .role-cols { margin-top: 2rem; margin-bottom: 2rem; }
 .cs-main .prose strong { font-weight: 600; }
 
+/* ---- Before and after: one line per view (Desktop, App, Mobile web), each with a sticky note ---- */
+.view-list { margin-top: 1.5rem; display: grid; gap: clamp(2.75rem, 5vw, 4.25rem); }
+.view-item { display: grid; grid-template-columns: 1fr; gap: 1.5rem 2.5rem; align-items: start; }
+.view-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -.015em; margin-bottom: .75rem; }
+.view-item .compare-phone { aspect-ratio: 9 / 16; width: min(100%, 22rem); margin-inline: 0; }
+
+/* The sticky note: a small description on the side of each view */
+.sticky-note {
+  position: relative; z-index: 2; align-self: start;
+  width: min(100%, 15rem); padding: 1.6rem 1.35rem 1.4rem;
+  background: #FFF3A8; color: var(--ink);
+  font-family: "Caveat", "Segoe Script", "Bradley Hand", cursive; font-size: 1.4rem; line-height: 1.18; font-weight: 500;
+  transform: rotate(-2deg);
+  box-shadow: 0 2px 3px rgba(0, 0, 0, .08), 0 14px 26px rgba(0, 0, 0, .12);
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.sticky-note::before {            /* a strip of tape */
+  content: ""; position: absolute; top: -.8rem; left: 50%; width: 4rem; height: 1.5rem;
+  transform: translateX(-50%) rotate(2.5deg);
+  background: rgba(255, 255, 255, .6); box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+}
+.view-item:nth-child(even) .sticky-note { transform: rotate(1.6deg); }
+.sticky-note:hover { transform: rotate(0deg) translateY(-3px); box-shadow: 0 3px 5px rgba(0, 0, 0, .08), 0 20px 34px rgba(0, 0, 0, .14); }
+.sticky-note p { margin: 0; }
+
+/* The note sits beside its view, level with the top of the screenshot.
+   Phone-shaped views (App, Mobile web) have room for it from tablet width up;
+   the wide Desktop view only on large screens, so its screenshot stays big. */
+@media (min-width: 50rem) {
+  .view-item-phone { grid-template-columns: 22rem 15rem; }
+  .view-item-phone > .sticky-note { margin-top: 2.4rem; }
+}
+@media (min-width: 72rem) {
+  .view-item:not(.view-item-phone) { grid-template-columns: minmax(0, 1fr) 15rem; }
+  .view-item:not(.view-item-phone) > .sticky-note { margin-top: 2.4rem; }
+}
+/* Otherwise the note sits under the view, overlapping its corner like a note stuck on */
+@media (max-width: 71.99rem) { .view-item:not(.view-item-phone) > .sticky-note { margin: -2.25rem .5rem 0 auto; } }
+@media (max-width: 49.99rem) { .view-item-phone > .sticky-note { margin: -2.25rem .5rem 0 auto; } }
+
+/* Features: text on the left, a closer screenshot on the right */
+.feature-row { display: grid; grid-template-columns: 1fr; gap: 1rem 2.5rem; align-items: start; }
+@media (min-width: 50rem) { .feature-row { grid-template-columns: 1fr minmax(14rem, 20rem); } }
+.feature-shot { aspect-ratio: 4 / 3; }
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
