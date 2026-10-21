@@ -9,7 +9,7 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230a0a0a'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -185,12 +185,53 @@
 
           <article class="theme">
             <h3 class="cs-h3">The page, before and after</h3>
-            <!-- Replace the two placeholder layers with images: images/babyshop-pdp-before.jpg and images/babyshop-pdp-after.jpg -->
-            <div class="compare" style="--pos:50%" data-cursor="Drag">
-              <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before screen</div>
-              <div class="compare-layer compare-after"><span class="compare-tag">After</span>After screen</div>
-              <div class="compare-handle" aria-hidden="true"></div>
-              <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the product page before and after">
+            <p class="prose">The same page on the three ways parents shop. Drag each one to compare.</p>
+            <div class="view-list">
+              <div class="view-item">
+                <div class="view-main">
+                  <h4 class="view-title">Desktop</h4>
+                  <!-- Replace the two layers with images: images/babyshop-pdp-desktop-before.jpg and images/babyshop-pdp-desktop-after.jpg (same size for both) -->
+                  <div class="compare" style="--pos:50%" data-cursor="Drag">
+                    <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before, desktop</div>
+                    <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, desktop</div>
+                    <div class="compare-handle" aria-hidden="true"></div>
+                    <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the desktop product page before and after">
+                  </div>
+                </div>
+                <aside class="sticky-note" aria-label="Note on the desktop view">
+                  <p class="todo">What changed on desktop, in one or two lines.</p>
+                </aside>
+              </div>
+              <div class="view-item view-item-phone">
+                <div class="view-main">
+                  <h4 class="view-title">App</h4>
+                  <!-- Replace the two layers with images: images/babyshop-pdp-app-before.jpg and images/babyshop-pdp-app-after.jpg (same size for both) -->
+                  <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                    <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before, app</div>
+                    <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, app</div>
+                    <div class="compare-handle" aria-hidden="true"></div>
+                    <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the app product page before and after">
+                  </div>
+                </div>
+                <aside class="sticky-note" aria-label="Note on the app view">
+                  <p class="todo">What changed in the app, in one or two lines.</p>
+                </aside>
+              </div>
+              <div class="view-item view-item-phone">
+                <div class="view-main">
+                  <h4 class="view-title">Mobile web</h4>
+                  <!-- Replace the two layers with images: images/babyshop-pdp-mweb-before.jpg and images/babyshop-pdp-mweb-after.jpg (same size for both) -->
+                  <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                    <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before, mobile web</div>
+                    <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, mobile web</div>
+                    <div class="compare-handle" aria-hidden="true"></div>
+                    <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the mobile web product page before and after">
+                  </div>
+                </div>
+                <aside class="sticky-note" aria-label="Note on the mobile web view">
+                  <p class="todo">What changed on mobile web, in one or two lines.</p>
+                </aside>
+              </div>
             </div>
           </article>
 
@@ -198,20 +239,36 @@
             <h3 class="cs-h3">The features, and where each one stands</h3>
             <ul class="feature-list">
               <li class="feature-row">
-                <div class="feature-head"><h4 class="feature-name">Brand pages</h4><span class="stage-tag is-live">Shipped</span></div>
-                <p>The brand is separate from the product name, and a click on it opens a brand page where parents can buy from that brand.</p>
+                <div class="feature-text">
+                  <div class="feature-head"><h4 class="feature-name">Brand pages</h4><span class="stage-tag is-live">Shipped</span></div>
+                  <p>The brand is separate from the product name, and a click on it opens a brand page where parents can buy from that brand.</p>
+                </div>
+                <!-- Replace with images/babyshop-brand-pages.jpg -->
+                <div class="shot feature-shot" role="img" aria-label="Brand pages, a closer look">Brand pages, closer look</div>
               </li>
               <li class="feature-row">
-                <div class="feature-head"><h4 class="feature-name">Material details</h4><span class="stage-tag is-live">Shipped</span></div>
-                <p>Clear, easy-to-reach information about what a product is made of, for example for toys and clothing.</p>
+                <div class="feature-text">
+                  <div class="feature-head"><h4 class="feature-name">Material details</h4><span class="stage-tag is-live">Shipped</span></div>
+                  <p>Clear, easy-to-reach information about what a product is made of, for example for toys and clothing.</p>
+                </div>
+                <!-- Replace with images/babyshop-material-details.jpg -->
+                <div class="shot feature-shot" role="img" aria-label="Material details, a closer look">Material details, closer look</div>
               </li>
               <li class="feature-row">
-                <div class="feature-head"><h4 class="feature-name">Installation</h4><span class="stage-tag is-next">MVP, in development</span></div>
-                <p>For furniture: choose whether you want it installed, and see what it will cost, before you buy.</p>
+                <div class="feature-text">
+                  <div class="feature-head"><h4 class="feature-name">Installation</h4><span class="stage-tag is-next">MVP, in development</span></div>
+                  <p>For furniture: choose whether you want it installed, and see what it will cost, before you buy.</p>
+                </div>
+                <!-- Replace with images/babyshop-installation.jpg -->
+                <div class="shot feature-shot" role="img" aria-label="Installation, a closer look">Installation, closer look</div>
               </li>
               <li class="feature-row">
-                <div class="feature-head"><h4 class="feature-name">Self-guides</h4><span class="stage-tag is-next">MVP</span></div>
-                <p>Assembly and care guides, so parents know what to expect after they buy.</p>
+                <div class="feature-text">
+                  <div class="feature-head"><h4 class="feature-name">Self-guides</h4><span class="stage-tag is-next">MVP</span></div>
+                  <p>Assembly and care guides, so parents know what to expect after they buy.</p>
+                </div>
+                <!-- Replace with images/babyshop-self-guides.jpg -->
+                <div class="shot feature-shot" role="img" aria-label="Self-guides, a closer look">Self-guides, closer look</div>
               </li>
             </ul>
           </article>
