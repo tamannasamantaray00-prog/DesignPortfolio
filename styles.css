@@ -1110,12 +1110,14 @@ img.collage-img { display: block; }
    ========================================================================== */
 .info-block {
   display: inline-block;              /* shrink-to-fit: hugs its text, and only wraps if the column is too narrow to fit it */
-  max-width: none;                    /* removes .pull's 32ch cap, which was forcing line breaks even when there was room */
-  padding: 1rem 1.4rem;
+  max-width: 34rem;                   /* same width as the hero's blue box, instead of .pull's old 32ch or stretching full width */
+  padding: 1.15rem 1.5rem;            /* matches .hero-about */
   border-radius: 1rem;
   background: var(--info-bg);
   color: var(--info-ink);
   font-family: var(--font);           /* paragraph font, not the serif .pull normally uses */
+  font-size: 1.05rem;                 /* matches .hero-about, smaller than .pull's larger sizes */
+  line-height: 1.55;                  /* matches .hero-about */
   font-weight: 500;
   letter-spacing: normal;
 }
