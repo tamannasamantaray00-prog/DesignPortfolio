@@ -19,6 +19,8 @@
   --font-display: "Instrument Serif", "Iowan Old Style", "Palatino Linotype", Georgia, serif;   /* titles and display text */
   --note-bg: #EFF6FE;     /* the light blue box, for short notes */
   --note-ink: #3561E2;
+  --info-bg: #FEF6DC;     /* the light yellow box, for a highlighted takeaway inside a case study */
+  --info-ink: #8A6A0F;
 
   /* Letter spacing: titles are tightened, paragraphs and labels are opened up slightly */
   --track-title: -.03em;
@@ -1098,3 +1100,22 @@ img.collage-img { display: block; }
 .cs-h3         { font-size: 1.65rem;  line-height: 1.12; }
 .pull          { font-size: clamp(1.55rem, 2.7vw, 2.1rem); line-height: 1.12; }
 .pull-small    { font-size: clamp(1.3rem, 2.1vw, 1.6rem); }
+
+/* ==========================================================================
+   INFO BLOCK: a short highlighted takeaway inside a case study's body copy.
+   Pale yellow background, warm gold text, same shape as the hero's blue note box.
+   Use it on a single short sentence that sums up a point, not a full paragraph.
+   To reuse in any case study: <p class="pull pull-small info-block">Your sentence here.</p>
+   "pull pull-small" gives it the right type size and weight; "info-block" adds the box.
+   ========================================================================== */
+.info-block {
+  display: inline-block;              /* shrink-to-fit: hugs its text, and only wraps if the column is too narrow to fit it */
+  max-width: none;                    /* removes .pull's 32ch cap, which was forcing line breaks even when there was room */
+  padding: 1rem 1.4rem;
+  border-radius: 1rem;
+  background: var(--info-bg);
+  color: var(--info-ink);
+  font-family: var(--font);           /* paragraph font, not the serif .pull normally uses */
+  font-weight: 500;
+  letter-spacing: normal;
+}
