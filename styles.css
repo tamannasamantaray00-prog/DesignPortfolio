@@ -806,6 +806,8 @@ img.collage-img { display: block; }
 .callout { margin-top: 1.75rem; padding: 1.5rem; background: var(--surface); border-radius: var(--radius-m); max-width: 62ch; }
 .callout-title { font-weight: 600; margin-bottom: .4rem; }
 
+#context .compare { margin-top: 2rem; }   /* space between the problem callout and the basket before/after slider */
+
 .two-col { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
 @media (min-width: 46rem) { .two-col { grid-template-columns: 1fr 1fr; gap: 3rem; } }
 
