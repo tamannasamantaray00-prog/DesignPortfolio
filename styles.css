@@ -175,6 +175,7 @@ a { color: inherit; }
   animation: lift .9s var(--ease) both;
 }
 .hero-title { animation-delay: .12s; }
+.hero-ai { font-style: italic; }   /* a small nod that AI sits a little apart from the rest of the sentence */
 .hero-foot  { animation-delay: .3s; }
 .hero-photo { animation-delay: .2s; }
 @keyframes lift {
@@ -683,6 +684,8 @@ img.collage-img { display: block; }
 .site-footer { padding-block: 2rem; border-top: 1px solid var(--line); font-size: .95rem; }
 .footer-inner { display: flex; flex-wrap: wrap; gap: 1rem 2rem; justify-content: space-between; }
 .footer-links { display: flex; gap: 1.5rem; }
+.footer-left { display: grid; gap: .3rem; }
+.footer-credit { color: var(--muted); font-size: .88rem; }
 
 /* ==========================================================================
    CURSOR LABEL (hover devices only; JS adds .has-cursor to <html>)
@@ -1093,4 +1096,3 @@ img.collage-img { display: block; }
 .cs-h3         { font-size: 1.65rem;  line-height: 1.12; }
 .pull          { font-size: clamp(1.55rem, 2.7vw, 2.1rem); line-height: 1.12; }
 .pull-small    { font-size: clamp(1.3rem, 2.1vw, 1.6rem); }
-
