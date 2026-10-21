@@ -202,20 +202,89 @@
                   <p class="todo">What changed on desktop, in one or two lines.</p>
                 </aside>
               </div>
-              <div class="view-item view-item-phone">
+              <div class="view-item view-item-grid">
                 <div class="view-main">
                   <h4 class="view-title">App</h4>
-                  <!-- Replace the two layers with images: images/babyshop-pdp-app-before.jpg and images/babyshop-pdp-app-after.jpg (same size for both) -->
-                  <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
-                    <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before, app</div>
-                    <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, app</div>
-                    <div class="compare-handle" aria-hidden="true"></div>
-                    <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the app product page before and after">
+                  <p class="view-sub">Seven sections of the page, top to bottom. Drag each one to compare.</p>
+                  <!-- Seven before and after sliders plus the sticky note make eight cells, so the grid has no gaps. -->
+                  <div class="compare-grid">
+                  <figure class="compare-cell">
+                    <!-- images/babyshop-app-01-before.jpg and images/babyshop-app-01-after.jpg (the same size for both) -->
+                    <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                      <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-01-before.jpg" alt="Old app page, gallery and price" loading="lazy" decoding="async" onerror="this.remove()">Before, 01</div>
+                      <div class="compare-layer compare-after"><span class="compare-tag">After</span><img src="images/babyshop-app-01-after.jpg" alt="New app page, gallery and price" loading="lazy" decoding="async" onerror="this.remove()">After, 01</div>
+                      <div class="compare-handle" aria-hidden="true"></div>
+                      <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare section 01, gallery and price, before and after">
+                    </div>
+                    <figcaption class="cell-caption"><span class="cell-num">01</span><span>Gallery and price</span></figcaption>
+                  </figure>
+                  <figure class="compare-cell">
+                    <!-- images/babyshop-app-02-before.jpg and images/babyshop-app-02-after.jpg (the same size for both) -->
+                    <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                      <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-02-before.jpg" alt="Old app page, colour and size" loading="lazy" decoding="async" onerror="this.remove()">Before, 02</div>
+                      <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, 02</div>
+                      <div class="compare-handle" aria-hidden="true"></div>
+                      <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare section 02, colour and size, before and after">
+                    </div>
+                    <figcaption class="cell-caption"><span class="cell-num">02</span><span>Colour and size</span></figcaption>
+                  </figure>
+                  <figure class="compare-cell">
+                    <!-- images/babyshop-app-03-before.jpg and images/babyshop-app-03-after.jpg (the same size for both) -->
+                    <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                      <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-03-before.jpg" alt="Old app page, delivery, offers and details" loading="lazy" decoding="async" onerror="this.remove()">Before, 03</div>
+                      <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, 03</div>
+                      <div class="compare-handle" aria-hidden="true"></div>
+                      <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare section 03, delivery, offers and details, before and after">
+                    </div>
+                    <figcaption class="cell-caption"><span class="cell-num">03</span><span>Delivery, offers and details</span></figcaption>
+                  </figure>
+                  <figure class="compare-cell">
+                    <!-- images/babyshop-app-04-before.jpg and images/babyshop-app-04-after.jpg (the same size for both) -->
+                    <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                      <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-04-before.jpg" alt="Old app page, reviews" loading="lazy" decoding="async" onerror="this.remove()">Before, 04</div>
+                      <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, 04</div>
+                      <div class="compare-handle" aria-hidden="true"></div>
+                      <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare section 04, reviews, before and after">
+                    </div>
+                    <figcaption class="cell-caption"><span class="cell-num">04</span><span>Reviews</span></figcaption>
+                  </figure>
+                  <figure class="compare-cell">
+                    <!-- images/babyshop-app-05-before.jpg and images/babyshop-app-05-after.jpg (the same size for both) -->
+                    <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                      <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-05-before.jpg" alt="Old app page, browse and collection" loading="lazy" decoding="async" onerror="this.remove()">Before, 05</div>
+                      <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, 05</div>
+                      <div class="compare-handle" aria-hidden="true"></div>
+                      <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare section 05, browse and collection, before and after">
+                    </div>
+                    <figcaption class="cell-caption"><span class="cell-num">05</span><span>Browse and collection</span></figcaption>
+                  </figure>
+                  <figure class="compare-cell">
+                    <!-- images/babyshop-app-06-before.jpg and images/babyshop-app-06-after.jpg (the same size for both) -->
+                    <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                      <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before, 06</div>
+                      <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, 06</div>
+                      <div class="compare-handle" aria-hidden="true"></div>
+                      <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare section 06, section 6, before and after">
+                    </div>
+                    <figcaption class="cell-caption"><span class="cell-num">06</span><span class="todo">Add the section name</span></figcaption>
+                  </figure>
+                  <figure class="compare-cell">
+                    <!-- images/babyshop-app-07-before.jpg and images/babyshop-app-07-after.jpg (the same size for both) -->
+                    <div class="compare compare-phone" style="--pos:50%" data-cursor="Drag">
+                      <div class="compare-layer compare-before"><span class="compare-tag">Before</span>Before, 07</div>
+                      <div class="compare-layer compare-after"><span class="compare-tag">After</span>After, 07</div>
+                      <div class="compare-handle" aria-hidden="true"></div>
+                      <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare section 07, section 7, before and after">
+                    </div>
+                    <figcaption class="cell-caption"><span class="cell-num">07</span><span class="todo">Add the section name</span></figcaption>
+                  </figure>
+                  <div class="compare-cell note-cell">
+                    <aside class="sticky-note sticky-note-cell" aria-label="Note on the app view">
+                      <p class="todo">What changed in the app, in one or two lines.</p>
+                    </aside>
+                  </div>
                   </div>
                 </div>
-                <aside class="sticky-note" aria-label="Note on the app view">
-                  <p class="todo">What changed in the app, in one or two lines.</p>
-                </aside>
               </div>
               <div class="view-item view-item-phone">
                 <div class="view-main">
