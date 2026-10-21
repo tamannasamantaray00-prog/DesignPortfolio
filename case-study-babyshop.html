@@ -60,7 +60,7 @@
           <div><dt>Platforms</dt><dd>App and web</dd></div>
           <!-- Confirm the scope: your landing page copy says product page, basket and checkout -->
           <div><dt>Scope</dt><dd>The product detail page, with the basket coming soon</dd></div>
-          <div><dt>Timeline</dt><dd class="todo">Add start and end. You said the design took “two to 14 working days”: please confirm the number, then development followed</dd></div>
+          <div><dt>Timeline</dt><dd>Designed in about 14 working days, in May and June 2026. Development followed</dd></div>
           <div><dt>Team</dt><dd>I was the only designer, working with a Product Manager, Babyshop’s Brand Manager and the web and app engineering teams</dd></div>
         </dl>
       </div>
@@ -91,7 +91,6 @@
             <p>Babyshop is one of Landmark Group’s retail brands in the Gulf region, and its shoppers are parents, buying on the app and the website. For a very long time it had run on the same branding.</p>
             <p>Then the whole system began moving from a legacy platform to a new one. It was the right moment for a change, and Babyshop was given a fresh look and a new brand identity. The product page had to grow into it.</p>
             <p>But a new look was not going to be enough. If the page was being rebuilt anyway, it was the moment to ask better questions: what do parents need to know before they buy, and what could the page do for them, and for sales, that it did not do yet?</p>
-            <p class="todo">Confirm the name of the new platform, and say whether you want it named here. (I could not make it out from the dictation.)</p>
           </div>
           <div class="callout">
             <p class="callout-title">The problem</p>
@@ -174,9 +173,8 @@
             <h3 class="cs-h3">What I tried, and what I gave up</h3>
             <div class="two-col">
               <div class="prose">
-                <p class="theme-label">What I tried</p>
-                <p>The old product names were long, running titles that made little sense. In the design I separated the brand from the product name, so the brand stands on its own and the product name stays short. Clicking the brand would lead to a brand page inside Babyshop, a brand listing page, where a parent could buy from that brand too.</p>
-                <p class="todo">Confirm: did the brand pages ship, or are they still a plan?</p>
+                <p class="theme-label">What I tried, and it shipped</p>
+                <p>The old product names were long, running titles that made little sense. I separated the brand from the product name, so the brand stands on its own and the product name stays short. Clicking the brand leads to a brand page inside Babyshop, a brand listing page, where a parent can buy from that brand too.</p>
               </div>
               <div class="prose">
                 <p class="theme-label">What I gave up</p>
@@ -199,6 +197,10 @@
           <article class="theme">
             <h3 class="cs-h3">The features, and where each one stands</h3>
             <ul class="feature-list">
+              <li class="feature-row">
+                <div class="feature-head"><h4 class="feature-name">Brand pages</h4><span class="stage-tag is-live">Shipped</span></div>
+                <p>The brand is separate from the product name, and a click on it opens a brand page where parents can buy from that brand.</p>
+              </li>
               <li class="feature-row">
                 <div class="feature-head"><h4 class="feature-name">Material details</h4><span class="stage-tag is-live">Shipped</span></div>
                 <p>Clear, easy-to-reach information about what a product is made of, for example for toys and clothing.</p>
@@ -228,7 +230,7 @@
             <figure class="stage">
               <span class="stage-tag is-live">Live on prod</span>
               <div class="shot shot-tall" role="img" aria-label="Product page screens live in production">Live screens</div>
-              <figcaption>The reality today: the revamped page is live and material details have shipped. The build is still being refined with engineering.</figcaption>
+              <figcaption>The reality today: the revamped page is live, and brand pages and material details have shipped. The build is still being refined with engineering.</figcaption>
             </figure>
             <figure class="stage">
               <span class="stage-tag is-next">Next, MVP in progress</span>
@@ -273,19 +275,21 @@
         </section>
         <section class="cs-section" id="gap" aria-labelledby="gap-h">
           <h2 class="cs-h2" id="gap-h">Closing the gap</h2>
-          <p class="prose">Engineers are still building parts of this. This is how I stay close to it.</p>
-          <ul class="bullets">
-            <li><strong>Prototypes:</strong> I prototyped the interactions, so engineering could see how each feature should behave.</li>
-            <li class="todo">Design QA: how you review builds against the design</li>
-            <li class="todo">Refinement rounds: what you work through with the team</li>
-          </ul>
+          <p class="prose">Engineers are still building parts of this. This is the path from design to live, and how I stayed close to it.</p>
+          <ol class="steps">
+            <li><strong>Refine first.</strong> Before anything went to development, the design went through a few rounds of refinement. I talked it through with my manager and showed it to my fellow designers, asked what could work and what could not, and refined it from their feedback.</li>
+            <li><strong>Hand it over.</strong> I annotated the designs and left comments, and prototyped the interactions, so engineering could pick them up.</li>
+            <li><strong>Build alongside.</strong> I worked very closely with the engineering team as they built it.</li>
+            <li><strong>Test with QA.</strong> A separate QA team then tested the build, checking whether each feature was live and whether every use case worked.</li>
+            <li><strong>My own design QA.</strong> I did a pass of my own on padding, spacing and elements, and on brand switching. Babyshop sits on a layer of brand tokens, so I checked that the tokens behaved, and whether the component tokens, which make switching between brands simpler, were coming through.</li>
+          </ol>
         </section>
         <section class="cs-section" id="impact" aria-labelledby="impact-h">
           <h2 class="cs-h2" id="impact-h">What changed</h2>
           <p class="prose">I do not have launch numbers yet, so I will not quote any. Here is what I can say today.</p>
           <ul class="bullets">
             <li>The business has been doing well since the revamp, and the brands were happy with it, as were the CEO and customers.</li>
-            <li>Material details have shipped.</li>
+            <li>Brand pages and material details have shipped.</li>
             <li>Installation and self-guides are in development for the MVP.</li>
             <li class="todo">Add one real piece of feedback or a short quote, if you can. It makes “happy” believable.</li>
           </ul>
@@ -299,7 +303,9 @@
         <section class="cs-section" id="reflection" aria-labelledby="reflection-h">
           <h2 class="cs-h2" id="reflection-h">Looking back</h2>
           <div class="prose">
-            <p class="todo">Two or three honest lines. For example what you would set up earlier, or what you learned about designing for different product categories.</p>
+            <p>Some of the brand guidelines did not work well for the digital page, and I had to push against them. Others were really good. The colour coding for different age groups, from infants to preteens, was clear and thoughtful.</p>
+            <p>But at that point those brand colours were meant only for marketing material, print and in-store, not for the digital UI, so I did not have the creative freedom to bring them into the interface.</p>
+            <p>If I could do it again, I would have that conversation at a very early stage, and push for it. Hopefully next time.</p>
           </div>
         </section>
 
