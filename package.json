@@ -1,0 +1,28 @@
+{
+  "name": "design-portfolio",
+  "version": "1.0.0",
+  "description": "Tamanna Samantaray's design portfolio showcasing product design work",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tamannasamantaray00-prog/DesignPortfolio.git"
+  },
+  "keywords": [
+    "portfolio",
+    "design",
+    "product-design"
+  ],
+  "author": "Tamanna Samantaray",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tamannasamantaray00-prog/DesignPortfolio/issues"
+  },
+  "homepage": "https://github.com/tamannasamantaray00-prog/DesignPortfolio#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
