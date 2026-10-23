@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Rebuilding the basket and product page for Babyshop | Tamanna Samantaray</title>
+  <meta name="description" content="Babyshop was getting a new brand identity, and its product page and basket had to grow into it. How I audited the experience and designed features that help parents find what they need and buy with confidence.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230a0a0a'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Caveat:wght@500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+
+  <!--
+    TIER 1 CASE STUDY TEMPLATE (full)
+    How to reuse: copy this file, rename it (for example case-study-landmark-design-system.html),
+    then work top to bottom. Anything with a dashed outline (class="todo") is a placeholder.
+    Replace the text, then delete the class="todo" so the outline disappears.
+    Grey boxes (class="shot") become images:
+      <img class="shot" src="images/your-image.jpg" alt="What the image shows">
+    Before and after sliders (class="compare") take two images, one in each layer.
+    If a section does not apply to a project, delete the whole <section>, and its link in the left rail.
+  -->
+
+  <div class="progress" aria-hidden="true"></div>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <a class="logo" href="index.html" aria-label="Tamanna Samantaray, home">TS</a>
+    <nav class="nav" aria-label="Main">
+      <a class="nav-link" href="index.html#work">Work</a>
+      <a class="nav-link" href="about.html">About me</a>
+      <a class="nav-link" href="index.html#contact">Contact me</a>
+      <a class="nav-link" href="https://drive.google.com/file/d/19y2BoFjFnpPTErbicNgJ-W2GwfkzIpmr/view?usp=sharing" target="_blank" rel="noopener">Resume</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- TITLE AND SNAPSHOT -->
+    <section class="cs-hero">
+      <div class="wrap">
+        <!-- Cover: your strongest single image. Shows designed screens next to the live version, if you have both. -->
+        <figure class="cs-cover">
+          <img class="shot shot-wide" src="images/babyshop-cover.jpg" alt="Babyshop product page and basket, designed and live" loading="lazy" decoding="async">
+        </figure>
+
+        <div class="cs-head">
+          <a class="text-link cs-back" href="index.html#work">All work</a>
+          <h1 class="cs-title">Rebuilding the basket and product page for Babyshop</h1>
+          <p class="cs-summary">Babyshop was getting a new brand identity, and its product page and basket had to grow into it. A new look was not enough, so I audited the experience and designed features that help parents find what they need and buy with confidence. The product page comes first. The basket is coming soon.</p>
+        </div>
+
+        <dl class="snapshot">
+          <div><dt>Company</dt><dd>Landmark Group, Babyshop (Gulf region)</dd></div>
+          <div><dt>My role</dt><dd>Senior Product Designer</dd></div>
+          <div><dt>Platforms</dt><dd>App and web</dd></div>
+          <!-- Confirm the scope: your landing page copy says product page, basket and checkout -->
+          <div><dt>Scope</dt><dd>The product detail page, with the basket coming soon</dd></div>
+          <div><dt>Timeline</dt><dd>Designed in about 14 working days, in May and June 2026. Development followed</dd></div>
+          <div><dt>Team</dt><dd>I was the only designer, working with a Product Manager, Babyshop’s Brand Manager and the web and app engineering teams</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap cs-layout">
+
+      <!-- Left rail: highlights the section you are reading -->
+      <nav class="rail" aria-label="On this page">
+        <ul class="rail-list">
+          <li><a class="rail-link" href="#context">Where it started</a></li>
+          <li><a class="rail-link" href="#wanted">What I wanted</a></li>
+          <li><a class="rail-link" href="#solved">How I solved it</a></li>
+          <li><a class="rail-link" href="#status">From design to live</a></li>
+          <li><a class="rail-link" href="#role">My part in it</a></li>
+          <li><a class="rail-link" href="#gap">Closing the gap</a></li>
+          <li><a class="rail-link" href="#impact">What changed</a></li>
+          <li><a class="rail-link" href="#reflection">Looking back</a></li>
+        </ul>
+      </nav>
+
+      <div class="cs-main">
+
+        <!-- CONTEXT AND PROBLEM -->
+        <section class="cs-section" id="context" aria-labelledby="context-h">
+          <h2 class="cs-h2" id="context-h">Where it started</h2>
+          <div class="prose">
+            <p>Babyshop is one of Landmark Group’s retail brands in the Gulf region, and its shoppers are parents, buying on the app and the website. For a very long time it had run on the same branding.</p>
+            <p>Then the whole system began moving from a legacy platform to a new one. It was the right moment for a change, and Babyshop was given a fresh look and a new brand identity. The product page had to grow into it.</p>
+            <p>But a new look was not going to be enough. If the page was being rebuilt anyway, it was the moment to ask better questions: what do parents need to know before they buy, and what could the page do for them, and for sales, that it did not do yet?</p>
+          </div>
+          <div class="callout">
+            <p class="callout-title">The problem</p>
+            <p>The old page was rigid and had no real structure. Its layout did not reflect the brand or the products Babyshop sells, and it no longer stood up well against the market. A lot of the information was either hidden or far too long. Getting from choosing a product to adding it to the basket and buying it took more effort than it should. And the perks that give a parent a reason to buy were there, but they were not upfront.</p>
+          </div>
+          <div class="compare" style="--pos:50%" data-cursor="Drag">
+             <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-basket-before.jpg" alt="Old Babyshop basket screen" loading="lazy" decoding="async" onerror="this.remove()">Before, basket</div>
+             <div class="compare-layer compare-after"><span class="compare-tag">After</span><img src="images/babyshop-app-basket-after.jpg" alt="New Babyshop basket screen" loading="lazy" decoding="async" onerror="this.remove()">After, basket</div>
+             <div class="compare-handle" aria-hidden="true"></div>
+             <input class="compare-range" type="range" aria-label="Drag to compare the desktop product page before and after">
+           </div>
+        </section>
+
+        <!-- Switch between the two screens. The basket tab is locked until its story is ready.
+             To unlock it later: remove "disabled" and the lock icon from the Basket button, add aria-controls="panel-basket",
+             and add a <div class="screen-panel" id="panel-basket" role="tabpanel" hidden> next to the product panel. -->
+        <div class="screen-tabs" data-tabs>
+          <p class="switch-note">The product page is ready. The basket story is coming soon.</p>
+          <div class="screen-switch" role="tablist" aria-label="Choose a screen">
+            <span class="tab-indicator" aria-hidden="true"></span>
+            <button class="tab" type="button" role="tab" id="tab-product" aria-controls="panel-product" aria-selected="true" data-hash="product-page">Product page</button>
+            <button class="tab tab-locked" type="button" role="tab" id="tab-basket" aria-selected="false" aria-disabled="true" disabled aria-label="Basket, coming soon" title="Coming soon"><svg class="tab-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2.5"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Basket</button>
+            </div>
+
+          <div class="screen-panel" role="tabpanel" id="panel-product" aria-labelledby="tab-product">
+            <section class="cs-section" id="wanted" aria-labelledby="wanted-h">
+          <h2 class="cs-h2" id="wanted-h">What I wanted</h2>
+          <p class="pull">A more premium experience, built around better product decisions.</p>
+          <div class="prose">
+            <p>The goal was not only to make the page look better under Babyshop’s new brand. I wanted it to feel more considered, more structured and more useful, so parents could find what they need and buy with confidence. That meant bringing the new brand language in, and rethinking how product information and supporting features were organised across the app and the website.</p>
+            <p>I set four objectives.</p>
+          </div>
+          <ul class="objectives">
+            <li class="obj"><span class="obj-num">01</span><div><h4 class="obj-title">Bring the new brand to life</h4><p>A cleaner, more cohesive, premium-feeling page that reflects Babyshop’s refreshed identity without compromising usability.</p></div></li>
+            <li class="obj"><span class="obj-num">02</span><div><h4 class="obj-title">Make product information work harder</h4><p>Materials, specifications and care instructions that are easier to find and understand.</p></div></li>
+            <li class="obj"><span class="obj-num">03</span><div><h4 class="obj-title">Adapt the page to the product category</h4><p>One consistent foundation, with relevant features for clothing and accessories, toys, mother-care products and furniture.</p></div></li>
+            <li class="obj"><span class="obj-num">04</span><div><h4 class="obj-title">Support decisions beyond the product itself</h4><p>Practical help such as installation preferences, material details and self-guides for assembly and care, so customers know what to expect before and after they buy.</p></div></li>
+          </ul>
+
+          <h3 class="cs-h3 gap-h">What this meant for the page</h3>
+          <div class="prose">
+            <p>The page had to feel cohesive but stay flexible enough for different needs. The core product information and the purchase journey would stay consistent across categories, while extra details and features would adapt to what was being viewed.</p>
+            <p>For clothing, that could mean clearer fabric composition and care information. For toys, accessible material details. For furniture, installation options and assembly guidance.</p>
+          </div>
+          <p class="pull pull-small info-block">One cohesive shopping experience, with the right information and features for each product category.</p>
+
+          <h3 class="cs-h3 gap-h">How this connects to the design decisions</h3>
+          <ul class="four-part">
+            <li class="four-row">
+              <svg class="four-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a9 9 0 1 0 0 18c1.4 0 2-1 1.5-2.2-.5-1.2.2-2.3 1.5-2.3H17a4 4 0 0 0 4-4C21 6.6 17 3 12 3z"/><circle cx="7.5" cy="11" r=".8" fill="currentColor"/><circle cx="10.5" cy="7.5" r=".8" fill="currentColor"/><circle cx="15" cy="7.5" r=".8" fill="currentColor"/></svg>
+              <div><h4 class="four-title">Brand consistency</h4><p class="four-text">A refined visual hierarchy, clearer spacing and typography, and alignment with the new brand guidelines.</p></div>
+            </li>
+            <li class="four-row">
+              <svg class="four-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8c0-2.2 3.1-4 7-4s7 1.8 7 4H5z"/><path d="M4 12h16"/><path d="M5 16h14"/><path d="M6 20h12"/></svg>
+              <div><h4 class="four-title">Better information architecture</h4><p class="four-text">Essential product details first, with supporting information organised for easy discovery.</p></div>
+            </li>
+            <li class="four-row">
+              <svg class="four-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h9"/><path d="M17 7h3"/><circle cx="15" cy="7" r="2"/><path d="M4 17h3"/><path d="M11 17h9"/><circle cx="9" cy="17" r="2"/><path d="M4 12h5"/><path d="M13 12h7"/><circle cx="11" cy="12" r="2"/></svg>
+              <div><h4 class="four-title">Category-specific features</h4><p class="four-text">Material details, installation preferences and self-guides, where they are relevant to the product.</p></div>
+            </li>
+            <li class="four-row">
+              <svg class="four-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><circle cx="12" cy="17.5" r=".8" fill="currentColor"/></svg>
+              <div><h4 class="four-title">A cohesive app and web experience</h4><p class="four-text">A consistent brand and interaction language, adapted to each platform’s layout and behaviour.</p></div>
+            </li>
+          </ul>
+        </section>
+
+            <section class="cs-section" id="solved" aria-labelledby="solved-h">
+          <h2 class="cs-h2" id="solved-h">How I solved it</h2>
+          <div class="prose">
+            <p>I started by looking, not drawing. First an audit of the existing app screens. Then a look at how others do it: a few baby brands in Dubai, a French brand, and IKEA and Walmart for the furniture side. From there I whiteboarded the gaps, and designed one foundation for the page, with the right extras for each category.</p>
+          </div>
+
+          <article class="theme">
+            <h3 class="cs-h3">The hardest call: shipping in two chunks</h3>
+            <div class="prose">
+              <p>We had very limited time, so shipping the whole product in one go was not possible. We split it into two chunks. First came the full revamp of the product page. Second came the new features: material details, care and installation, which arrive in MVP phases.</p>
+            </div>
+          </article>
+
+          <article class="theme">
+            <h3 class="cs-h3">What I tried, and what I gave up</h3>
+            <div class="two-col">
+              <div class="prose">
+                <p class="theme-label">What I tried, and it shipped</p>
+                <ul class="bullets">
+                  <li>Old product names were long, running titles that made little sense</li>
+                  <li>Separated the brand from the product name, so each stands on its own</li>
+                  <li>Made the brand name clickable, opening a brand listing page inside Babyshop</li>
+                  <li>Parents can now buy directly from that brand's page too</li>
+                </ul>
+              </div>
+              <div class="prose">
+                <p class="theme-label">What I gave up</p>
+                <ul class="bullets">
+                  <li>Not every decision made it</li>
+                  <li>Wanted subtle icons on the listing page, carried through to the product page, for material and care</li>
+                  <li>Dropped: not feasible, and did not line up with the rest of the system</li>
+                  <li>Wanted parents to choose an installation time and a delivery date</li>
+                  <li>Settled for a simple yes or no on installation, plus the cost</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+
+          <article class="theme">
+            <h3 class="cs-h3">The page, before and after</h3>
+            <p class="prose">The same page on the three ways parents shop. Drag each one to compare.</p>
+            <div class="view-list">
+              <div class="view-item view-item-solo">
+                <div class="view-main">
+                  <h4 class="view-title">Desktop</h4>
+                  <!-- Replace the two layers with images: images/babyshop-pdp-desktop-before.jpg and images/babyshop-pdp-desktop-after.jpg (same size for both) -->
+                  <div class="compare compare-wide" style="--pos:50%" data-cursor="Drag">
+                    <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-basket-before.jpg" alt="Old Babyshop basket screen" loading="lazy" decoding="async" onerror="this.remove()">Before, basket</div>
+                    <div class="compare-layer compare-after"><span class="compare-tag">After</span><img src="images/babyshop-app-basket-after.jpg" alt="New Babyshop basket screen" loading="lazy" decoding="async" onerror="this.remove()">After, basket</div>
+                    <div class="compare-handle" aria-hidden="true"></div>
+                    <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the basket screens before and after">
+                  </div>
+                </div>
+              </div>
+              <div class="view-item view-item-solo">
+                <div class="view-main">
+                  <h4 class="view-title">App</h4>
+                  <div class="compare compare-wide" style="--pos:50%" data-cursor="Drag">
+                    <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-basket-before.jpg" alt="Old Babyshop basket screen" loading="lazy" decoding="async" onerror="this.remove()">Before, basket</div>
+                    <div class="compare-layer compare-after"><span class="compare-tag">After</span><img src="images/babyshop-app-basket-after.jpg" alt="New Babyshop basket screen" loading="lazy" decoding="async" onerror="this.remove()">After, basket</div>
+                    <div class="compare-handle" aria-hidden="true"></div>
+                    <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the basket screens before and after">
+                  </div>
+                </div>
+              </div>
+              <div class="view-item view-item-solo">
+                <div class="view-main">
+                  <h4 class="view-title">Mobile web</h4>
+                  <div class="compare compare-wide" style="--pos:50%" data-cursor="Drag">
+                    <div class="compare-layer compare-before"><span class="compare-tag">Before</span><img src="images/babyshop-app-basket-before.jpg" alt="Old Babyshop basket screen" loading="lazy" decoding="async" onerror="this.remove()">Before, basket</div>
+                    <div class="compare-layer compare-after"><span class="compare-tag">After</span><img src="images/babyshop-app-basket-after.jpg" alt="New Babyshop basket screen" loading="lazy" decoding="async" onerror="this.remove()">After, basket</div>
+                    <div class="compare-handle" aria-hidden="true"></div>
+                    <input class="compare-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the basket screens before and after">
+                  </div>
+                </div>
+              </div>
+
+              
+              
+            </div>
+          </article>
+
+          <article class="theme">
+            <h3 class="cs-h3">The features, and where each one stands</h3>
+            <ul class="feature-list">
+              <li class="feature-row">
+                <div class="feature-text">
+                  <div class="feature-head"><h4 class="feature-name">Brand pages</h4><span class="stage-tag is-live">Shipped</span></div>
+                  <p>The brand is separate from the product name, and a click on it opens a brand page where parents can buy from that brand.</p>
+                </div>
+                <img class="shot feature-shot" src="images/babyshop-brand-details.png" alt="Brand pages, a closer look: the brand name separated from the product title, opening its own brand listing page" loading="lazy" decoding="async">
+              </li>
+              <li class="feature-row">
+                <div class="feature-text">
+                  <div class="feature-head"><h4 class="feature-name">Material details</h4><span class="stage-tag is-live">Shipped</span></div>
+                  <p>Clear, easy-to-reach information about what a product is made of, for example for toys and clothing.</p>
+                </div>
+                <img class="shot feature-shot" src="images/babyshop-material-details.jpg" alt="Material details, a closer look: the product details panel showing material, composition, fabric construction and care instructions" loading="lazy" decoding="async">
+              </li>
+              <li class="feature-row">
+                <div class="feature-text">
+                  <div class="feature-head"><h4 class="feature-name">Installation</h4><span class="stage-tag is-next">MVP, in development</span></div>
+                  <p>For furniture: choose whether you want it installed, and see what it will cost, before you buy.</p>
+                </div>
+                <!-- Replace with images/babyshop-installation.jpg -->
+                <div class="shot feature-shot" 
+                  <img class="shot feature-shot" src="images/babyshop-installation-details.jpg" alt="Material details, a closer look: the product details panel showing material, composition, fabric construction and care instructions" loading="lazy" decoding="async">
+                  </div>
+              </li>
+              <li class="feature-row">
+                <div class="feature-text">
+                  <div class="feature-head"><h4 class="feature-name">Self-guides</h4><span class="stage-tag is-next">MVP</span></div>
+                  <p>Assembly and care guides, so parents know what to expect after they buy.</p>
+                </div>
+                <!-- Replace with images/babyshop-self-guides.jpg -->
+                <div class="shot feature-shot" 
+                  <img class="shot feature-shot" src="images/babyshop-self-guides-details.jpg" alt="Material details, a closer look: the product details panel showing material, composition, fabric construction and care instructions" loading="lazy" decoding="async">
+                  </div>
+              </li>
+            </ul>
+          </article>
+        </section>
+
+            <section class="cs-section" id="status" aria-labelledby="status-h">
+          <h2 class="cs-h2" id="status-h">From design to live</h2>
+          <p class="prose">A design is a promise, and shipping is where it gets tested. Here is what I designed, what is live on production today, and what the team is still building.</p>
+
+          <div class="stages">
+            <figure class="stage">
+              <span class="stage-tag is-designed">Designed</span>
+              <div class="shot shot-tall" role="img" aria-label="Designed product page screens">Designed screens</div>
+              <figcaption>The promise: the new brand UI, a clearer structure, and features for each category.</figcaption>
+            </figure>
+            <figure class="stage">
+              <span class="stage-tag is-live">Live on prod</span>
+              <div class="shot shot-tall" role="img" aria-label="Product page screens live in production">Live screens</div>
+              <figcaption>The reality today: the revamped page is live, and brand pages and material details have shipped. The build is still being refined with engineering.</figcaption>
+            </figure>
+            <figure class="stage">
+              <span class="stage-tag is-next">Next, MVP in progress</span>
+              <div class="shot shot-tall" role="img" aria-label="Upcoming MVP screens">MVP screens</div>
+              <figcaption>The next chapter: installation preferences and self-guides, in development for the MVP.</figcaption>
+            </figure>
+          </div>
+        </section>
+          </div>
+        </div>
+
+        <section class="cs-section" id="role" aria-labelledby="role-h">
+          <h2 class="cs-h2" id="role-h">My part in it</h2>
+          <p class="pull">Owning the product page, from audit to prototype.</p>
+          <div class="prose">
+            <p>I was the only designer on this. While Babyshop’s wider brand refresh was underway, I took the new direction and turned it into a more useful product page, across the app and the website. I worked closely with my Product Manager, Babyshop’s Brand Manager and the web and app engineering teams, who built what I designed.</p>
+          </div>
+          <div class="two-col role-cols">
+            <div class="prose">
+              <h3 class="cs-h3">What I owned</h3>
+              <ul class="bullets">
+                <li><strong>Experience audit:</strong> reviewed the existing app screens to find opportunities on the product page.</li>
+                <li><strong>Competitive analysis:</strong> studied how others present product information, care and installation: a few baby brands in Dubai, a French brand, and IKEA and Walmart for furniture.</li>
+                <li><strong>Problem definition and ideation:</strong> used the research and whiteboarding to find the gaps and explore solutions.</li>
+                <li><strong>Feature definition:</strong> defined and specified the features each product category needs.</li>
+                <li><strong>UX and UI design:</strong> designed the information structure, the visual hierarchy and the interactions, across web and app.</li>
+                <li><strong>Prototyping:</strong> prototyped the interactions, then worked with engineers as they built them.</li>
+              </ul>
+            </div>
+            <div class="prose">
+              <h3 class="cs-h3">Who I worked with</h3>
+              <ul class="bullets">
+                <li><strong>Product Manager:</strong> product priorities, feature requirements and the intended customer experience.</li>
+                <li><strong>Brand Manager, Babyshop:</strong> making sure the page reflected the refreshed brand.</li>
+                <li><strong>Web and app engineering teams:</strong> feasibility and building the designs. They are still building some of the features.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="prose">
+            <p>The brand refresh gave the visual direction. My part was to turn that direction into a page that is more useful: consistent with the brand, clearer about the product, and relevant to what each parent is buying.</p>
+          </div>
+        </section>
+        <section class="cs-section" id="gap" aria-labelledby="gap-h">
+          <h2 class="cs-h2" id="gap-h">Closing the gap</h2>
+          <p class="prose">Engineers are still building parts of this. This is the path from design to live, and how I stayed close to it.</p>
+          <ol class="steps">
+            <li><strong>Refine first.</strong> Before anything went to development, the design went through a few rounds of refinement. I talked it through with my manager and showed it to my fellow designers, asked what could work and what could not, and refined it from their feedback.</li>
+            <li><strong>Hand it over.</strong> I annotated the designs and left comments, and prototyped the interactions, so engineering could pick them up.</li>
+            <li><strong>Build alongside.</strong> I worked very closely with the engineering team as they built it.</li>
+            <li><strong>Test with QA.</strong> A separate QA team then tested the build, checking whether each feature was live and whether every use case worked.</li>
+            <li><strong>My own design QA.</strong> I did a pass of my own on padding, spacing and elements, and on brand switching. Babyshop sits on a layer of brand tokens, so I checked that the tokens behaved, and whether the component tokens, which make switching between brands simpler, were coming through.</li>
+          </ol>
+        </section>
+        <section class="cs-section" id="impact" aria-labelledby="impact-h">
+          <h2 class="cs-h2" id="impact-h">What changed</h2>
+          <p class="prose">I do not have launch numbers yet, so I will not quote any. Here is what I can say today.</p>
+          <ul class="bullets">
+            <li>The business has been doing well since the revamp, and the brands were happy with it, as were the CEO and customers.</li>
+            <li>Brand pages and material details have shipped.</li>
+            <li>Installation and self-guides are in development for the MVP.</li>
+            <li class="todo">Add one real piece of feedback or a short quote, if you can. It makes “happy” believable.</li>
+          </ul>
+
+          <!-- When the numbers arrive, add them here (one .stat per number):
+          <div class="stats">
+            <div class="stat"><p class="stat-num">00%</p><p class="stat-label">What the number measures</p></div>
+          </div>
+          -->
+        </section>
+        <section class="cs-section" id="reflection" aria-labelledby="reflection-h">
+          <h2 class="cs-h2" id="reflection-h">Looking back</h2>
+          <div class="prose">
+            <p>A few opportunities stood out during the design process that I would have loved to take further.</p>
+            <ul class="bullets">
+              <li><strong>Brand consistency:</strong> The age-based colour system was designed for marketing and in-store use, but wasn't approved for digital UI. I would have aligned with the brand team earlier to explore how it could improve age-group recognition online.</li>
+              <li><strong>Installation scheduling:</strong> Installation was handled outside the digital shopping journey, with customers contacted after purchase. I would have explored enabling customers to select a preferred installation date and time during checkout, making the process more seamless and predictable.</li>
+              <li><strong>Offer visibility:</strong> While working on the basket experience, I identified an opportunity to surface cart-value offers, free gifts, and product-linked promotions earlier on the PLP. Showing these incentives during product discovery could encourage engagement and help customers make more informed purchase decisions.</li>
+            </ul>
+            <p><strong>Key learning:</strong> Some of the biggest opportunities lie beyond individual screens. Connecting brand, service, and promotional experiences across the customer journey can make the overall shopping experience more cohesive and conversion-focused.</p>
+          </div>
+        </section>
+
+      </div>
+    </div>
+
+    <!-- NEXT CASE STUDY -->
+    <section class="next-wrap">
+      <div class="wrap">
+        <a class="next-case" href="case-study-landmark-design-system.html" data-cursor="View">
+          <span class="next-label">Next case study</span>
+          <span class="next-title">One design system for several retail brands</span>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-inner">
+      <p>© 2026 Tamanna Samantaray</p>
+      <p class="footer-links">
+        <a class="text-link" href="https://www.linkedin.com/in/tamanna-samantaray-86b83352/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="text-link" href="https://medium.com/@tamannasamantaray00" target="_blank" rel="noopener">Medium</a>
+      </p>
+    </div>
+  </footer>
+
+  <div class="cursor" aria-hidden="true"><span class="cursor-label"></span></div>
+  <script src="main.js"></script>
+</body>
+</html>
