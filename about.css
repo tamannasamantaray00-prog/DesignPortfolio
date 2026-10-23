@@ -60,7 +60,7 @@ html.about, body.about { height: 100%; overflow: hidden; }
 .game-link {
   display: inline-block; padding: .4rem 1rem;
   font-size: .95rem; font-weight: 500; letter-spacing: var(--track-label); text-decoration: none;
-  border: 1.5px solid var(--pc-deep, var(--ink)); border-radius: var(--pill);
+  border: none; border-radius: var(--pill);
   background: var(--pc-light, transparent); color: var(--pc-deep, var(--ink));
   transition: background-color .3s var(--ease), color .3s var(--ease), transform .35s var(--ease);
 }
