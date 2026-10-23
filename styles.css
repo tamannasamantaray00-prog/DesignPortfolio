@@ -1047,6 +1047,7 @@ img.collage-img { display: block; }
 /* Features: title and description first, then the screenshot below it, on every screen size */
 .feature-row { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
 .feature-shot { aspect-ratio: 362 / 766; max-width: 22rem; }   /* matches the real, bezel-free screen crop; capped so it does not dominate a wide page */
+.feature-shot-wide { aspect-ratio: 1036 / 608; max-width: 36rem; }   /* overrides the default for Material details: a wide design comp, not a tall phone crop */
 
 /* ==========================================================================
    MOBILE
