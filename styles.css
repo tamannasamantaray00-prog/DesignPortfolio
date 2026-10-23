@@ -984,7 +984,6 @@ img.collage-img { display: block; }
 .view-item { display: grid; grid-template-columns: 1fr; gap: 1.5rem 2.5rem; align-items: start; }
 .view-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -.015em; margin-bottom: .75rem; }
 .view-item .compare-phone { aspect-ratio: 9 / 16; width: min(100%, 22rem); margin-inline: 0; }
-.view-item .compare-duo { aspect-ratio: 955 / 936; width: min(100%, 44rem); }   /* exact ratio of the two matched-size "All together" composite shots */
 .view-item .compare-wide { aspect-ratio: 2 / 1; width: 100%; }   /* stretches edge to edge with the content column; height follows from the 2:1 ratio */
 .view-item-solo { grid-template-columns: 1fr; }   /* no side note on this row, so it never reserves a note column */
 
@@ -1047,8 +1046,8 @@ img.collage-img { display: block; }
 
 /* Features: text on the left, a closer screenshot on the right */
 .feature-row { display: grid; grid-template-columns: 1fr; gap: 1rem 2.5rem; align-items: start; }
-@media (min-width: 50rem) { .feature-row { grid-template-columns: 1fr minmax(14rem, 20rem); } }
-.feature-shot { aspect-ratio: 4 / 3; }
+@media (min-width: 50rem) { .feature-row { grid-template-columns: 1fr minmax(18rem, 26rem); } }
+.feature-shot { aspect-ratio: 413 / 856; }   /* matches the real phone-screenshot shape, so nothing gets cropped and text stays legible */
 
 /* ==========================================================================
    MOBILE
