@@ -60,10 +60,12 @@ html.about, body.about { height: 100%; overflow: hidden; }
 .game-link {
   display: inline-block; padding: .4rem 1rem;
   font-size: .95rem; font-weight: 500; letter-spacing: var(--track-label); text-decoration: none;
-  border: 1.5px solid var(--ink); border-radius: var(--pill);
+  border: 1.5px solid var(--pc-deep, var(--ink)); border-radius: var(--pill);
+  background: var(--pc-light, transparent); color: var(--pc-deep, var(--ink));
   transition: background-color .3s var(--ease), color .3s var(--ease), transform .35s var(--ease);
 }
-.game-link:hover { background: var(--ink); color: var(--bg); transform: translateY(-2px); }
+/* Hover flips the pair: the light tint and the deep shade swap places */
+.game-link:hover { background: var(--pc-deep, var(--ink)); color: var(--pc-light, var(--bg)); transform: translateY(-2px); }
 
 /* Handwritten notes: the only place this font appears */
 .note {
