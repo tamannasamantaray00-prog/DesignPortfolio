@@ -984,6 +984,9 @@ img.collage-img { display: block; }
 .view-item { display: grid; grid-template-columns: 1fr; gap: 1.5rem 2.5rem; align-items: start; }
 .view-title { font-size: 1.1rem; font-weight: 600; letter-spacing: -.015em; margin-bottom: .75rem; }
 .view-item .compare-phone { aspect-ratio: 9 / 16; width: min(100%, 22rem); margin-inline: 0; }
+.view-item .compare-duo { aspect-ratio: 955 / 936; width: min(100%, 44rem); }   /* exact ratio of the two matched-size "All together" composite shots */
+.view-item .compare-wide { aspect-ratio: 2 / 1; width: min(100%, 50rem); }   /* matches the real 2400x1200 shape of the basket screenshots, so nothing gets cropped oddly */
+.view-item-solo { grid-template-columns: 1fr; }   /* no side note on this row, so it never reserves a note column */
 
 /* The sticky note: a small description on the side of each view */
 .sticky-note {
@@ -1012,7 +1015,7 @@ img.collage-img { display: block; }
   .view-item-phone > .sticky-note { margin-top: 2.4rem; }
 }
 @media (min-width: 72rem) {
-  .view-item:not(.view-item-phone) { grid-template-columns: minmax(0, 1fr) 15rem; }
+  .view-item:not(.view-item-phone):not(.view-item-solo) { grid-template-columns: minmax(0, 1fr) 15rem; }
   .view-item:not(.view-item-phone) > .sticky-note { margin-top: 2.4rem; }
 }
 /* Otherwise the note sits under the view, overlapping its corner like a note stuck on */
