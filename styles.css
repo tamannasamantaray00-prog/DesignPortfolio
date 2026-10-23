@@ -1047,7 +1047,7 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
 
 /* Features: title and description first, then the screenshot below it, on every screen size */
 .feature-row { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
-.feature-shot { aspect-ratio: 1036 / 608; width: 100%; }   /* full width of the column, same size for every feature so all four rows match */
+.feature-shot { aspect-ratio: 2 / 1; width: 100%; }   /* same shape and width as the before/after drag sliders above, so every feature box matches them */
 
 /* ==========================================================================
    MOBILE
