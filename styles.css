@@ -771,6 +771,7 @@ img.collage-img { display: block; }
   font-size: .95rem; text-align: center; padding: 1rem;
 }
 .shot-wide { aspect-ratio: 16 / 9; }
+img.shot { padding: 0; }   /* the padding above is only for a placeholder div's centered label; a real <img> needs none, or its background shows through as an unwanted border */
 .shot-tall { aspect-ratio: 3 / 4; }
 
 /* Placeholders to replace: remove the class once filled in */
