@@ -21,6 +21,8 @@
   --note-ink: #3561E2;
   --info-bg: #FEF6DC;     /* the light yellow box, for a highlighted takeaway inside a case study */
   --info-ink: #8A6A0F;
+  --done-bg: #E2F9F0;     /* status pill: shipped / live */
+  --done-ink: #077E50;
 
   /* Letter spacing: titles are tightened, paragraphs and labels are opened up slightly */
   --track-title: -.03em;
@@ -862,12 +864,17 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
 @media (min-width: 46rem) { .stages { grid-template-columns: repeat(3, 1fr); gap: 1.25rem; } }
 .stage { display: grid; gap: .9rem; align-content: start; }
 .stage figcaption { font-size: .95rem; color: var(--muted); }
+/* Status pill: a coloured chip with a small dot, so "shipped" and "in progress" read apart at a glance */
 .stage-tag {
+  display: inline-flex; align-items: center; gap: .4rem;
   justify-self: start; font-size: .875rem; font-weight: 600; letter-spacing: var(--track-label);
-  padding: .25rem .85rem; border-radius: var(--pill); border: 1.5px solid var(--ink);
+  padding: .3rem .85rem .3rem .7rem; border-radius: var(--pill); border: none;
+  background: var(--surface); color: var(--muted);   /* fallback for any status with no colour of its own */
 }
+.stage-tag::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: currentColor; flex: none; }
 .stage-tag.is-designed { background: var(--ink); color: var(--bg); }
-.stage-tag.is-next { border-style: dashed; }
+.stage-tag.is-live { background: var(--done-bg); color: var(--done-ink); }
+.stage-tag.is-next { background: var(--info-bg); color: var(--info-ink); }
 .gap-h { margin-top: clamp(2rem, 5vw, 3rem); }
 
 /* Impact numbers (used once metrics exist) */
