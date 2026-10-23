@@ -1044,10 +1044,9 @@ img.collage-img { display: block; }
   .compare-grid { grid-template-columns: minmax(0, 22rem); }
 }
 
-/* Features: text on the left, a closer screenshot on the right */
-.feature-row { display: grid; grid-template-columns: 1fr; gap: 1rem 2.5rem; align-items: start; }
-@media (min-width: 50rem) { .feature-row { grid-template-columns: 1fr minmax(18rem, 26rem); } }
-.feature-shot { aspect-ratio: 413 / 856; }   /* matches the real phone-screenshot shape, so nothing gets cropped and text stays legible */
+/* Features: title and description first, then the screenshot below it, on every screen size */
+.feature-row { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
+.feature-shot { aspect-ratio: 362 / 766; max-width: 22rem; }   /* matches the real, bezel-free screen crop; capped so it does not dominate a wide page */
 
 /* ==========================================================================
    MOBILE
