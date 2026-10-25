@@ -982,7 +982,7 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
 .feature-row:last-child { border-bottom: 1px solid var(--line); }
 .feature-head { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; }
 .feature-name { font-size: 1.1rem; font-weight: 600; letter-spacing: -.015em; }
-.feature-row p { margin-top: .4rem; color: var(--muted); max-width: 62ch; }
+.feature-row p { margin-top: .4rem; color: var(--muted); }   /* no max-width: let it fill the row, matching the image below it */
 
 .role-cols { margin-top: 2rem; margin-bottom: 2rem; }
 .cs-main .prose strong { font-weight: 600; }
