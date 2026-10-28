@@ -813,7 +813,7 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
 
 #context .compare { margin-top: 2rem; }   /* space between the problem callout and the basket before/after slider */
 
-.two-col { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+.two-col { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 1.75rem; }
 @media (min-width: 46rem) { .two-col { grid-template-columns: 1fr 1fr; gap: 3rem; } }
 
 .theme { margin-top: clamp(2.25rem, 5vw, 3.5rem); display: grid; gap: 1.5rem; }
@@ -1163,15 +1163,15 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
    "pull pull-small" gives it the right type size and weight; "info-block" adds the box.
    ========================================================================== */
 .info-block {
-  display: inline-block;              /* shrink-to-fit: hugs its text, and only wraps if the column is too narrow to fit it */
-  max-width: 34rem;                   /* same width as the hero's blue box, instead of .pull's old 32ch or stretching full width */
-  padding: 1.15rem 1.5rem;            /* matches .hero-about */
+  display: block; width: 100%; max-width: none;   /* full width of its column, never wraps unnecessarily */
+  padding: 1.15rem 1.5rem;
   border-radius: 1rem;
   background: var(--info-bg);
   color: var(--info-ink);
   font-family: var(--font);           /* paragraph font, not the serif .pull normally uses */
-  font-size: 1.05rem;                 /* matches .hero-about, smaller than .pull's larger sizes */
-  line-height: 1.55;                  /* matches .hero-about */
+  font-size: 1.05rem;
+  line-height: 1.55;
   font-weight: 500;
   letter-spacing: normal;
+  margin-bottom: 1.5rem;              /* proper space before whatever comes next */
 }
