@@ -1099,6 +1099,8 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
   color: var(--muted);
 }
 
+.feature-shot-tall { aspect-ratio: 1800 / 1552; }   /* overrides the default 2:1 for dense infographics that need their real shape, so nothing gets cropped */
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
