@@ -1089,6 +1089,16 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
 }
 .locked-icon { width: .85rem; height: .85rem; flex: none; }
 
+
+/* ---- A small handwritten aside under the hero headline: an honest, playful caveat ---- */
+.hero-aside {
+  margin-top: .35rem;
+  font-family: "Caveat", "Segoe Print", "Bradley Hand", cursive;
+  font-style: italic; font-weight: 500;
+  font-size: clamp(1.25rem, 2vw, 1.6rem);
+  color: var(--muted);
+}
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
