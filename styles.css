@@ -1056,6 +1056,39 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
 .feature-row { display: grid; grid-template-columns: 1fr; gap: 1rem; align-items: start; }
 .feature-shot { aspect-ratio: 2 / 1; width: 100%; }   /* same shape and width as the before/after drag sliders above, so every feature box matches them */
 
+
+/* ---- Article quote: a real pull-quote from one of my own Medium pieces, with a link back to it ---- */
+.article-quote {
+  position: relative; margin: 1.75rem 0; padding: .25rem 0 .25rem 1.75rem;
+  border-left: 3px solid var(--ink);
+  font-family: var(--font-display); font-style: italic;
+  font-size: clamp(1.1rem, 1.8vw, 1.35rem); line-height: 1.42; letter-spacing: -.005em;
+  max-width: 62ch;
+}
+.article-quote::before {
+  content: "\201C"; position: absolute; left: -.15rem; top: -.6rem;
+  font-family: var(--font-display); font-style: normal; font-size: 3rem; line-height: 1; color: var(--line);
+}
+.article-quote cite {
+  display: block; margin-top: .85rem; font-family: var(--font); font-style: normal;
+  font-size: .85rem; font-weight: 500; letter-spacing: var(--track-label); color: var(--muted);
+}
+.article-quote cite a { color: var(--muted); }
+.article-quote cite a:hover { color: var(--ink); }
+
+.cs-section > .feature-shot { margin-top: 2rem; }   /* space above the end-of-section image slot */
+
+/* ---- Locked / coming soon badge: an unfinished or not-yet-published piece of work ---- */
+.locked-badge {
+  display: inline-flex; align-items: center; gap: .35rem;
+  width: fit-content; justify-self: start;   /* stops it stretching full-width inside a grid parent like .prose */
+  padding: .3rem .75rem; border-radius: var(--pill);
+  background: var(--surface); color: var(--muted);
+  font-size: .78rem; font-weight: 600; letter-spacing: var(--track-label); white-space: nowrap;
+  vertical-align: middle;
+}
+.locked-icon { width: .85rem; height: .85rem; flex: none; }
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
