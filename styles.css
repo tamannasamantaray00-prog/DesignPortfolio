@@ -1109,6 +1109,8 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
 .flow-col-locked .flow-thumb-locked .thumb { transform: none !important; }
 .flow-link-locked { color: var(--muted); cursor: not-allowed; background: none; font-style: italic; }
 
+.shot-natural { aspect-ratio: 3 / 2; }   /* matches the real shape of these specific images (1536x1024), so width stays the same and height grows to fit the whole image, nothing cropped */
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
