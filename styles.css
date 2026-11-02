@@ -1101,6 +1101,14 @@ img.shot { padding: 0; }   /* the padding above is only for a placeholder div's 
 
 .feature-shot-tall { aspect-ratio: 1800 / 1552; }   /* overrides the default 2:1 for dense infographics that need their real shape, so nothing gets cropped */
 
+
+/* ---- Locked flagship card: unfinished case study, shown but not clickable ---- */
+.flow-col-locked { opacity: .55; }
+.flow-col-locked:hover { background: none; }
+.flow-col-locked .flow-thumb-locked { cursor: not-allowed; }
+.flow-col-locked .flow-thumb-locked .thumb { transform: none !important; }
+.flow-link-locked { color: var(--muted); cursor: not-allowed; background: none; font-style: italic; }
+
 /* ==========================================================================
    MOBILE
    ========================================================================== */
