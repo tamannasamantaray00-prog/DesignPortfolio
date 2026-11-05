@@ -225,7 +225,6 @@ a { color: inherit; }
   font-size: .95rem; text-align: center; padding: 1rem;
   transition: transform .6s var(--ease);
 }
-img.thumb { padding: 0; }   /* the padding above is only for a placeholder div's centered label; a real <img> needs none, or its background shows through as an unwanted border */
 
 /* Four columns in one rounded board. Everything is visible; hovering a column highlights it.
    The first column is highlighted until the pointer enters the board. */
@@ -271,22 +270,22 @@ img.thumb { padding: 0; }   /* the padding above is only for a placeholder div's
 .flow-desc { margin-top: .75rem; font-size: .95rem; line-height: 1.55; color: var(--muted); }
 .flow-link { display: inline-block; margin-top: 1.25rem; font-size: .95rem; font-weight: 500; }
 
-.flow-media { padding: 0 1.5rem 1.5rem; }
+.flow-media { position: relative; padding: 0 1.5rem 1.5rem; }
+.flow-media::after {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(ellipse 85% 100% at 50% 100%, var(--glow, #A259FF), transparent 75%) bottom / 100% 100% no-repeat;
+  opacity: .55;               /* always on, not a hover effect */
+  pointer-events: none;
+  z-index: 0;
+}
 
-/* Cover: sits in the column, lifts a little and a soft gradient rises from the bottom (works over an image too) */
+/* Cover: sits in the column, lifts a little. The glow lives on .flow-media behind it, not clipped by this box. */
 .flow-thumb {
-  position: relative; display: block; overflow: hidden;
+  position: relative; z-index: 1; display: block; overflow: hidden;
   border-radius: var(--radius-m); text-decoration: none;
   transition: transform .5s var(--ease);
 }
 .flow-thumb .thumb { border-radius: var(--radius-m); background: var(--surface); aspect-ratio: 5 / 4; }
-.flow-thumb::after {
-  content: ""; position: absolute; inset: 0;
-  background: radial-gradient(ellipse 85% 100% at 50% 100%, var(--glow, #A259FF), transparent 75%) bottom / 100% 35% no-repeat;
-  opacity: 0;
-  transition: opacity .6s var(--ease), background-size .8s var(--ease);
-  pointer-events: none;
-}
 
 /* Highlighted column: tinted background, black tag, glowing cover */
 .flow-col:hover, .flow-col:focus-within,
@@ -295,8 +294,6 @@ img.thumb { padding: 0; }   /* the padding above is only for a placeholder div's
 .flow:not(:hover):not(:focus-within) .flow-col:first-child .flow-tag { background: var(--ink); color: var(--bg); border-color: var(--ink); }
 .flow-col:hover .flow-thumb, .flow-col:focus-within .flow-thumb,
 .flow:not(:hover):not(:focus-within) .flow-col:first-child .flow-thumb { transform: translateY(-4px); }
-.flow-col:hover .flow-thumb::after, .flow-col:focus-within .flow-thumb::after,
-.flow:not(:hover):not(:focus-within) .flow-col:first-child .flow-thumb::after { opacity: .55; background-size: 100% 100%; }
 .flow-col:hover .thumb, .flow-col:focus-within .thumb,
 .flow:not(:hover):not(:focus-within) .flow-col:first-child .thumb { background: var(--bg); }
 
