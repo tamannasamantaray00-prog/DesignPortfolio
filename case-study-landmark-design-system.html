@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>One design system for several retail brands | Tamanna Samantaray</title>
-  <meta name="description" content="A tokenised, documented design system for several Landmark Group retail brands, with live documentation and a plugin that syncs tokens to developer repositories.">
+  <title>One design system for eight retail brands | Tamanna Samantaray</title>
+  <meta name="description" content="LDL: a tokenised, multi-brand design system for eight Landmark Group retail brands, with live documentation I designed and coded myself, and a plugin that syncs tokens straight to developer repositories.">
   <meta name="theme-color" content="#ffffff">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='46' fill='%230a0a0a'/></svg>">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,7 +16,8 @@
 <body>
 
   <!-- Placeholders have a dashed outline (class="todo"). Replace the text, then delete class="todo".
-       Grey boxes (class="shot") become images: <img class="shot" src="images/your-image.jpg" alt="What it shows"> -->
+       Grey boxes (class="shot feature-shot") become images: <img class="shot feature-shot" src="images/your-image.jpg" alt="What it shows">
+       Each is sized 2:1, full width, same box used across the other case studies. -->
 
   <div class="progress" aria-hidden="true"></div>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -28,22 +29,23 @@
     <section class="cs-hero">
       <div class="wrap">
         <figure class="cs-cover">
-          <div class="shot shot-wide" role="img" aria-label="Live design system documentation">Cover: live documentation</div>
+          <!-- Replace with images/ldl-cover.jpg -->
+          <div class="shot shot-wide" role="img" aria-label="LDL live design system documentation">Cover: LDL live documentation</div>
         </figure>
 
         <div class="cs-head">
           <a class="text-link cs-back" href="index.html#work">All work</a>
-          <h1 class="cs-title">One design system for several retail brands</h1>
-          <p class="cs-summary">A tokenised, documented system with live documentation, plus a plugin I co-created that pushes design updates straight to developer repositories.</p>
+          <h1 class="cs-title">One design system for eight retail brands</h1>
+          <p class="cs-summary">LDL: a tokenised, documented system with live documentation I designed and coded myself, plus a plugin I co-created that pushes token updates straight to developer repositories.</p>
         </div>
 
         <dl class="snapshot">
           <div><dt>Company</dt><dd>Landmark Group</dd></div>
-          <div><dt>My role</dt><dd>Senior Product Designer</dd></div>
-          <div><dt>Brands</dt><dd class="todo">Confirm which brands the system serves, for example Babyshop, MAX, Splash</dd></div>
-          <div><dt>Timeline</dt><dd class="todo">Add start and status</dd></div>
-          <div><dt>Team</dt><dd class="todo">Add who you built it with</dd></div>
-          <div><dt>Live documentation</dt><dd class="todo">Add the link, if you can share it</dd></div>
+          <div><dt>My role</dt><dd>Lead Design Systems Designer</dd></div>
+          <div><dt>Brands</dt><dd>8 brands: Max, Babyshop, Splash, eMax, Home Box, Shoemart, Centrepoint and Homecentre</dd></div>
+          <div><dt>Timeline</dt><dd>May 2026 – Present</dd></div>
+          <div><dt>Team</dt><dd>Mohamed Azmy (GM &amp; Principal Design Lead), me (Lead Design Systems Designer), James Paul (Manager &amp; Product Designer), with an engineer on the token-sync tooling</dd></div>
+          <div><dt>Live documentation</dt><dd><a class="text-link" href="https://ldl-design-system.vercel.app/" target="_blank" rel="noopener">ldl-design-system.vercel.app</a></dd></div>
         </dl>
       </div>
     </section>
@@ -54,6 +56,7 @@
           <li><a class="rail-link" href="#context">Context</a></li>
           <li><a class="rail-link" href="#role">My role</a></li>
           <li><a class="rail-link" href="#build">What I built</a></li>
+          <li><a class="rail-link" href="#history">How it shipped</a></li>
           <li><a class="rail-link" href="#impact">Impact</a></li>
           <li><a class="rail-link" href="#reflection">Reflection</a></li>
         </ul>
@@ -64,83 +67,96 @@
         <section class="cs-section" id="context" aria-labelledby="context-h">
           <h2 class="cs-h2" id="context-h">Context</h2>
           <div class="prose">
-            <p>Landmark Group runs several retail brands, and each one needs its own identity on top of shared patterns for product pages, baskets and checkout.</p>
-            <p class="todo">Add 2 or 3 sentences: what the brands were doing before, where the duplication or inconsistency hurt, and why a shared system became the answer.</p>
+            <p>Landmark Group runs eight retail brands, from Babyshop to Centrepoint, and every one of them needs its own identity sitting on top of shared patterns for product pages, baskets and checkout. That is a real tension to design for: enough shared structure that eight teams are not rebuilding the same button from scratch, but enough flexibility that Max does not end up looking like Babyshop.</p>
           </div>
           <div class="callout">
             <p class="callout-title">The problem</p>
-            <p class="todo">One or two plain sentences. For example: designers and developers were rebuilding the same components for every brand, with no single source of truth.</p>
+            <p>Build a design system that eight brand teams could genuinely share, without flattening what makes each brand distinct. It had to work for designers and for the engineers consuming it, documented clearly enough that neither side needed to ask the other what a token meant.</p>
           </div>
+          <!-- Replace with images/ldl-context.jpg -->
+          <div class="shot feature-shot todo" role="img" aria-label="Context: eight Landmark Group brands sharing one system">Context, image to add</div>
         </section>
 
         <section class="cs-section" id="role" aria-labelledby="role-h">
           <h2 class="cs-h2" id="role-h">My role</h2>
+          <p class="prose">I was the Lead Design Systems Designer on a small core team: a Principal Design Lead, a Product Designer, and an engineer I partnered with on the technical side of token syncing.</p>
           <div class="two-col">
             <div class="prose">
               <h3 class="cs-h3">What I owned</h3>
               <ul class="bullets">
                 <li>Designing the multi-brand, tokenised system</li>
-                <li>Designing and coding the live documentation</li>
+                <li>Designing and coding the live documentation site myself</li>
                 <li>Co-creating the plugin that syncs tokens to developer repositories</li>
-                <li class="todo">Add anything else: governance, onboarding, mentoring</li>
+                <li>Writing the design principles that guide every decision in the system</li>
               </ul>
             </div>
             <div class="prose">
               <h3 class="cs-h3">Who I worked with</h3>
               <ul class="bullets">
-                <li class="todo">Designers across brands</li>
-                <li class="todo">Engineers who consume the tokens</li>
-                <li class="todo">Product and brand stakeholders</li>
+                <li><strong>Mohamed Azmy</strong>, GM &amp; Principal Design Lead, on the system's overall direction</li>
+                <li><strong>James Paul</strong>, Manager &amp; Product Designer, on applying it across brand teams</li>
+                <li>An engineer, on the token-sync plugin's technical implementation</li>
               </ul>
             </div>
           </div>
+          <!-- Replace with images/ldl-role.jpg -->
+          <div class="shot feature-shot todo" role="img" aria-label="My role on the LDL team">My role, image to add</div>
         </section>
 
         <section class="cs-section" id="build" aria-labelledby="build-h">
           <h2 class="cs-h2" id="build-h">What I built</h2>
-          <p class="prose">Three pieces that work together. For each: the problem, my decision, and what it looks like.</p>
+          <p class="prose">Three pieces that work together, built on eight design principles: Shared Language, Consistency, Reusability, Scalability, Maintainability, Accessibility, "One System, Many Brands," and Shared Responsibility.</p>
 
           <article class="theme">
             <h3 class="cs-h3">1. A tokenised, multi-brand foundation</h3>
-            <div class="two-col">
-              <div class="prose"><p class="theme-label">What was wrong</p><p class="todo">One or two sentences.</p></div>
-              <div class="prose"><p class="theme-label">What I decided, and why</p><p class="todo">How tokens let several brands share components. Include the trade-off.</p></div>
+            <div class="prose">
+              <p>Eight brands sharing components only works if the components themselves do not know which brand they are in. I built LDL on a two-layer token system: primitive tokens hold raw values — colors, spacing, radius — and semantic tokens map those to design intent, like surface, primary and accent. Components consume the semantic layer as Tailwind utilities, and never touch a raw variable directly.</p>
+              <p>That split is what makes brand-switching possible without touching a single component: semantic tokens resolve to each brand's primitive values at runtime, so switching brands only ever changes the variable mode underneath. Over 200 tokens now sit behind the system, shared across all eight brands.</p>
             </div>
-            <div class="shot" role="img" aria-label="Token structure across brands">Token structure across brands</div>
+            <!-- Replace with images/ldl-tokens.jpg -->
+            <div class="shot feature-shot todo" role="img" aria-label="Token structure across eight brands">Token structure, image to add</div>
           </article>
 
           <article class="theme">
             <h3 class="cs-h3">2. Live, interactive documentation</h3>
-            <div class="two-col">
-              <div class="prose"><p class="theme-label">What was wrong</p><p class="todo">One or two sentences.</p></div>
-              <div class="prose"><p class="theme-label">What I decided, and why</p><p class="todo">Why you designed and coded it yourself, and what it lets people do.</p></div>
+            <div class="prose">
+              <p>A design system that nobody reads is just a Figma file. I wanted LDL's documentation to feel like a real product, so I designed and coded it myself rather than handing it to engineering as a spec: a three-column layout, global search with a Cmd+K shortcut, a token table that filters and highlights matches as you type, and type specimens that switch live between brands so you can actually see the typography shift, not just read about it.</p>
             </div>
-            <div class="shot" role="img" aria-label="Documentation site screens">Documentation site</div>
+            <!-- Replace with images/ldl-docs.jpg -->
+            <div class="shot feature-shot todo" role="img" aria-label="LDL documentation site screens">Documentation site, image to add</div>
           </article>
 
           <article class="theme">
             <h3 class="cs-h3">3. A plugin that syncs tokens to developers</h3>
-            <div class="two-col">
-              <div class="prose"><p class="theme-label">What was wrong</p><p class="todo">One or two sentences about how updates reached developers before.</p></div>
-              <div class="prose"><p class="theme-label">What I decided, and why</p><p class="todo">How the plugin works, who you co-created it with, and what it replaced.</p></div>
+            <div class="prose">
+              <p>Tokens that live only in Figma are a promise, not a system — someone still has to translate them into code by hand, and that gap is where drift creeps in. I co-created a plugin with an engineer that syncs token updates straight to developer repositories, so a color or spacing change in the system does not need a manual hand-off to reach production.</p>
             </div>
-            <div class="shot" role="img" aria-label="Token sync plugin">Plugin in use</div>
+            <!-- Replace with images/ldl-plugin.jpg -->
+            <div class="shot feature-shot todo" role="img" aria-label="Token sync plugin in use">Plugin in use, image to add</div>
           </article>
+        </section>
+
+        <section class="cs-section" id="history" aria-labelledby="history-h">
+          <h2 class="cs-h2" id="history-h">How it shipped</h2>
+          <p class="prose">LDL grew in real, shipped stages, not all at once.</p>
+          <ol class="steps">
+            <li><strong>v1.0, May 2026.</strong> The two-layer token system, semantic colors, and global search.</li>
+            <li><strong>v1.1, June 2026.</strong> The Designer Guide, the eight design principles, and the live token filter.</li>
+            <li><strong>v1.2, July 2026.</strong> Multi-brand color, layout and typography sub-pages.</li>
+            <li><strong>v1.3, August 2026.</strong> Foundation pages rebuilt with a tab switcher.</li>
+            <li><strong>v1.4, August 2026 — latest.</strong> The Developer Guide, glossary search, and the Cmd+K shortcut.</li>
+          </ol>
         </section>
 
         <section class="cs-section" id="impact" aria-labelledby="impact-h">
           <h2 class="cs-h2" id="impact-h">Impact</h2>
-          <p class="prose">Add real, checkable results here. If you do not have numbers yet, say so plainly and list what you can say today.</p>
-          <ul class="bullets">
-            <li class="todo">Result 1, for example: time saved pushing token updates</li>
-            <li class="todo">Result 2, for example: number of brands or teams now using the system</li>
-          </ul>
+          <p class="prose todo">Add real, checkable results here: adoption across the 8 brands, time saved on token updates, or consistency improvements. If exact numbers are not ready yet, even a plain, honest line is better than a guess.</p>
         </section>
 
         <section class="cs-section" id="reflection" aria-labelledby="reflection-h">
           <h2 class="cs-h2" id="reflection-h">What I would do differently</h2>
           <div class="prose">
-            <p class="todo">Two or three honest lines. Your Wongdoody case study already shows you learned to set up version control and documentation early. Show how you applied that here.</p>
+            <p class="todo">One real, specific moment — the way the fintech case study has the "input field" mega-component story. What's the honest version of that here: a token-naming decision you'd reverse, a brand that pushed back on the shared system, something about the plugin that was harder than expected?</p>
           </div>
         </section>
 
